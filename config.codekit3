@@ -45,6 +45,72 @@
       "oO" : 1,
       "oS" : 1
     },
+    "\/source\/_cpf.kit" : {
+      "cB" : 0,
+      "ft" : 2048,
+      "hM" : 0,
+      "oA" : 1,
+      "oAP" : "\/build\/_cpf.html",
+      "oF" : 0
+    },
+    "\/source\/_filhos.kit" : {
+      "cB" : 0,
+      "ft" : 2048,
+      "hM" : 0,
+      "oA" : 1,
+      "oAP" : "\/build\/_filhos.html",
+      "oF" : 0
+    },
+    "\/source\/_nascimento.kit" : {
+      "cB" : 0,
+      "ft" : 2048,
+      "hM" : 0,
+      "oA" : 1,
+      "oAP" : "\/build\/_nascimento.html",
+      "oF" : 0
+    },
+    "\/source\/_navbar.kit" : {
+      "cB" : 0,
+      "ft" : 2048,
+      "hM" : 0,
+      "oA" : 1,
+      "oAP" : "\/build\/_navbar.html",
+      "oF" : 0
+    },
+    "\/source\/_senha.kit" : {
+      "cB" : 0,
+      "ft" : 2048,
+      "hM" : 0,
+      "oA" : 1,
+      "oAP" : "\/build\/_senha.html",
+      "oF" : 0
+    },
+    "\/source\/_versao.kit" : {
+      "cB" : 0,
+      "ft" : 2048,
+      "hM" : 0,
+      "oA" : 1,
+      "oAP" : "\/build\/_versao.html",
+      "oF" : 0
+    },
+    "\/source\/cadastro.kit" : {
+      "cB" : 0,
+      "ft" : 2048,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/build\/cadastro.html",
+      "oF" : 0
+    },
+    "\/source\/images\/logo-fgv-conhecimento.svg" : {
+      "ft" : 2097152,
+      "miP" : 0,
+      "oA" : 0,
+      "oAP" : "\/build\/images\/logo-fgv-conhecimento.svg",
+      "oF" : 0,
+      "opt" : 1,
+      "plM" : 52780316221407,
+      "prP" : 0
+    },
     "\/source\/images\/logo-fgv-inscreve.svg" : {
       "ft" : 2097152,
       "miP" : 0,
@@ -81,9 +147,9 @@
       "q" : 90,
       "rq" : 75
     },
-    "\/source\/index.html" : {
+    "\/source\/index.kit" : {
       "cB" : 0,
-      "ft" : 8192,
+      "ft" : 2048,
       "hM" : 0,
       "oA" : 0,
       "oAP" : "\/build\/index.html",

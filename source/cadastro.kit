@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="pt">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Sistema Inscreve da FGV Conhecimento, para inscrições em concursos">
+  <title>Inscreve - FGV Conhecimento</title>
+  <link href="styles/main.css" rel="stylesheet">
+</head>
+
+<body class="bg-light">
+
+  <main class="container">
+
+    <section class="h-100">
+      <div class="container h-100">
+        <div class="row justify-content-sm-center h-100">
+          <div class="col-lg-6 col-md-7 col-sm-9">
+            <div class="text-center my-5">
+              <img src="images/logo-fgv-conhecimento.svg" alt="logo">
+            </div>
+
+            <form method="POST" class="needs-validation" novalidate="" autocomplete="off"></form>
+
+            <div class="card shadow-lg mb-4">
+              <div class="card-body p-4">
+                <h1 class="fs-4 card-title fw-bold mb-4">Cadastro</h1>
+                <p>* Campos obrigatórios</p>
+                <!-- @import "cpf" -->
+                <div class="mb-3">
+                  <label for="name" class="form-label">Nome completo</label>
+                  <input type="text" class="form-control" id="name" name="name" placeholder="João Exemplo da Silva"
+                    required>
+                  <div class="invalid-feedback">
+                    Por favor, informe seu nome completo.
+                  </div>
+                </div>
+                <!-- @import nascimento -->
+              </div>
+              <div class="card-footer py-3 border-0">
+                <div class="text-center">
+                  Já tem uma conta? <a href="index.html" class="text-dark">Entre</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="card shadow-lg">
+              <div class="card-body p-4">
+                <h4 class="fs-4 card-title fw-bold mb-4">Dados Familiares</h4>
+                <!-- @import filhos -->
+                <div class="mb-3">
+                  <label for="motherName" class="form-label">Nome completo da mãe</label>
+                  <input type="text" class="form-control" id="motherName" name="motherName" placeholder="Maria Exemplo da Silva">
+                  <div class="form-text">Deixe em branco caso não conste no seu documento.</div>
+                </div>
+                <div class="mb-3">
+                  <label for="fatherName" class="form-label">Nome completo do pai</label>
+                  <input type="text" class="form-control" id="fatherName" name="fatherName" placeholder="José Exemplo da Silva">
+                  <div class="form-text">Deixe em branco caso não conste no seu documento.</div>
+                </div>
+              </div>
+
+            </div>
+            <div class="d-flex align-items-center mt-4">
+              <button type="submit" class="btn btn-primary ms-auto">
+                Cadastrar
+              </button>
+            </div>
+            </form>
+            <!-- @import "versao" -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- scripts -->
+  <script src="js/bootstrap.js"></script>
+
+  <script>
+    // Add * after the label for every required input field
+    const requiredFields = document.querySelectorAll('input[required]');
+    requiredFields.forEach(field => {
+      const label = document.querySelector(`label[for="${field.id}"]`);
+      label.innerHTML += ' *';
+    });
+  </script>
+
+</body>
+
+</html>

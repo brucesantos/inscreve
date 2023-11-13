@@ -1,0 +1,27 @@
+<div class="mb-3">
+    <label for="children" class="form-label">Quantidade de filhos</label>
+    <div class="input-group">
+        <button class="btn btn-outline-secondary" type="button" id="button-minus">-</button>
+        <input type="text" class="form-control" id="children" name="children" value="0" inputmode="numeric">
+        <button class="btn btn-outline-secondary" type="button" id="button-plus">+</button>
+    </div>
+    <script>
+        document.getElementById('button-plus').addEventListener('click', function () {
+            var input = document.getElementById('children');
+            input.value = parseInt(input.value, 10) + 1;
+        });
+        document.getElementById('button-minus').addEventListener('click', function () {
+            var input = document.getElementById('children');
+            var currentValue = parseInt(input.value, 10);
+            if (currentValue > 0) {
+                input.value = currentValue - 1;
+            }
+        });
+        document.getElementById('children').addEventListener('input', function (e) {
+            var value = e.target.value;
+            if (!Number.isInteger(parseInt(value, 10)) || parseInt(value, 10) < 0) {
+                e.target.value = 0;
+            }
+        });
+    </script>
+</div>
