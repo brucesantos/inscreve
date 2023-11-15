@@ -45,6 +45,14 @@
       "oO" : 1,
       "oS" : 1
     },
+    "\/source\/_areadeformacao.kit" : {
+      "cB" : 0,
+      "ft" : 2048,
+      "hM" : 0,
+      "oA" : 1,
+      "oAP" : "\/build\/_areadeformacao.html",
+      "oF" : 0
+    },
     "\/source\/_cpf.kit" : {
       "cB" : 0,
       "ft" : 2048,
@@ -59,6 +67,14 @@
       "hM" : 0,
       "oA" : 1,
       "oAP" : "\/build\/_filhos.html",
+      "oF" : 0
+    },
+    "\/source\/_logradouro.kit" : {
+      "cB" : 0,
+      "ft" : 2048,
+      "hM" : 0,
+      "oA" : 1,
+      "oAP" : "\/build\/_logradouro.html",
       "oF" : 0
     },
     "\/source\/_nascimento.kit" : {
