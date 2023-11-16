@@ -1,0 +1,108 @@
+<!-- Nacionalidade -->
+<div class="mb-3">
+    <label for="nationality" class="form-label">Nacionalidade</label>
+    <select class="form-select" id="nationality" name="nationality" required>
+        <option selected value="Brasileira">Brasileira</option>
+        <option value="Estrangeira">Estrangeira</option>
+        <option value="Brasileiro naturalizado">Brasileiro naturalizado</option>
+    </select>
+</div>
+<!-- Naturalidade -->
+<div id="naturalidade" class="mb-3">
+    <label for="birthState" class="form-label">Naturalidade</label>
+    <div class="input-group">
+        <select class="form-select" id="birthState" name="birthState" required style="max-width: 80px;">
+            <!-- @import estadosbrasileiros -->
+        </select>
+        <select class="form-select" id="birthCity" name="birthCity" disabled required>
+            <option selected disabled value="">Município</option>
+            <!-- pull from IBGE -->
+        </select>
+    </div>
+    <div class="form-text opacity-75">Selecione o estado primeiro.</div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get the birthState select field and the birthCity select field
+            var birthStateSelect = document.getElementById('birthState');
+            var birthCitySelect = document.getElementById('birthCity');
+
+            // Initially disable the birthCity select field
+            birthCitySelect.disabled = true;
+
+            // Add a change event listener to the birthState select field
+            birthStateSelect.addEventListener('change', function() {
+                // Get the selected state
+                var selectedState = birthStateSelect.value;
+
+                // Show a loading message in the birthCity select field and keep it disabled
+                birthCitySelect.innerHTML = '<option>Carregando...</option>';
+                birthCitySelect.disabled = true;
+
+                // Fetch the cities of the selected state from the IBGE API
+                fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${selectedState}/municipios`)
+                    .then(response => response.json())
+                    .then(data => {
+                        // Clear the birthCity select field
+                        birthCitySelect.innerHTML = '<option selected disabled value="">Município</option>';
+
+                        // Add an option for each city
+                        data.forEach(city => {
+                            var option = document.createElement('option');
+                            option.value = city.nome;
+                            option.text = city.nome;
+                            birthCitySelect.appendChild(option);
+                        });
+
+                        // Enable the birthCity select field
+                        birthCitySelect.disabled = false;
+                    })
+                    .catch(error => {
+                        // Show an error message in the birthCity select field and keep it disabled
+                        birthCitySelect.innerHTML = '<option>Error loading cities</option>';
+                        birthCitySelect.disabled = true;
+
+                        console.error('Error:', error);
+                    });
+            });
+        });
+    </script>
+</div>
+<!-- Outros Países -->
+<div id="countryDiv" class="mb-3">
+    <label for="country" class="form-label">País de origem <span class="text-danger">*</span></label>
+    <select class="form-select" id="country" name="country" required>
+        <option selected disabled value="">Selecione o país</option>
+        <!-- @import paises -->
+    </select>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get the nationality select field, the naturalidade div, and the country div
+        var nationalitySelect = document.getElementById('nationality');
+        var naturalidadeDiv = document.getElementById('naturalidade');
+        var naturalidadeSelect = naturalidadeDiv.querySelector('select');
+        var countryDiv = document.getElementById('countryDiv');
+        var countrySelect = document.getElementById('country');
+
+        // Initially hide the country div and make the country select field not required
+        countryDiv.style.display = 'none';
+        countrySelect.required = false;
+
+        // Add a change event listener to the nationality select field
+        nationalitySelect.addEventListener('change', function() {
+            // If the selected nationality is not Brasileira, show the country div, make the country select field required, hide the naturalidade div, and make the naturalidade select field not required
+            if (nationalitySelect.value !== 'Brasileira') {
+                countryDiv.style.display = 'block';
+                countrySelect.required = true;
+                naturalidadeDiv.style.display = 'none';
+                naturalidadeSelect.required = false;
+            } else {
+                // Otherwise, show the naturalidade div, make the naturalidade select field required, hide the country div, and make the country select field not required
+                naturalidadeDiv.style.display = 'block';
+                naturalidadeSelect.required = true;
+                countryDiv.style.display = 'none';
+                countrySelect.required = false;
+            }
+        });
+    });
+</script>

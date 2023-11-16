@@ -23,338 +23,289 @@
 
             <form method="POST" class="needs-validation" novalidate="" autocomplete="off"></form>
 
-            <div class="card shadow-lg mb-4">
-              <div class="card-body p-4">
-                <h1 class="fs-4 card-title fw-bold mb-4">Cadastro</h1>
-                <p>* Campos obrigatórios</p>
-                <!-- @import "cpf" -->
-                <div class="mb-3">
-                  <label for="name" class="form-label">Nome completo</label>
-                  <input type="text" class="form-control" id="name" name="name" placeholder="João Exemplo da Silva"
-                    required>
-                  <div class="invalid-feedback">
-                    Por favor, informe seu nome completo.
+              <div class="card shadow-lg mb-4">
+                <div class="card-body p-4">
+                  <h1 class="fs-4 card-title fw-bold mb-4">Cadastro</h1>
+                  <p><span class="text-danger">*</span> <span class="opacity-75">Campos obrigatórios</span></p>
+                  <!-- @import "cpf" -->
+                  <div class="mb-3">
+                    <label for="name" class="form-label">Nome completo</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="João Exemplo da Silva"
+                      required>
+                    <div class="invalid-feedback">
+                      Por favor, informe seu nome completo.
+                    </div>
+                  </div>
+                  <!-- @import nascimento -->
+                </div>
+                <div class="card-footer py-3 border-0">
+                  <div class="text-center">
+                    Já tem uma conta? <a href="index.html" class="text-dark">Entre</a>
                   </div>
                 </div>
-                <!-- @import nascimento -->
               </div>
-              <div class="card-footer py-3 border-0">
-                <div class="text-center">
-                  Já tem uma conta? <a href="index.html" class="text-dark">Entre</a>
-                </div>
-              </div>
-            </div>
 
-            <div class="card shadow-lg mb-4">
-              <div class="card-body p-4">
-                <h4 class="fs-4 card-title fw-bold mb-4">Dados Familiares</h4>
-                <!-- @import filhos -->
-                <div class="mb-3">
-                  <label for="motherName" class="form-label">Nome completo da mãe</label>
-                  <input type="text" class="form-control" id="motherName" name="motherName" placeholder="Maria Exemplo da Silva">
-                  <div class="form-text opacity-75">Deixe em branco caso não conste no seu documento.</div>
-                </div>
-                <div class="mb-3">
-                  <label for="fatherName" class="form-label">Nome completo do pai</label>
-                  <input type="text" class="form-control" id="fatherName" name="fatherName" placeholder="José Exemplo da Silva">
-                  <div class="form-text">Deixe em branco caso não conste no seu documento.</div>
+              <div class="card shadow-lg mb-4">
+                <div class="card-body p-4">
+                  <h4 class="fs-4 card-title fw-bold mb-4">Dados Familiares</h4>
+                  <!-- @import filhos -->
+                  <div class="mb-3">
+                    <label for="motherName" class="form-label">Nome completo da mãe</label>
+                    <input type="text" class="form-control" id="motherName" name="motherName" placeholder="Maria Exemplo da Silva">
+                    <div class="form-text opacity-75">Deixe em branco caso não conste no seu documento.</div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="fatherName" class="form-label">Nome completo do pai</label>
+                    <input type="text" class="form-control" id="fatherName" name="fatherName" placeholder="José Exemplo da Silva">
+                    <div class="form-text">Deixe em branco caso não conste no seu documento.</div>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <!-- Seção Documento (RG) -->
-            <div class="card shadow-lg mb-4">
-              <div class="card-body p-4">
-                <h4 class="fs-4 card-title fw-bold mb-4">Documento (RG)</h4>
-                <div class="mb-3">
-                  <label for="rg" class="form-label">Nº do RG</label>
-                  <div class="input-group">
-                      <input type="text" class="form-control" id="rg" name="rg" placeholder="00.000.000" required inputmode="numeric">
-                      <span class="input-group-text">Dígito</span>
-                      <input type="text" class="form-control" id="rgDigit" name="rgDigit" placeholder="0" style="max-width: 50px;">
+              <!-- Seção Documento (RG) -->
+              <div class="card shadow-lg mb-4">
+                <div class="card-body p-4">
+                  <h4 class="fs-4 card-title fw-bold mb-4">Documento (RG)</h4>
+                  <div class="mb-3">
+                    <label for="rg" class="form-label">Nº do RG</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="rg" name="rg" placeholder="00.000.000" required inputmode="numeric">
+                        <span class="input-group-text">Dígito</span>
+                        <input type="text" class="form-control" id="rgDigit" name="rgDigit" placeholder="0" style="max-width: 50px;">
+                    </div>
+                    <div class="invalid-feedback">
+                      Por favor, informe o número do RG.
                   </div>
-                  <div class="invalid-feedback">
-                    Por favor, informe o número do RG.
-                </div>
-                </div>
-                <script>
-                  document.getElementById('rg').addEventListener('input', function (e) {
-                    var value = e.target.value;
-                    value = value.replace(/\D/g, ""); // Remove all non-numeric characters
-                    if (value.length > 8) {
-                      value = value.slice(0, 8); // Limit the length to 8 digits
-                    }
-                    value = value.replace(/(\d{2})(\d)/, "$1.$2"); // Add a dot after the second digit
-                    value = value.replace(/(\d{2}).(\d{3})(\d)/, "$1.$2.$3"); // Add a dot after the fifth digit
-                    e.target.value = value;
-                  });
-                </script>
-                <!-- Órgão Emissor -->
-                <div class="mb-3">
-                  <label for="issuingBody" class="form-label">Órgão Emissor</label>
-                  <select class="form-select" id="issuingBody" name="issuingBody" required>
-                    <option selected disabled value="">Escolher</option>
-                    <option value="ssp">SSP - Secretaria de Segurança Pública</option>
-                    <option value="pm">PM - Polícia Militar</option>
-                    <option value="pc">PC - Policia Civil</option>
-                    <option value="cnt">CNT - Carteira Nacional de Habilitação</option>
-                    <option value="dic">DIC - Diretoria de Identificação Civil</option>
-                    <option value="ctps">CTPS - Carteira de Trabaho e Previdência Social</option>
-                    <option value="fgts">FGTS - Fundo de Garantia do Tempo de Serviço</option>
-                    <option value="ifp">IFP - Instituto Félix Pacheco</option>
-                    <option value="ipf">IPF - Instituto Pereira Faustino</option>
-                    <option value="iml">IML - Instituto Médico-Legal</option>
-                    <option value="mte">MTE - Ministério do Trabalho e Emprego</option>
-                    <option value="mma">MMA - Ministério da Marinha</option>
-                    <option value="mae">MAE - Ministério da Aeronáutica</option>
-                    <option value="mex">MEX - Ministério do Exército</option>
-                    <option value="pof">POF - Polícia Federal</option>
-                    <option value="pom">POM - Polícia Militar</option>
-                    <option value="ses">SES - Carteira de Estrangeiro</option>
-                    <option value="sjs">SJS - Secretaria da Justiça e Segurança</option>
-                    <option value="sjts">SJTS - Secretaria da Justiça do Trabalho e Segurança</option>
-                  </select>
-                </div>
-                <!-- UF do Órgão Emissor -->
-                <div class="mb-3">
-                  <label for="issuingState" class="form-label">UF (estado) do Órgão Emissor</label>
-                  <select class="form-select" id="issuingState" name="issuingState" required>
-                    <option selected disabled value="">Escolher</option>
-                    <option value="AC">Acre</option>
-                    <option value="AL">Alagoas</option>
-                    <option value="AP">Amapá</option>
-                    <option value="AM">Amazonas</option>
-                    <option value="BA">Bahia</option>
-                    <option value="CE">Ceará</option>
-                    <option value="DF">Distrito Federal</option>
-                    <option value="ES">Espírito Santo</option>
-                    <option value="GO">Goiás</option>
-                    <option value="MA">Maranhão</option>
-                    <option value="MT">Mato Grosso</option>
-                    <option value="MS">Mato Grosso do Sul</option>
-                    <option value="MG">Minas Gerais</option>
-                    <option value="PA">Pará</option>
-                    <option value="PB">Paraíba</option>
-                    <option value="PR">Paraná</option>
-                    <option value="PE">Pernambuco</option>
-                    <option value="PI">Piauí</option>
-                    <option value="RJ">Rio de Janeiro</option>
-                    <option value="RN">Rio Grande do Norte</option>
-                    <option value="RS">Rio Grande do Sul</option>
-                    <option value="RO">Rondônia</option>
-                    <option value="RR">Roraima</option>
-                    <option value="SC">Santa Catarina</option>
-                    <option value="SP">São Paulo</option>
-                    <option value="SE">Sergipe</option>
-                    <option value="TO">Tocantins</option>
-                  </select>
-                </div>
-                <!-- Data de Emissão -->
-                <div class="mb-3">
-                  <label for="issueDate" class="form-label">Data de Emissão</label>
-                  <input type="text" class="form-control" id="issueDate" name="issueDate" placeholder="DD/MM/AAAA" inputmode="numeric" required>
-                  <div class="invalid-feedback">
-                      Por favor, informe a data de emissão.
                   </div>
-                </div>
-                <script>
-                    const issueDateInput = document.getElementById('issueDate');
-                    issueDateInput.addEventListener('input', function (e) {
-                        e.target.value = e.target.value.replace(/[^0-9]/g, '');
-                        if (e.target.value.length > 2) {
-                            e.target.value = `${e.target.value.slice(0, 2)}/${e.target.value.slice(2)}`;
-                        }
-                        if (e.target.value.length > 5) {
-                            e.target.value = `${e.target.value.slice(0, 5)}/${e.target.value.slice(5, 9)}`;
-                        }
+                  <script>
+                    document.getElementById('rg').addEventListener('input', function (e) {
+                      var value = e.target.value;
+                      value = value.replace(/\D/g, ""); // Remove all non-numeric characters
+                      if (value.length > 8) {
+                        value = value.slice(0, 8); // Limit the length to 8 digits
+                      }
+                      value = value.replace(/(\d{2})(\d)/, "$1.$2"); // Add a dot after the second digit
+                      value = value.replace(/(\d{2}).(\d{3})(\d)/, "$1.$2.$3"); // Add a dot after the fifth digit
+                      e.target.value = value;
                     });
-                </script>
-              </div>
-            </div>
-
-            <!-- Seção Origem -->
-            <div class="card shadow-lg mb-4">
-              <div class="card-body p-4">
-                <h4 class="fs-4 card-title fw-bold mb-4">Origem</h4>
-                <!-- Nacionalidade -->
-                <div class="mb-3">
-                  <label for="nationality" class="form-label">Nacionalidade</label>
-                  <select class="form-select" id="nationality" name="nationality" required>
-                    <option selected value="Brasileira">Brasileira</option>
-                    <option value="Estrangeira">Estrangeira</option>
-                    <option value="Brasileiro naturalizado">Brasileiro naturalizado</option>
-                  </select>
-                </div>
-                <!-- Naturalidade -->
-                <div>
-                  <label for="birthState" class="form-label">Naturalidade</label>
-                  <div class="input-group mb-3">
-                    <select class="form-select" id="birthState" name="birthState" required style="max-width: 80px;">
-                      <option selected disabled value="">UF</option>
-                      <option value="AC">AC</option>
-                      <option value="AL">AL</option>
-                      <option value="AP">AP</option>
-                      <option value="AM">AM</option>
-                      <option value="BA">BA</option>
-                      <option value="CE">CE</option>
-                      <option value="DF">DF</option>
-                      <option value="ES">ES</option>
-                      <option value="GO">GO</option>
-                      <option value="MA">MA</option>
-                      <option value="MT">MT</option>
-                      <option value="MS">MS</option>
-                      <option value="MG">MG</option>
-                      <option value="PA">PA</option>
-                      <option value="PB">PB</option>
-                      <option value="PR">PR</option>
-                      <option value="PE">PE</option>
-                      <option value="PI">PI</option>
-                      <option value="RJ">RJ</option>
-                      <option value="RN">RN</option>
-                      <option value="RS">RS</option>
-                      <option value="RO">RO</option>
-                      <option value="RR">RR</option>
-                      <option value="SC">SC</option>
-                      <option value="SP">SP</option>
-                      <option value="SE">SE</option>
-                      <option value="TO">TO</option>
-                      <!-- lista de estados -->
+                  </script>
+                  <!-- Órgão Emissor -->
+                  <div class="mb-3">
+                    <label for="issuingBody" class="form-label">Órgão Emissor</label>
+                    <select class="form-select" id="issuingBody" name="issuingBody" required>
+                      <option selected disabled value="">Escolher</option>
+                      <option value="ssp">SSP - Secretaria de Segurança Pública</option>
+                      <option value="pm">PM - Polícia Militar</option>
+                      <option value="pc">PC - Policia Civil</option>
+                      <option value="cnt">CNT - Carteira Nacional de Habilitação</option>
+                      <option value="dic">DIC - Diretoria de Identificação Civil</option>
+                      <option value="ctps">CTPS - Carteira de Trabaho e Previdência Social</option>
+                      <option value="fgts">FGTS - Fundo de Garantia do Tempo de Serviço</option>
+                      <option value="ifp">IFP - Instituto Félix Pacheco</option>
+                      <option value="ipf">IPF - Instituto Pereira Faustino</option>
+                      <option value="iml">IML - Instituto Médico-Legal</option>
+                      <option value="mte">MTE - Ministério do Trabalho e Emprego</option>
+                      <option value="mma">MMA - Ministério da Marinha</option>
+                      <option value="mae">MAE - Ministério da Aeronáutica</option>
+                      <option value="mex">MEX - Ministério do Exército</option>
+                      <option value="pof">POF - Polícia Federal</option>
+                      <option value="pom">POM - Polícia Militar</option>
+                      <option value="ses">SES - Carteira de Estrangeiro</option>
+                      <option value="sjs">SJS - Secretaria da Justiça e Segurança</option>
+                      <option value="sjts">SJTS - Secretaria da Justiça do Trabalho e Segurança</option>
                     </select>
-                    <select class="form-select" id="birthCity" name="birthCity" required>
-                      <option selected disabled value="">Município</option>
-                      <option value="São Paulo">São Paulo</option>
-                      <option value="Rio de Janeiro">Rio de Janeiro</option>
-                      <option value="Belo Horizonte">Belo Horizonte</option>
-                      <!-- Add more options as needed -->
+                  </div>
+                  <!-- UF do Órgão Emissor -->
+                  <div class="mb-3">
+                    <label for="issuingState" class="form-label">UF (estado) do Órgão Emissor</label>
+                    <select class="form-select" id="issuingState" name="issuingState" required>
+                      <!-- @import estadosbrasileiros -->
+                    </select>
+                  </div>
+                  <!-- Data de Emissão -->
+                  <div class="mb-3">
+                    <label for="issueDate" class="form-label">Data de Emissão</label>
+                    <input type="text" class="form-control" id="issueDate" name="issueDate" placeholder="DD/MM/AAAA" inputmode="numeric" required>
+                    <div class="invalid-feedback">
+                        Por favor, informe a data de emissão.
+                    </div>
+                  </div>
+                  <script>
+                      const issueDateInput = document.getElementById('issueDate');
+                      issueDateInput.addEventListener('input', function (e) {
+                          e.target.value = e.target.value.replace(/[^0-9]/g, '');
+                          if (e.target.value.length > 2) {
+                              e.target.value = `${e.target.value.slice(0, 2)}/${e.target.value.slice(2)}`;
+                          }
+                          if (e.target.value.length > 5) {
+                              e.target.value = `${e.target.value.slice(0, 5)}/${e.target.value.slice(5, 9)}`;
+                          }
+                      });
+                  </script>
+                </div>
+              </div>
+
+              <!-- Seção Origem -->
+              <div class="card shadow-lg mb-4">
+                <div class="card-body p-4">
+                  <h4 class="fs-4 card-title fw-bold mb-4">Origem</h4>
+                  <!-- @import naturalidade -->
+                  <!-- Sexo -->
+                  <div class="mb-3">
+                    <label for="sex" class="form-label">Sexo</label>
+                    <select class="form-select" id="sex" name="sex" required>
+                      <option selected disabled value="">Escolher</option>
+                      <option value="masculino">Masculino</option>
+                      <option value="feminino">Feminino</option>
+                      <!-- Adicionar outras opções se necessário -->
+                    </select>
+                  </div>
+                  <!-- Cor/Raça -->
+                  <div class="mb-3">
+                    <label for="race" class="form-label">Cor/Raça</label>
+                    <select class="form-select" id="race" name="race" required>
+                      <option selected disabled value="">Escolher</option>
+                      <option value="amarela">Amarela</option>
+                      <option value="branca">Branca</option>
+                      <option value="indigena">Indígena</option>
+                      <option value="parda">Parda</option>
+                      <option value="preta">Preta</option>
+                      <option value="nao_desejo_informar">Não desejo informar</option>
                     </select>
                   </div>
                 </div>
-                
-
               </div>
-            </div>
 
-            <!-- Seção Informações Pessoais -->
-            <div class="card shadow-lg mb-4">
-              <div class="card-body p-4">
-                <h4 class="fs-4 card-title fw-bold mb-4">Informações Pessoais</h4>
-                <!-- Sexo -->
-                <div class="mb-3">
-                  <label for="sex" class="form-label">Sexo</label>
-                  <select class="form-select" id="sex" name="sex" required>
-                    <option selected disabled value="">Escolher</option>
-                    <option value="masculino">Masculino</option>
-                    <option value="feminino">Feminino</option>
-                    <!-- Adicionar outras opções se necessário -->
-                  </select>
-                </div>
-                <!-- Cor/Raça -->
-                <div class="mb-3">
-                  <label for="race" class="form-label">Cor/Raça</label>
-                  <select class="form-select" id="race" name="race" required>
-                    <option selected disabled value="">Escolher</option>
-                    <option value="amarela">Amarela</option>
-                    <option value="branca">Branca</option>
-                    <option value="indigena">Indígena</option>
-                    <option value="parda">Parda</option>
-                    <option value="preta">Preta</option>
-                    <option value="nao_desejo_informar">Não desejo informar</option>
-                  </select>
-                </div>
-                <!-- Estado Civil -->
-                <div class="mb-3">
-                  <label for="maritalStatus" class="form-label">Estado Civil</label>
-                  <select class="form-select" id="maritalStatus" name="maritalStatus" required>
-                    <option selected disabled value="">Escolher</option>
-                    <option value="casado">Casado</option>
-                    <option value="divorciado">Divorciado</option>
-                    <option value="separado_judicialmente">Separado judicialmente</option>
-                    <option value="solteiro">Solteiro</option>
-                    <option value="viuvo">Viúvo</option>
-                  </select>
-                </div>
-                <!-- Nível de Escolaridade -->
-                <div class="mb-3">
-                  <label for="educationLevel" class="form-label">Nível de Escolaridade</label>
-                  <select class="form-select" id="educationLevel" name="educationLevel" required>
-                    <option selected disabled value="">Escolher</option>
-                    <option value="analfabeto">Analfabeto</option>
-                    <option value="ate_5_ano_incompleto_fundamental">Até o 5º Ano Incompleto do Ensino Fundamental</option>
-                    <option value="5_ano_completo_fundamental">5º Ano Completo do Ensino Fundamental</option>
-                    <option value="do_6_ao_9_ano_fundamental">Do 6º Ao 9º Ano do Ensino Fundamental</option>
-                    <option value="ensino_fundamental_incompleto">Ensino Fundamental Incompleto</option>
-                    <option value="nivel_fundamental_completo">Nível Fundamental (1º Grau)</option>
-                    <option value="ensino_medio_incompleto">Ensino Médio Incompleto</option>
-                    <option value="ensino_medio_tecnico">Ensino Médio Técnico</option>
-                    <option value="ensino_medio_magisterio">Ensino Medio Magisterio</option>
-                    <option value="estudante_penultimo_periodo">Estudante do penúltimo período</option>
-                    <option value="estudante_ultimo_periodo">Estudante do último período</option>
-                    <option value="estudante_ultimo_ano">Estudante do último ano</option>
-                    <option value="nivel_medio">Nível Médio (2º Grau)</option>
-                    <option value="nivel_superior_incompleto">Nível Superior Incompleto</option>
-                    <option value="bacharel_direito">Bacharel em direito</option>
-                    <option value="especializacao">Especialização</option>
-                    <option value="nivel_superior_completo">Nível Superior Completo</option>
-                    <option value="pos_graduacao_incompleto">Pós Grad. Incompleto</option>
-                    <option value="pos_graduacao">Pós-graduação</option>
-                    <option value="mestrado_incompleto">Mestrado Incompleto</option>
-                    <option value="mestrado">Mestrado</option>
-                    <option value="doutorado_incompleto">Doutorado Incompleto</option>
-                    <option value="doutorado">Doutorado</option>
-                    <option value="pos_dout_incompleto">Pós Dout.incompleto</option>
-                    <option value="pos_dout_completo">Pós Dout.completo</option>
-                  </select>
-                </div>
-                <!-- @import areadeformacao -->
-                <!-- Membro Adventista do Sétimo Dia? -->
-                <div class="mb-3">
-                  <label for="seventhDayAdventist" class="form-label">Membro Adventista do Sétimo Dia?</label>
-                  <div>
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" id="adventistNo" name="seventhDayAdventist" value="Não" checked>
-                      <label class="form-check-label" for="adventistNo">Não</label>
+              <!-- Seção Informações Pessoais -->
+              <div class="card shadow-lg mb-4">
+                <div class="card-body p-4">
+                  <h4 class="fs-4 card-title fw-bold mb-4">Informações Pessoais</h4>
+                  <!-- Estado Civil -->
+                  <div class="mb-3">
+                    <label for="maritalStatus" class="form-label">Estado Civil</label>
+                    <select class="form-select" id="maritalStatus" name="maritalStatus" required>
+                      <option selected disabled value="">Escolher</option>
+                      <option value="casado">Casado</option>
+                      <option value="divorciado">Divorciado</option>
+                      <option value="separado_judicialmente">Separado judicialmente</option>
+                      <option value="solteiro">Solteiro</option>
+                      <option value="viuvo">Viúvo</option>
+                    </select>
+                  </div>
+                  <!-- @import escolaridade -->
+                  <!-- Membro Adventista do Sétimo Dia? -->
+                  <div class="mb-3">
+                    <label for="seventhDayAdventist" class="form-label">Membro Adventista do Sétimo Dia?</label>
+                    <div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="adventistNo" name="seventhDayAdventist" value="Não" checked>
+                        <label class="form-check-label" for="adventistNo">Não</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="adventistYes" name="seventhDayAdventist" value="Sim">
+                        <label class="form-check-label" for="adventistYes">Sim</label>
+                      </div>
                     </div>
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="radio" id="adventistYes" name="seventhDayAdventist" value="Sim">
-                      <label class="form-check-label" for="adventistYes">Sim</label>
+                    <div class="form-text opacity-75">Considerando a possibilidade de alguma das etapas serem realizadas em um dia de sábado.</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Seção Endereço -->
+              <div class="card shadow-lg mb-4">
+                <div class="card-body p-4">
+                  <h4 class="fs-4 card-title fw-bold mb-4">Endereço</h4>
+                  <!-- @import endereco -->
+                </div>
+              </div>
+
+              <!-- Seção Contato -->
+              <div class="card shadow-lg mb-4">
+                <div class="card-body p-4">
+                  <h4 class="fs-4 card-title fw-bold mb-4">Dados para Contato</h4>
+                  <div id="telefones">
+                    <div class="mb-3">
+                      <label for="phone1" class="form-label">Telefone 1</label>
+                      <input type="tel" class="form-control" id="phone1" name="phone1" placeholder="(00) 00000-0000" inputmode="numeric" required>
+                    </div>
+                    <div class="mb-3">
+                      <label for="phone2" class="form-label">Telefone 2</label>
+                      <input type="tel" class="form-control" id="phone2" name="phone2" placeholder="(00) 00000-0000" inputmode="numeric">
+                    </div>
+                    <div class="mb-3">
+                      <label for="phone3" class="form-label">Telefone 3</label>
+                      <input type="tel" class="form-control" id="phone3" name="phone3" placeholder="(00) 00000-0000" inputmode="numeric">
                     </div>
                   </div>
-                  <div class="form-text opacity-75">Considerando a possibilidade de alguma das etapas serem realizadas em um dia de sábado.</div>
+                  <script>
+                    ['phone1', 'phone2', 'phone3'].forEach(function(id) {
+                      document.getElementById(id).addEventListener('keyup', function(e) {
+                        var phone = e.target.value.replace(/\D/g, ''); // Remove all non-numeric characters
+                        if (phone.length > 11) {
+                          phone = phone.slice(0, 11); // Limit to 11 characters
+                        }
+                        phone = phone.replace(/^(\d{2})(\d{5})(\d{4})/, '($1) $2-$3'); // Format as (00) 00000-0000
+                        e.target.value = phone;
+                      });
+                    });
+                  </script>
+                  <div id="emails">
+                    <div class="mb-3">
+                      <label for="email" class="form-label">E-mail</label>
+                      <input type="email" class="form-control" id="email" name="email" placeholder="seu@email.com" required>
+                    </div>
+                    <div class="mb-3">
+                      <label for="emailRepeat" class="form-label">E-mail</label>
+                      <input type="email" class="form-control" id="emailRepeat" name="emailRepeat" placeholder="seu@email.com" required>
+                      <div class="form-text opacity-75">Você receberá uma mensagem no endereço cadastrado para confirmar o seu Email.</div>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <!-- Seção Endereço -->
-            <div class="card mt-4">
-              <div class="card-body p-4">
-                <h4 class="fs-4 card-title fw-bold mb-4">Endereço</h4>
-                <div class="mb-3">
-                  <label for="cep" class="form-label">CEP</label>
-                  <input type="text" class="form-control" id="cep" name="cep" required>
-                </div>
-                
-                <!-- @import logradouro -->
-                
-                <div class="mb-3">
-                  <label for="addressNumber" class="form-label">Número</label>
-                  <input type="text" class="form-control" id="addressNumber" name="addressNumber" required>
-                </div>
-                <div class="mb-3">
-                  <label for="complement" class="form-label">Complemento</label>
-                  <input type="text" class="form-control" id="complement" name="complement">
-                </div>
-                <div class="mb-3">
-                  <label for="neighbourhood" class="form-label">Bairro</label>
-                  <input type="text" class="form-control" id="neighbourhood" name="neighbourhood" required>
+              <!-- Seção Acesso -->
+              <div class="card shadow-lg mb-4">
+                <div class="card-body p-4">
+                  <h4 class="fs-4 card-title fw-bold mb-4">Acesso e confirmação</h4>
+                  <div class="mb-3">
+                    <label class="form-label" for="password">Senha</label>
+                    <!-- @import senha -->
+                    <div class="form-text opacity-75">
+                      A sua senha deve conter pelo menos:
+                      <ul>
+                        <li>1 letra maiúscula</li>
+                        <li>1 minúscula</li>
+                        <li>1 número</li>
+                        <li>1 caractere especial</li>
+                      </ul>
+                    </div>
+                    <div class="invalid-feedback">
+                      A Senha não segue os critérios de segurança.
+                    </div>
+                  </div>
+                  <div class="form-check mb-3">
+                    <input class="form-check-input" type="checkbox" value="" id="termsOfService" required>
+                    <label class="form-check-label" for="termsOfService">
+                      Eu aceito os <a href="termos.html">termos de uso</a>.
+                    </label>
+                    <div class="invalid-feedback">
+                      Você precisa aceitar para prosseguir.
+                    </div>
+                  </div>
+                  <div class="form-check mb-3">
+                    <input class="form-check-input" type="checkbox" value="" id="newsletterSubscription">
+                    <label class="form-check-label" for="newsletterSubscription">
+                      Eu autorizo o envio de notícias e informativos sobre novos concursos para meu email.
+                    </label>
+                  </div>
+                  <div class="d-grid">
+                    <button type="submit" class="btn btn-primary">
+                      Cadastrar
+                    </button>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div class="d-flex align-items-center mt-4">
-              <button type="submit" class="btn btn-primary ms-auto">
-                Cadastrar
-              </button>
-            </div>
             </form>
             <!-- @import "versao" -->
           </div>
@@ -369,11 +320,42 @@
 
   <script>
     // Add * after the label for every required input field
-    const requiredFields = document.querySelectorAll('input[required]');
-    requiredFields.forEach(field => {
-      const label = document.querySelector(`label[for="${field.id}"]`);
-      label.innerHTML += ' *';
+    document.addEventListener('DOMContentLoaded', function() {
+      // Get all required input and select elements
+      var requiredInputs = document.querySelectorAll('input[required], select[required]');
+      
+      // Loop through each required input/select element
+      requiredInputs.forEach(function(input) {
+        // Get the label for this input/select
+        var label = document.querySelector('label[for="' + input.id + '"]');
+        
+        // If a label was found, add an asterisk to its text
+        if (label) {
+          label.innerHTML += ' <span class="text-danger">*</span>';
+        }
+      });
     });
+
+    // Add the .unselected class to all .form-select elements para que eu possa estilizar o select placeholder
+    window.onload = function() {
+      // Get all .form-select elements
+      var selects = document.querySelectorAll('.form-select');
+
+      // Loop through each select element
+      selects.forEach(function(select) {
+        // Skip the select with id 'nationality'
+        if (select.id !== 'nationality') {
+          // Add the .unselected class
+          select.classList.add('unselected');
+
+          // Add an event listener for the change event
+          select.addEventListener('change', function() {
+            // When an option is selected, remove the .unselected class
+            this.classList.remove('unselected');
+          });
+        }
+      });
+    };
   </script>
 
 </body>

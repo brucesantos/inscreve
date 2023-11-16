@@ -1,0 +1,74 @@
+<div class="mb-3">
+    <label for="cep" class="form-label">CEP</label>
+    <input type="text" class="form-control" id="cep" name="cep" placeholder="00000-000" required inputmode="numeric">
+    <div id="viaCEPerror" class="invalid-feedback">
+        <!-- resposta da API -->
+    </div>
+</div>
+<!-- Logradouro -->
+<div class="mb-3">
+    <label class="form-label" for="addressName">Logradouro</label>
+    <input type="text" class="form-control" id="addressName" name="addressName" placeholder="Rua Exemplo da Silva" required>
+</div>
+<!-- Numero -->
+<div class="mb-3">
+    <label for="addressNumber" class="form-label">Número</label>
+    <input type="text" class="form-control" id="addressNumber" placeholder="000" name="addressNumber" required>
+</div>
+<!-- complemento -->
+<div class="mb-3">
+    <label for="complement" class="form-label">Complemento</label>
+    <input type="text" class="form-control" id="complement" placeholder="Apartamento 000" name="complement">
+</div>
+<!-- bairro -->
+<div class="mb-3">
+    <label for="neighbourhood" class="form-label">Bairro</label>
+    <input type="text" class="form-control" id="neighbourhood" placeholder="Nome do Bairro" name="neighbourhood" required>
+</div>
+<!-- Cidade -->
+<div>
+    <label for="addressState" class="form-label">Cidade</label>
+    <div class="input-group mb-3">
+        <select class="form-select" id="addressState" name="addressState" required style="max-width: 80px;">
+            <!-- @import estadosbrasileiros -->
+        </select>
+        <input type="text" class="form-control" id="addressCity" name="addressCity" placeholder="Nome da Cidade"
+            required>
+    </div>
+</div>
+<!-- completar endereco com o CEP automaticamente -->
+<script>
+    document.getElementById('cep').addEventListener('keyup', function (e) {
+        var cep = e.target.value.replace(/\D/g, ''); // Remove all non-numeric characters
+        if (cep.length > 8) {
+            cep = cep.slice(0, 8); // Limit to 8 characters
+        }
+        cep = cep.replace(/^(\d{5})(\d{3})/, '$1-$2'); // Insert dash after the fifth digit
+        e.target.value = cep;
+
+        // If the CEP is complete, fetch the address information
+        if (cep.length === 9) {
+            fetch(`https://viacep.com.br/ws/${cep.replace('-', '')}/json/`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.erro) {
+                        throw new Error('CEP inválido ou indisponível.');
+                    }
+                    // Populate the address fields
+                    document.getElementById('addressName').value = data.logradouro;
+                    document.getElementById('addressState').value = data.uf;
+                    document.getElementById('addressCity').value = data.localidade;
+                    document.getElementById('neighbourhood').value = data.bairro;
+                    // Remove the is-invalid class and clear the error message
+                    document.getElementById('cep').classList.remove('is-invalid');
+                    document.getElementById('viaCEPerror').textContent = '';
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    document.getElementById('viaCEPerror').textContent = error.message;
+                    // Add the is-invalid class to show the error message
+                    document.getElementById('cep').classList.add('is-invalid');
+                });
+        }
+    });
+</script>

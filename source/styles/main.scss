@@ -80,5 +80,5 @@ $theme-colors: map-merge($theme-colors, $custom-theme-colors);
 
 
 // 7. Finally, add your custom Sass below, either directly or via imports:
+@import "custom";
 
-@import "demo.scss"     // Styles for the demo page. You can delete this file and import statement.

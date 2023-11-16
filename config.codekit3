@@ -45,20 +45,36 @@
       "oO" : 1,
       "oS" : 1
     },
-    "\/source\/_areadeformacao.kit" : {
-      "cB" : 0,
-      "ft" : 2048,
-      "hM" : 0,
-      "oA" : 1,
-      "oAP" : "\/build\/_areadeformacao.html",
-      "oF" : 0
-    },
     "\/source\/_cpf.kit" : {
       "cB" : 0,
       "ft" : 2048,
       "hM" : 0,
       "oA" : 1,
       "oAP" : "\/build\/_cpf.html",
+      "oF" : 0
+    },
+    "\/source\/_endereco.kit" : {
+      "cB" : 0,
+      "ft" : 2048,
+      "hM" : 0,
+      "oA" : 1,
+      "oAP" : "\/build\/_endereco.html",
+      "oF" : 0
+    },
+    "\/source\/_escolaridade.kit" : {
+      "cB" : 0,
+      "ft" : 2048,
+      "hM" : 0,
+      "oA" : 1,
+      "oAP" : "\/build\/_escolaridade.html",
+      "oF" : 0
+    },
+    "\/source\/_estadosbrasileiros.kit" : {
+      "cB" : 0,
+      "ft" : 2048,
+      "hM" : 0,
+      "oA" : 1,
+      "oAP" : "\/build\/_estadosbrasileiros.html",
       "oF" : 0
     },
     "\/source\/_filhos.kit" : {
@@ -85,12 +101,28 @@
       "oAP" : "\/build\/_nascimento.html",
       "oF" : 0
     },
+    "\/source\/_naturalidade.kit" : {
+      "cB" : 0,
+      "ft" : 2048,
+      "hM" : 0,
+      "oA" : 1,
+      "oAP" : "\/build\/_naturalidade.html",
+      "oF" : 0
+    },
     "\/source\/_navbar.kit" : {
       "cB" : 0,
       "ft" : 2048,
       "hM" : 0,
       "oA" : 1,
       "oAP" : "\/build\/_navbar.html",
+      "oF" : 0
+    },
+    "\/source\/_paises.kit" : {
+      "cB" : 0,
+      "ft" : 2048,
+      "hM" : 0,
+      "oA" : 1,
+      "oAP" : "\/build\/_paises.html",
       "oF" : 0
     },
     "\/source\/_senha.kit" : {
@@ -182,7 +214,7 @@
       "sC" : 3,
       "tS" : 0
     },
-    "\/source\/styles\/demo.scss" : {
+    "\/source\/styles\/_custom.scss" : {
       "aP" : 1,
       "bl" : 0,
       "co" : 2,
@@ -191,7 +223,7 @@
       "ft" : 4,
       "ma" : 0,
       "oA" : 1,
-      "oAP" : "\/build\/styles\/demo.css",
+      "oAP" : "\/build\/styles\/_custom.css",
       "oF" : 0,
       "oS" : 0,
       "pg" : 0,

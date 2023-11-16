@@ -1,3 +1,35 @@
+<!-- Nível de Escolaridade -->
+<div class="mb-3">
+    <label for="educationLevel" class="form-label">Nível de Escolaridade</label>
+    <select class="form-select" id="educationLevel" name="educationLevel" required>
+        <option selected disabled value="">Escolher</option>
+        <option value="analfabeto">Analfabeto</option>
+        <option value="ate_5_ano_incompleto_fundamental">Até o 5º Ano Incompleto do Ensino Fundamental</option>
+        <option value="5_ano_completo_fundamental">5º Ano Completo do Ensino Fundamental</option>
+        <option value="do_6_ao_9_ano_fundamental">Do 6º Ao 9º Ano do Ensino Fundamental</option>
+        <option value="ensino_fundamental_incompleto">Ensino Fundamental Incompleto</option>
+        <option value="nivel_fundamental_completo">Nível Fundamental (1º Grau)</option>
+        <option value="ensino_medio_incompleto">Ensino Médio Incompleto</option>
+        <option value="ensino_medio_tecnico">Ensino Médio Técnico</option>
+        <option value="ensino_medio_magisterio">Ensino Medio Magisterio</option>
+        <option value="estudante_penultimo_periodo">Estudante do penúltimo período</option>
+        <option value="estudante_ultimo_periodo">Estudante do último período</option>
+        <option value="estudante_ultimo_ano">Estudante do último ano</option>
+        <option value="nivel_medio">Nível Médio (2º Grau)</option>
+        <option class="enableStudyArea" value="nivel_superior_incompleto">Nível Superior Incompleto</option>
+        <option class="enableStudyArea" value="bacharel_direito">Bacharel em direito</option>
+        <option class="enableStudyArea" value="especializacao">Especialização</option>
+        <option class="enableStudyArea" value="nivel_superior_completo">Nível Superior Completo</option>
+        <option class="enableStudyArea" value="pos_graduacao_incompleto">Pós Grad. Incompleto</option>
+        <option class="enableStudyArea" value="pos_graduacao">Pós-graduação</option>
+        <option class="enableStudyArea" value="mestrado_incompleto">Mestrado Incompleto</option>
+        <option class="enableStudyArea" value="mestrado">Mestrado</option>
+        <option class="enableStudyArea" value="doutorado_incompleto">Doutorado Incompleto</option>
+        <option class="enableStudyArea" value="doutorado">Doutorado</option>
+        <option class="enableStudyArea" value="pos_dout_incompleto">Pós Dout.incompleto</option>
+        <option class="enableStudyArea" value="pos_dout_completo">Pós Dout.completo</option>
+    </select>
+</div>
 <!-- Área de Formação -->
 <div class="mb-3">
     <label for="studyArea" class="form-label">Área de formação</label>
@@ -224,3 +256,32 @@
         <option value="0">OUTRO</option>
     </select>
 </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get the educationLevel select field and the studyArea select field
+        var educationLevelSelect = document.getElementById('educationLevel');
+        var studyAreaSelect = document.getElementById('studyArea');
+        var parentContainer = studyAreaSelect.parentElement;
+
+        // Initially disable the studyArea select field and make the parent container slightly transparent
+        studyAreaSelect.disabled = true;
+        parentContainer.classList.add('opacity-50');
+
+        // Add a change event listener to the educationLevel select field
+        educationLevelSelect.addEventListener('change', function() {
+            // Get the selected option
+            var selectedOption = educationLevelSelect.options[educationLevelSelect.selectedIndex];
+
+            // If the selected option has the class enableStudyArea, enable the studyArea select field and make the parent container fully opaque
+            if (selectedOption.classList.contains('enableStudyArea')) {
+                studyAreaSelect.disabled = false;
+                parentContainer.classList.remove('opacity-50');
+            } else {
+                // Otherwise, disable the studyArea select field, reset its value, and make the parent container slightly transparent
+                studyAreaSelect.disabled = true;
+                studyAreaSelect.value = '';
+                parentContainer.classList.add('opacity-50');
+            }
+        });
+    });
+</script>
