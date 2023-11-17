@@ -257,7 +257,7 @@
     "displayValueWasSetByUser" : 0,
     "iconImageName" : "\/source\/images\/logo@2x.png",
     "iconImageWasSetByUser" : 0,
-    "lastBuiltDate" : 721797030.68570602
+    "lastBuiltDate" : 721940066.22044206
   },
   "projectSettings" : {
     "abortBuildOnError" : 1,
@@ -1520,7 +1520,7 @@
     },
     "esLintSourceType" : 1,
     "externalServerAddress" : "http:\/\/localhost:8888",
-    "gitIgnoreBuildFolder" : 1,
+    "gitIgnoreBuildFolder" : 0,
     "hideConfigFile" : 0,
     "jsCheckerReservedNamesString" : "",
     "languageDefaultsCOFFEE" : {

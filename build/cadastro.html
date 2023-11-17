@@ -1,0 +1,1264 @@
+<!doctype html>
+<html lang="pt">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Sistema Inscreve da FGV Conhecimento, para inscrições em concursos">
+  <title>Inscreve - FGV Conhecimento</title>
+  <link href="styles/main.css" rel="stylesheet">
+</head>
+
+<body class="bg-light">
+
+  <main class="container">
+
+    <section class="h-100">
+      <div class="container h-100">
+        <div class="row justify-content-sm-center h-100">
+          <div class="col-lg-6 col-md-7 col-sm-9">
+            <div class="text-center my-5">
+              <img src="images/logo-fgv-conhecimento.svg" alt="logo">
+            </div>
+
+            <form method="POST" class="needs-validation" novalidate="" autocomplete="off"></form>
+
+              <div class="card shadow-lg mb-4">
+                <div class="card-body p-4">
+                  <h1 class="fs-4 card-title fw-bold mb-4">Cadastro</h1>
+                  <p><span class="text-danger">*</span> <span class="opacity-75">Campos obrigatórios</span></p>
+                  <div class="mb-3">
+                      <label for="cpf" class="form-label">CPF</label>
+                      <input type="text" class="form-control" id="cpf" name="cpf" placeholder="000.000.000-00" required inputmode="numeric">
+                  </div>
+                  <script>
+                      // This code adds an event listener to the 'cpf' element, which formats the CPF input field as the user types. It adds a dot after the third digit, another dot after the sixth digit, and a dash before the last two digits.
+                      document.getElementById('cpf').addEventListener('input', function (e) {
+                          var value = e.target.value;
+                          value = value.replace(/\D/g, ""); // Remove all non-numeric characters
+                          if (value.length > 11) {
+                              value = value.slice(0, 11); // Limit the length to 11 digits
+                          }
+                          value = value.replace(/(\d{3})(\d)/, "$1.$2"); // Add a dot after the third digit
+                          value = value.replace(/(\d{3})(\d)/, "$1.$2"); // Add a dot after the third digit (again)
+                          value = value.replace(/(\d{3})(\d{2})$/, "$1-$2"); // Add a dash before the last two digits
+                          e.target.value = value;
+                      });
+                  </script>
+                  <div class="mb-3">
+                    <label for="name" class="form-label">Nome completo</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="João Exemplo da Silva"
+                      required>
+                    <div class="invalid-feedback">
+                      Por favor, informe seu nome completo.
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                      <label for="birthday" class="form-label">Data de nascimento</label>
+                      <input type="text" class="form-control" id="birthday" name="birthday" placeholder="DD/MM/AAAA" inputmode="numeric" required>
+                      <div class="invalid-feedback">
+                          Por favor, informe sua data de nascimento.
+                      </div>
+                  </div>
+                  <script>
+                      const birthdayInput = document.getElementById('birthday');
+                      birthdayInput.addEventListener('input', function (e) {
+                          e.target.value = e.target.value.replace(/[^0-9]/g, '');
+                          if (e.target.value.length > 2) {
+                              e.target.value = `${e.target.value.slice(0, 2)}/${e.target.value.slice(2)}`;
+                          }
+                          if (e.target.value.length > 5) {
+                              e.target.value = `${e.target.value.slice(0, 5)}/${e.target.value.slice(5, 9)}`;
+                          }
+                      });
+                  </script>
+                </div>
+                <div class="card-footer py-3 border-0">
+                  <div class="text-center">
+                    Já tem uma conta? <a href="index.html" class="text-dark">Entre</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card shadow-lg mb-4">
+                <div class="card-body p-4">
+                  <h4 class="fs-4 card-title fw-bold mb-4">Dados Familiares</h4>
+                  <div class="mb-3">
+                      <label for="children" class="form-label">Quantidade de filhos</label>
+                      <div class="input-group">
+                          <button class="btn btn-outline-secondary" type="button" id="button-minus">-</button>
+                          <input type="text" class="form-control" id="children" name="children" value="0" inputmode="numeric" style="max-width: 50px; text-align: center;">
+                          <button class="btn btn-outline-secondary" type="button" id="button-plus">+</button>
+                      </div>
+                      <script>
+                          document.getElementById('button-plus').addEventListener('click', function () {
+                              var input = document.getElementById('children');
+                              input.value = parseInt(input.value, 10) + 1;
+                          });
+                          document.getElementById('button-minus').addEventListener('click', function () {
+                              var input = document.getElementById('children');
+                              var currentValue = parseInt(input.value, 10);
+                              if (currentValue > 0) {
+                                  input.value = currentValue - 1;
+                              }
+                          });
+                          document.getElementById('children').addEventListener('input', function (e) {
+                              var value = e.target.value;
+                              if (!Number.isInteger(parseInt(value, 10)) || parseInt(value, 10) < 0) {
+                                  e.target.value = 0;
+                              }
+                          });
+                      </script>
+                  </div>
+                  <div class="mb-3">
+                    <label for="motherName" class="form-label">Nome completo da mãe</label>
+                    <input type="text" class="form-control" id="motherName" name="motherName" placeholder="Maria Exemplo da Silva">
+                    <div class="form-text opacity-75">Deixe em branco caso não conste no seu documento.</div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="fatherName" class="form-label">Nome completo do pai</label>
+                    <input type="text" class="form-control" id="fatherName" name="fatherName" placeholder="José Exemplo da Silva">
+                    <div class="form-text">Deixe em branco caso não conste no seu documento.</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Seção Documento (RG) -->
+              <div class="card shadow-lg mb-4">
+                <div class="card-body p-4">
+                  <h4 class="fs-4 card-title fw-bold mb-4">Documento (RG)</h4>
+                  <div class="mb-3">
+                    <label for="rg" class="form-label">Nº do RG</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="rg" name="rg" placeholder="00.000.000" required inputmode="numeric">
+                        <span class="input-group-text">Dígito</span>
+                        <input type="text" class="form-control" id="rgDigit" name="rgDigit" placeholder="0" style="max-width: 50px;">
+                    </div>
+                    <div class="invalid-feedback">
+                      Por favor, informe o número do RG.
+                  </div>
+                  </div>
+                  <script>
+                    document.getElementById('rg').addEventListener('input', function (e) {
+                      var value = e.target.value;
+                      value = value.replace(/\D/g, ""); // Remove all non-numeric characters
+                      if (value.length > 8) {
+                        value = value.slice(0, 8); // Limit the length to 8 digits
+                      }
+                      value = value.replace(/(\d{2})(\d)/, "$1.$2"); // Add a dot after the second digit
+                      value = value.replace(/(\d{2}).(\d{3})(\d)/, "$1.$2.$3"); // Add a dot after the fifth digit
+                      e.target.value = value;
+                    });
+                  </script>
+                  <!-- Órgão Emissor -->
+                  <div class="mb-3">
+                    <label for="issuingBody" class="form-label">Órgão Emissor</label>
+                    <select class="form-select" id="issuingBody" name="issuingBody" required>
+                      <option selected disabled value="">Escolher</option>
+                      <option value="ssp">SSP - Secretaria de Segurança Pública</option>
+                      <option value="pm">PM - Polícia Militar</option>
+                      <option value="pc">PC - Policia Civil</option>
+                      <option value="cnt">CNT - Carteira Nacional de Habilitação</option>
+                      <option value="dic">DIC - Diretoria de Identificação Civil</option>
+                      <option value="ctps">CTPS - Carteira de Trabaho e Previdência Social</option>
+                      <option value="fgts">FGTS - Fundo de Garantia do Tempo de Serviço</option>
+                      <option value="ifp">IFP - Instituto Félix Pacheco</option>
+                      <option value="ipf">IPF - Instituto Pereira Faustino</option>
+                      <option value="iml">IML - Instituto Médico-Legal</option>
+                      <option value="mte">MTE - Ministério do Trabalho e Emprego</option>
+                      <option value="mma">MMA - Ministério da Marinha</option>
+                      <option value="mae">MAE - Ministério da Aeronáutica</option>
+                      <option value="mex">MEX - Ministério do Exército</option>
+                      <option value="pof">POF - Polícia Federal</option>
+                      <option value="pom">POM - Polícia Militar</option>
+                      <option value="ses">SES - Carteira de Estrangeiro</option>
+                      <option value="sjs">SJS - Secretaria da Justiça e Segurança</option>
+                      <option value="sjts">SJTS - Secretaria da Justiça do Trabalho e Segurança</option>
+                    </select>
+                  </div>
+                  <!-- UF do Órgão Emissor -->
+                  <div class="mb-3">
+                    <label for="issuingState" class="form-label">UF (estado) do Órgão Emissor</label>
+                    <select class="form-select" id="issuingState" name="issuingState" required>
+                      <option selected disabled value="">UF</option>
+                      <option value="AC">AC</option>
+                      <option value="AL">AL</option>
+                      <option value="AP">AP</option>
+                      <option value="AM">AM</option>
+                      <option value="BA">BA</option>
+                      <option value="CE">CE</option>
+                      <option value="DF">DF</option>
+                      <option value="ES">ES</option>
+                      <option value="GO">GO</option>
+                      <option value="MA">MA</option>
+                      <option value="MT">MT</option>
+                      <option value="MS">MS</option>
+                      <option value="MG">MG</option>
+                      <option value="PA">PA</option>
+                      <option value="PB">PB</option>
+                      <option value="PR">PR</option>
+                      <option value="PE">PE</option>
+                      <option value="PI">PI</option>
+                      <option value="RJ">RJ</option>
+                      <option value="RN">RN</option>
+                      <option value="RS">RS</option>
+                      <option value="RO">RO</option>
+                      <option value="RR">RR</option>
+                      <option value="SC">SC</option>
+                      <option value="SP">SP</option>
+                      <option value="SE">SE</option>
+                      <option value="TO">TO</option>
+                    </select>
+                  </div>
+                  <!-- Data de Emissão -->
+                  <div class="mb-3">
+                    <label for="issueDate" class="form-label">Data de Emissão</label>
+                    <input type="text" class="form-control" id="issueDate" name="issueDate" placeholder="DD/MM/AAAA" inputmode="numeric" required>
+                    <div class="invalid-feedback">
+                        Por favor, informe a data de emissão.
+                    </div>
+                  </div>
+                  <script>
+                      const issueDateInput = document.getElementById('issueDate');
+                      issueDateInput.addEventListener('input', function (e) {
+                          e.target.value = e.target.value.replace(/[^0-9]/g, '');
+                          if (e.target.value.length > 2) {
+                              e.target.value = `${e.target.value.slice(0, 2)}/${e.target.value.slice(2)}`;
+                          }
+                          if (e.target.value.length > 5) {
+                              e.target.value = `${e.target.value.slice(0, 5)}/${e.target.value.slice(5, 9)}`;
+                          }
+                      });
+                  </script>
+                </div>
+              </div>
+
+              <!-- Seção Origem -->
+              <div class="card shadow-lg mb-4">
+                <div class="card-body p-4">
+                  <h4 class="fs-4 card-title fw-bold mb-4">Origem</h4>
+                  <!-- Nacionalidade -->
+                  <div class="mb-3">
+                      <label for="nationality" class="form-label">Nacionalidade</label>
+                      <select class="form-select" id="nationality" name="nationality" required>
+                          <option selected value="Brasileira">Brasileira</option>
+                          <option value="Estrangeira">Estrangeira</option>
+                          <option value="Brasileiro naturalizado">Brasileiro naturalizado</option>
+                      </select>
+                  </div>
+                  <!-- Naturalidade -->
+                  <div id="naturalidade" class="mb-3">
+                      <label for="birthState" class="form-label">Naturalidade</label>
+                      <div class="input-group">
+                          <select class="form-select" id="birthState" name="birthState" required style="max-width: 80px;">
+                              <option selected disabled value="">UF</option>
+                              <option value="AC">AC</option>
+                              <option value="AL">AL</option>
+                              <option value="AP">AP</option>
+                              <option value="AM">AM</option>
+                              <option value="BA">BA</option>
+                              <option value="CE">CE</option>
+                              <option value="DF">DF</option>
+                              <option value="ES">ES</option>
+                              <option value="GO">GO</option>
+                              <option value="MA">MA</option>
+                              <option value="MT">MT</option>
+                              <option value="MS">MS</option>
+                              <option value="MG">MG</option>
+                              <option value="PA">PA</option>
+                              <option value="PB">PB</option>
+                              <option value="PR">PR</option>
+                              <option value="PE">PE</option>
+                              <option value="PI">PI</option>
+                              <option value="RJ">RJ</option>
+                              <option value="RN">RN</option>
+                              <option value="RS">RS</option>
+                              <option value="RO">RO</option>
+                              <option value="RR">RR</option>
+                              <option value="SC">SC</option>
+                              <option value="SP">SP</option>
+                              <option value="SE">SE</option>
+                              <option value="TO">TO</option>
+                          </select>
+                          <select class="form-select" id="birthCity" name="birthCity" disabled required>
+                              <option selected disabled value="">Município</option>
+                              <!-- pull from IBGE -->
+                          </select>
+                      </div>
+                      <div class="form-text opacity-75">Selecione o estado primeiro.</div>
+                      <script>
+                          document.addEventListener('DOMContentLoaded', function() {
+                              // Get the birthState select field and the birthCity select field
+                              var birthStateSelect = document.getElementById('birthState');
+                              var birthCitySelect = document.getElementById('birthCity');
+                  
+                              // Initially disable the birthCity select field
+                              birthCitySelect.disabled = true;
+                  
+                              // Add a change event listener to the birthState select field
+                              birthStateSelect.addEventListener('change', function() {
+                                  // Get the selected state
+                                  var selectedState = birthStateSelect.value;
+                  
+                                  // Show a loading message in the birthCity select field and keep it disabled
+                                  birthCitySelect.innerHTML = '<option>Carregando...</option>';
+                                  birthCitySelect.disabled = true;
+                  
+                                  // Fetch the cities of the selected state from the IBGE API
+                                  fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${selectedState}/municipios`)
+                                      .then(response => response.json())
+                                      .then(data => {
+                                          // Clear the birthCity select field
+                                          birthCitySelect.innerHTML = '<option selected disabled value="">Município</option>';
+                  
+                                          // Add an option for each city
+                                          data.forEach(city => {
+                                              var option = document.createElement('option');
+                                              option.value = city.nome;
+                                              option.text = city.nome;
+                                              birthCitySelect.appendChild(option);
+                                          });
+                  
+                                          // Enable the birthCity select field
+                                          birthCitySelect.disabled = false;
+                                      })
+                                      .catch(error => {
+                                          // Show an error message in the birthCity select field and keep it disabled
+                                          birthCitySelect.innerHTML = '<option>Error loading cities</option>';
+                                          birthCitySelect.disabled = true;
+                  
+                                          console.error('Error:', error);
+                                      });
+                              });
+                          });
+                      </script>
+                  </div>
+                  <!-- Outros Países -->
+                  <div id="countryDiv" class="mb-3">
+                      <label for="country" class="form-label">País de origem <span class="text-danger">*</span></label>
+                      <select class="form-select" id="country" name="country" required>
+                          <option selected disabled value="">Selecione o país</option>
+                          <option value="Afeganistão">Afeganistão</option>
+                          <option value="África do Sul">África do Sul</option>
+                          <option value="Akrotiri">Akrotiri</option>
+                          <option value="Albânia">Albânia</option>
+                          <option value="Alemanha">Alemanha</option>
+                          <option value="Andorra">Andorra</option>
+                          <option value="Angola">Angola</option>
+                          <option value="Anguila">Anguila</option>
+                          <option value="Antárctida">Antárctida</option>
+                          <option value="Antígua e Barbuda">Antígua e Barbuda</option>
+                          <option value="Antilhas Neerlandesas">Antilhas Neerlandesas</option>
+                          <option value="Arábia Saudita">Arábia Saudita</option>
+                          <option value="Arctic Ocean">Arctic Ocean</option>
+                          <option value="Argélia">Argélia</option>
+                          <option value="Argentina">Argentina</option>
+                          <option value="Arménia">Arménia</option>
+                          <option value="Aruba">Aruba</option>
+                          <option value="Ashmore and Cartier Islands">Ashmore and Cartier Islands</option>
+                          <option value="Atlantic Ocean">Atlantic Ocean</option>
+                          <option value="Austrália">Austrália</option>
+                          <option value="Áustria">Áustria</option>
+                          <option value="Azerbaijão">Azerbaijão</option>
+                          <option value="Baamas">Baamas</option>
+                          <option value="Bangladeche">Bangladeche</option>
+                          <option value="Barbados">Barbados</option>
+                          <option value="Barém">Barém</option>
+                          <option value="Bélgica">Bélgica</option>
+                          <option value="Belize">Belize</option>
+                          <option value="Benim">Benim</option>
+                          <option value="Bermudas">Bermudas</option>
+                          <option value="Bielorrússia">Bielorrússia</option>
+                          <option value="Birmânia">Birmânia</option>
+                          <option value="Bolívia">Bolívia</option>
+                          <option value="Bósnia e Herzegovina">Bósnia e Herzegovina</option>
+                          <option value="Botsuana">Botsuana</option>
+                          <option value="Brunei">Brunei</option>
+                          <option value="Bulgária">Bulgária</option>
+                          <option value="Burquina Faso">Burquina Faso</option>
+                          <option value="Burúndi">Burúndi</option>
+                          <option value="Butão">Butão</option>
+                          <option value="Cabo Verde">Cabo Verde</option>
+                          <option value="Camarões">Camarões</option>
+                          <option value="Camboja">Camboja</option>
+                          <option value="Canadá">Canadá</option>
+                          <option value="Catar">Catar</option>
+                          <option value="Cazaquistão">Cazaquistão</option>
+                          <option value="Chade">Chade</option>
+                          <option value="Chile">Chile</option>
+                          <option value="China">China</option>
+                          <option value="Chipre">Chipre</option>
+                          <option value="Clipperton Island">Clipperton Island</option>
+                          <option value="Colômbia">Colômbia</option>
+                          <option value="Comores">Comores</option>
+                          <option value="Congo Brazzaville">Congo Brazzaville</option>
+                          <option value="Congo Kinshasa">Congo Kinshasa</option>
+                          <option value="Coral Sea Islands">Coral Sea Islands</option>
+                          <option value="Coreia do Norte">Coreia do Norte</option>
+                          <option value="Coreia do Sul">Coreia do Sul</option>
+                          <option value="Costa do Marfim">Costa do Marfim</option>
+                          <option value="Costa Rica">Costa Rica</option>
+                          <option value="Croácia">Croácia</option>
+                          <option value="Cuba">Cuba</option>
+                          <option value="Dhekelia">Dhekelia</option>
+                          <option value="Dinamarca">Dinamarca</option>
+                          <option value="Domínica">Domínica</option>
+                          <option value="Egipto">Egipto</option>
+                          <option value="Emiratos Árabes Unidos">Emiratos Árabes Unidos</option>
+                          <option value="Equador">Equador</option>
+                          <option value="Eritreia">Eritreia</option>
+                          <option value="Eslováquia">Eslováquia</option>
+                          <option value="Eslovénia">Eslovénia</option>
+                          <option value="Espanha">Espanha</option>
+                          <option value="Estados Unidos">Estados Unidos</option>
+                          <option value="Estónia">Estónia</option>
+                          <option value="Etiópia">Etiópia</option>
+                          <option value="Faroé">Faroé</option>
+                          <option value="Fiji">Fiji</option>
+                          <option value="Filipinas">Filipinas</option>
+                          <option value="Finlândia">Finlândia</option>
+                          <option value="França">França</option>
+                          <option value="Gabão">Gabão</option>
+                          <option value="Gâmbia">Gâmbia</option>
+                          <option value="Gana">Gana</option>
+                          <option value="Gaza Strip">Gaza Strip</option>
+                          <option value="Geórgia">Geórgia</option>
+                          <option value="Geórgia do Sul e Sandwich do Sul">Geórgia do Sul e Sandwich do Sul</option>
+                          <option value="Gibraltar">Gibraltar</option>
+                          <option value="Granada">Granada</option>
+                          <option value="Grécia">Grécia</option>
+                          <option value="Gronelândia">Gronelândia</option>
+                          <option value="Guame">Guame</option>
+                          <option value="Guatemala">Guatemala</option>
+                          <option value="Guernsey">Guernsey</option>
+                          <option value="Guiana">Guiana</option>
+                          <option value="Guiné">Guiné</option>
+                          <option value="Guiné Equatorial">Guiné Equatorial</option>
+                          <option value="Guiné Bissau">Guiné Bissau</option>
+                          <option value="Haiti">Haiti</option>
+                          <option value="Honduras">Honduras</option>
+                          <option value="Hong Kong">Hong Kong</option>
+                          <option value="Hungria">Hungria</option>
+                          <option value="Iémen">Iémen</option>
+                          <option value="Ilha Bouvet">Ilha Bouvet</option>
+                          <option value="Ilha do Natal">Ilha do Natal</option>
+                          <option value="Ilha Norfolk">Ilha Norfolk</option>
+                          <option value="Ilhas Caimão">Ilhas Caimão</option>
+                          <option value="Ilhas Cook">Ilhas Cook</option>
+                          <option value="Ilhas dos Cocos">Ilhas dos Cocos</option>
+                          <option value="Ilhas Falkland">Ilhas Falkland</option>
+                          <option value="Ilhas Heard e McDonald">Ilhas Heard e McDonald</option>
+                          <option value="Ilhas Marshall">Ilhas Marshall</option>
+                          <option value="Ilhas Salomão">Ilhas Salomão</option>
+                          <option value="Ilhas Turcas e Caicos">Ilhas Turcas e Caicos</option>
+                          <option value="Ilhas Virgens Americanas">Ilhas Virgens Americanas</option>
+                          <option value="Ilhas Virgens Britânicas">Ilhas Virgens Britânicas</option>
+                          <option value="Índia">Índia</option>
+                          <option value="Indian Ocean">Indian Ocean</option>
+                          <option value="Indonésia">Indonésia</option>
+                          <option value="Irão">Irão</option>
+                          <option value="Iraque">Iraque</option>
+                          <option value="Irlanda">Irlanda</option>
+                          <option value="Islândia">Islândia</option>
+                          <option value="Israel">Israel</option>
+                          <option value="Itália">Itália</option>
+                          <option value="Jamaica">Jamaica</option>
+                          <option value="Jan Mayen">Jan Mayen</option>
+                          <option value="Japão">Japão</option>
+                          <option value="Jersey">Jersey</option>
+                          <option value="Jibuti">Jibuti</option>
+                          <option value="Jordânia">Jordânia</option>
+                          <option value="Kuwait">Kuwait</option>
+                          <option value="Laos">Laos</option>
+                          <option value="Lesoto">Lesoto</option>
+                          <option value="Letónia">Letónia</option>
+                          <option value="Líbano">Líbano</option>
+                          <option value="Libéria">Libéria</option>
+                          <option value="Líbia">Líbia</option>
+                          <option value="Listenstaine">Listenstaine</option>
+                          <option value="Lituânia">Lituânia</option>
+                          <option value="Luxemburgo">Luxemburgo</option>
+                          <option value="Macau">Macau</option>
+                          <option value="Macedónia">Macedónia</option>
+                          <option value="Madagáscar">Madagáscar</option>
+                          <option value="Malásia">Malásia</option>
+                          <option value="Malávi">Malávi</option>
+                          <option value="Maldivas">Maldivas</option>
+                          <option value="Mali">Mali</option>
+                          <option value="Malta">Malta</option>
+                          <option value="Man, Isle of">Man, Isle of</option>
+                          <option value="Marianas do Norte">Marianas do Norte</option>
+                          <option value="Marrocos">Marrocos</option>
+                          <option value="Maurícia">Maurícia</option>
+                          <option value="Mauritânia">Mauritânia</option>
+                          <option value="Mayotte">Mayotte</option>
+                          <option value="México">México</option>
+                          <option value="Micronésia">Micronésia</option>
+                          <option value="Moçambique">Moçambique</option>
+                          <option value="Moldávia">Moldávia</option>
+                          <option value="Mónaco">Mónaco</option>
+                          <option value="Mongólia">Mongólia</option>
+                          <option value="Monserrate">Monserrate</option>
+                          <option value="Montenegro">Montenegro</option>
+                          <option value="Mundo">Mundo</option>
+                          <option value="Namíbia">Namíbia</option>
+                          <option value="Nauru">Nauru</option>
+                          <option value="Navassa Island">Navassa Island</option>
+                          <option value="Nepal">Nepal</option>
+                          <option value="Nicarágua">Nicarágua</option>
+                          <option value="Níger">Níger</option>
+                          <option value="Nigéria">Nigéria</option>
+                          <option value="Niue">Niue</option>
+                          <option value="Noruega">Noruega</option>
+                          <option value="Nova Caledónia">Nova Caledónia</option>
+                          <option value="Nova Zelândia">Nova Zelândia</option>
+                          <option value="Omã">Omã</option>
+                          <option value="Pacific Ocean">Pacific Ocean</option>
+                          <option value="Países Baixos">Países Baixos</option>
+                          <option value="Palau">Palau</option>
+                          <option value="Panamá">Panamá</option>
+                          <option value="Papua Nova Guiné">Papua Nova Guiné</option>
+                          <option value="Paquistão">Paquistão</option>
+                          <option value="Paracel Islands">Paracel Islands</option>
+                          <option value="Paraguai">Paraguai</option>
+                          <option value="Peru">Peru</option>
+                          <option value="Pitcairn">Pitcairn</option>
+                          <option value="Polinésia Francesa">Polinésia Francesa</option>
+                          <option value="Polónia">Polónia</option>
+                          <option value="Porto Rico">Porto Rico</option>
+                          <option value="Portugal">Portugal</option>
+                          <option value="Quénia">Quénia</option>
+                          <option value="Quirguizistão">Quirguizistão</option>
+                          <option value="Quiribáti">Quiribáti</option>
+                          <option value="Reino Unido">Reino Unido</option>
+                          <option value="República Centro Africana">República Centro Africana</option>
+                          <option value="República Checa">República Checa</option>
+                          <option value="República Dominicana">República Dominicana</option>
+                          <option value="Roménia">Roménia</option>
+                          <option value="Ruanda">Ruanda</option>
+                          <option value="Rússia">Rússia</option>
+                          <option value="El Salvador">El Salvador</option>
+                          <option value="Samoa">Samoa</option>
+                          <option value="Samoa Americana">Samoa Americana</option>
+                          <option value="Santa Helena">Santa Helena</option>
+                          <option value="Santa Lúcia">Santa Lúcia</option>
+                          <option value="São Cristóvão e Neves">São Cristóvão e Neves</option>
+                          <option value="São Marinho">São Marinho</option>
+                          <option value="São Pedro e Miquelon">São Pedro e Miquelon</option>
+                          <option value="São Tomé e Príncipe">São Tomé e Príncipe</option>
+                          <option value="São Vicente e Granadinas">São Vicente e Granadinas</option>
+                          <option value="Sara Ocidental">Sara Ocidental</option>
+                          <option value="Seicheles">Seicheles</option>
+                          <option value="Senegal">Senegal</option>
+                          <option value="Serra Leoa">Serra Leoa</option>
+                          <option value="Sérvia">Sérvia</option>
+                          <option value="Singapura">Singapura</option>
+                          <option value="Síria">Síria</option>
+                          <option value="Somália">Somália</option>
+                          <option value="Southern Ocean">Southern Ocean</option>
+                          <option value="Spratly Islands">Spratly Islands</option>
+                          <option value="Sri Lanca">Sri Lanca</option>
+                          <option value="Suazilândia">Suazilândia</option>
+                          <option value="Sudão">Sudão</option>
+                          <option value="Suécia">Suécia</option>
+                          <option value="Suíça">Suíça</option>
+                          <option value="Suriname">Suriname</option>
+                          <option value="Svalbard e Jan Mayen">Svalbard e Jan Mayen</option>
+                          <option value="Tailândia">Tailândia</option>
+                          <option value="Taiwan">Taiwan</option>
+                          <option value="Tajiquistão">Tajiquistão</option>
+                          <option value="Tanzânia">Tanzânia</option>
+                          <option value="Território Britânico do Oceano Índico">Território Britânico do Oceano Índico</option>
+                          <option value="Territórios Austrais Franceses">Territórios Austrais Franceses</option>
+                          <option value="Timor Leste">Timor Leste</option>
+                          <option value="Togo">Togo</option>
+                          <option value="Tokelau">Tokelau</option>
+                          <option value="Tonga">Tonga</option>
+                          <option value="Trindade e Tobago">Trindade e Tobago</option>
+                          <option value="Tunísia">Tunísia</option>
+                          <option value="Turquemenistão">Turquemenistão</option>
+                          <option value="Turquia">Turquia</option>
+                          <option value="Tuvalu">Tuvalu</option>
+                          <option value="Ucrânia">Ucrânia</option>
+                          <option value="Uganda">Uganda</option>
+                          <option value="União Europeia">União Europeia</option>
+                          <option value="Uruguai">Uruguai</option>
+                          <option value="Usbequistão">Usbequistão</option>
+                          <option value="Vanuatu">Vanuatu</option>
+                          <option value="Vaticano">Vaticano</option>
+                          <option value="Venezuela">Venezuela</option>
+                          <option value="Vietname">Vietname</option>
+                          <option value="Wake Island">Wake Island</option>
+                          <option value="Wallis e Futuna">Wallis e Futuna</option>
+                          <option value="West Bank">West Bank</option>
+                          <option value="Zâmbia">Zâmbia</option>
+                          <option value="Zimbabué">Zimbabué</option>
+                          
+                      </select>
+                  </div>
+                  <script>
+                      document.addEventListener('DOMContentLoaded', function() {
+                          // Get the nationality select field, the naturalidade div, and the country div
+                          var nationalitySelect = document.getElementById('nationality');
+                          var naturalidadeDiv = document.getElementById('naturalidade');
+                          var naturalidadeSelect = naturalidadeDiv.querySelector('select');
+                          var countryDiv = document.getElementById('countryDiv');
+                          var countrySelect = document.getElementById('country');
+                  
+                          // Initially hide the country div and make the country select field not required
+                          countryDiv.style.display = 'none';
+                          countrySelect.required = false;
+                  
+                          // Add a change event listener to the nationality select field
+                          nationalitySelect.addEventListener('change', function() {
+                              // If the selected nationality is not Brasileira, show the country div, make the country select field required, hide the naturalidade div, and make the naturalidade select field not required
+                              if (nationalitySelect.value !== 'Brasileira') {
+                                  countryDiv.style.display = 'block';
+                                  countrySelect.required = true;
+                                  naturalidadeDiv.style.display = 'none';
+                                  naturalidadeSelect.required = false;
+                              } else {
+                                  // Otherwise, show the naturalidade div, make the naturalidade select field required, hide the country div, and make the country select field not required
+                                  naturalidadeDiv.style.display = 'block';
+                                  naturalidadeSelect.required = true;
+                                  countryDiv.style.display = 'none';
+                                  countrySelect.required = false;
+                              }
+                          });
+                      });
+                  </script>
+                  <!-- Sexo -->
+                  <div class="mb-3">
+                    <label for="sex" class="form-label">Sexo</label>
+                    <select class="form-select" id="sex" name="sex" required>
+                      <option selected disabled value="">Escolher</option>
+                      <option value="masculino">Masculino</option>
+                      <option value="feminino">Feminino</option>
+                      <!-- Adicionar outras opções se necessário -->
+                    </select>
+                  </div>
+                  <!-- Cor/Raça -->
+                  <div class="mb-3">
+                    <label for="race" class="form-label">Cor/Raça</label>
+                    <select class="form-select" id="race" name="race" required>
+                      <option selected disabled value="">Escolher</option>
+                      <option value="amarela">Amarela</option>
+                      <option value="branca">Branca</option>
+                      <option value="indigena">Indígena</option>
+                      <option value="parda">Parda</option>
+                      <option value="preta">Preta</option>
+                      <option value="nao_desejo_informar">Não desejo informar</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Seção Informações Pessoais -->
+              <div class="card shadow-lg mb-4">
+                <div class="card-body p-4">
+                  <h4 class="fs-4 card-title fw-bold mb-4">Informações Pessoais</h4>
+                  <!-- Estado Civil -->
+                  <div class="mb-3">
+                    <label for="maritalStatus" class="form-label">Estado Civil</label>
+                    <select class="form-select" id="maritalStatus" name="maritalStatus" required>
+                      <option selected disabled value="">Escolher</option>
+                      <option value="casado">Casado</option>
+                      <option value="divorciado">Divorciado</option>
+                      <option value="separado_judicialmente">Separado judicialmente</option>
+                      <option value="solteiro">Solteiro</option>
+                      <option value="viuvo">Viúvo</option>
+                    </select>
+                  </div>
+                  <!-- Nível de Escolaridade -->
+                  <div class="mb-3">
+                      <label for="educationLevel" class="form-label">Nível de Escolaridade</label>
+                      <select class="form-select" id="educationLevel" name="educationLevel" required>
+                          <option selected disabled value="">Escolher</option>
+                          <option value="analfabeto">Analfabeto</option>
+                          <option value="ate_5_ano_incompleto_fundamental">Até o 5º Ano Incompleto do Ensino Fundamental</option>
+                          <option value="5_ano_completo_fundamental">5º Ano Completo do Ensino Fundamental</option>
+                          <option value="do_6_ao_9_ano_fundamental">Do 6º Ao 9º Ano do Ensino Fundamental</option>
+                          <option value="ensino_fundamental_incompleto">Ensino Fundamental Incompleto</option>
+                          <option value="nivel_fundamental_completo">Nível Fundamental (1º Grau)</option>
+                          <option value="ensino_medio_incompleto">Ensino Médio Incompleto</option>
+                          <option value="ensino_medio_tecnico">Ensino Médio Técnico</option>
+                          <option value="ensino_medio_magisterio">Ensino Medio Magisterio</option>
+                          <option value="estudante_penultimo_periodo">Estudante do penúltimo período</option>
+                          <option value="estudante_ultimo_periodo">Estudante do último período</option>
+                          <option value="estudante_ultimo_ano">Estudante do último ano</option>
+                          <option value="nivel_medio">Nível Médio (2º Grau)</option>
+                          <option class="enableStudyArea" value="nivel_superior_incompleto">Nível Superior Incompleto</option>
+                          <option class="enableStudyArea" value="bacharel_direito">Bacharel em direito</option>
+                          <option class="enableStudyArea" value="especializacao">Especialização</option>
+                          <option class="enableStudyArea" value="nivel_superior_completo">Nível Superior Completo</option>
+                          <option class="enableStudyArea" value="pos_graduacao_incompleto">Pós Grad. Incompleto</option>
+                          <option class="enableStudyArea" value="pos_graduacao">Pós-graduação</option>
+                          <option class="enableStudyArea" value="mestrado_incompleto">Mestrado Incompleto</option>
+                          <option class="enableStudyArea" value="mestrado">Mestrado</option>
+                          <option class="enableStudyArea" value="doutorado_incompleto">Doutorado Incompleto</option>
+                          <option class="enableStudyArea" value="doutorado">Doutorado</option>
+                          <option class="enableStudyArea" value="pos_dout_incompleto">Pós Dout.incompleto</option>
+                          <option class="enableStudyArea" value="pos_dout_completo">Pós Dout.completo</option>
+                      </select>
+                  </div>
+                  <!-- Área de Formação -->
+                  <div class="mb-3">
+                      <label for="studyArea" class="form-label">Área de formação</label>
+                      <select class="form-select" id="studyArea" name="studyArea">
+                          <option selected disabled value="">Escolher</option>
+                          <option value="1">Administração</option>
+                          <option value="2">Administração pública</option>
+                          <option value="3">Agronegócio (tecnologia)</option>
+                          <option value="4">Agronomia (ou Engenharia Agronômica)</option>
+                          <option value="5">Alimentos (tecnologia)</option>
+                          <option value="6">Análise de Sistemas &amp; Tecnologia da Informação (ou Análise e desenvolvimento de sistemas [tecnologia] ou simplesmente Análise de sistemas )</option>
+                          <option value="7">Antropologia</option>
+                          <option value="8">Aqüicultura</option>
+                          <option value="9">Arqueologia</option>
+                          <option value="10">Arquitetura</option>
+                          <option value="11">Arquivologia</option>
+                          <option value="12">Artes cênicas</option>
+                          <option value="13">Artes plásticas</option>
+                          <option value="14">Artes visuais</option>
+                          <option value="15">Astronomia</option>
+                          <option value="16">Automação de escritório (ou secretariado [tecnologia])</option>
+                          <option value="17">Automação Industrial (tecnologia)</option>
+                          <option value="18">Biblioteconomia</option>
+                          <option value="19">Biocombustíveis</option>
+                          <option value="20">Bioenergia sucro-alcooleira (tecnologia)</option>
+                          <option value="21">Bioengenharia (ou Engenharia Biológica)</option>
+                          <option value="22">Biologia</option>
+                          <option value="23">Biologia marinha</option>
+                          <option value="24">Biomedicina</option>
+                          <option value="25">Biotecnologia</option>
+                          <option value="26">Biotecnologia (ou Engenharia Biotecnológica)</option>
+                          <option value="27">Botânica</option>
+                          <option value="28">Ciência da informação</option>
+                          <option value="29">Ciência dos alimentos</option>
+                          <option value="30">Ciência dos materiais (tecnologia)</option>
+                          <option value="31">Ciência e Tecnologia</option>
+                          <option value="32">Ciências ambientais</option>
+                          <option value="33">Ciências atuariais</option>
+                          <option value="34">Ciências biológicas (ou biologia)</option>
+                          <option value="35">Ciências contábeis (ou contabilidade)</option>
+                          <option value="36">Ciências da atividade física (licenciatura)</option>
+                          <option value="37">Ciências do esporte</option>
+                          <option value="38">Ciências econômicas (ou economia)</option>
+                          <option value="39">Ciências exatas (licenciatura)</option>
+                          <option value="40">Ciências Moleculares (ou Biomoleculares)</option>
+                          <option value="41">Ciências Naturais</option>
+                          <option value="42">Ciências políticas (ou Ciências do Estado)</option>
+                          <option value="43">Ciências sociais (ou sociologia)</option>
+                          <option value="44">Cinema</option>
+                          <option value="45">Comércio exterior</option>
+                          <option value="46">Computação (licenciatura)</option>
+                          <option value="47">Computação científica</option>
+                          <option value="48">Comunicação social</option>
+                          <option value="49">Engenharia Civil (ou Construção Civil [tecnologia])</option>
+                          <option value="50">Cooperativismo (ou associativismo em Redes de empresas e no agronegócio [tecnologia])</option>
+                          <option value="51">Cosmetologia e Estética ou Estética e Cosmética</option>
+                          <option value="52">Dança</option>
+                          <option value="53">Defesa e Gestão Estratégica Internacional</option>
+                          <option value="54">Desenho industrial (ou Design gráfico)</option>
+                          <option value="55">Design</option>
+                          <option value="56">Design de interiores</option>
+                          <option value="57">Design de jogos digitais</option>
+                          <option value="58">Design de moda</option>
+                          <option value="59">Direito</option>
+                          <option value="60">Ecologia</option>
+                          <option value="61">Editoração (ou produção editorial)</option>
+                          <option value="62">Educação artística</option>
+                          <option value="63">Educação física</option>
+                          <option value="64">Educação musical (licenciatura)</option>
+                          <option value="65">Eletrônica</option>
+                          <option value="66">Eletrônica embarcada (ou Autotrônica [tecnologia])</option>
+                          <option value="67">Enfermagem</option>
+                          <option value="68">Engenharia Aeroespacial</option>
+                          <option value="69">Engenharia Aeronáutica</option>
+                          <option value="70">Engenharia Agrícola</option>
+                          <option value="71">Engenharia Ambiental</option>
+                          <option value="72">Engenharia Biofísica</option>
+                          <option value="73">Engenharia Biomédica</option>
+                          <option value="74">Engenharia Cartográfica</option>
+                          <option value="75">Engenharia da qualidade</option>
+                          <option value="76">Engenharia de agrimensura</option>
+                          <option value="77">Engenharia de alimentos</option>
+                          <option value="78">Engenharia de Áudio</option>
+                          <option value="79">Engenharia de computação</option>
+                          <option value="80">Engenharia de Controle e Automação</option>
+                          <option value="81">Engenharia de informação</option>
+                          <option value="82">Engenharia de instrumentação</option>
+                          <option value="83">Engenharia de instrumentação (ou Engenharia de Controle e Automação ou Robótica)</option>
+                          <option value="84">Engenharia de manufatura</option>
+                          <option value="85">Engenharia de manutenção</option>
+                          <option value="86">Engenharia de materiais</option>
+                          <option value="87">Engenharia de minas</option>
+                          <option value="88">Engenharia de pesca</option>
+                          <option value="89">Engenharia de petróleo</option>
+                          <option value="90">Engenharia de produção</option>
+                          <option value="91">Engenharia de serviços</option>
+                          <option value="92">Engenharia de sistemas</option>
+                          <option value="93">Engenharia de sistemas eletrônicos</option>
+                          <option value="94">Engenharia de software</option>
+                          <option value="95">Engenharia de tecidos</option>
+                          <option value="96">Engenharia de telecomunicações</option>
+                          <option value="97">Engenharia de transportes</option>
+                          <option value="98">Engenharia Econômica</option>
+                          <option value="99">Engenharia Elétrica (ou Engenharia Energética, ou ainda Engenharia de Energia )</option>
+                          <option value="100">Engenharia Eletrônica</option>
+                          <option value="101">Engenharia Estrutural</option>
+                          <option value="102">Engenharia Física</option>
+                          <option value="103">Engenharia Florestal</option>
+                          <option value="104">Engenharia Geográfica</option>
+                          <option value="105">Engenharia Geológica</option>
+                          <option value="106">Engenharia Hidráulica</option>
+                          <option value="107">Engenharia Humana</option>
+                          <option value="108">Engenharia Industrial</option>
+                          <option value="109">Engenharia Industrial Madeireira</option>
+                          <option value="110">Engenharia mecânica</option>
+                          <option value="111">Engenharia mecatrônica</option>
+                          <option value="112">Engenharia metalúrgica</option>
+                          <option value="113">Engenharia militar</option>
+                          <option value="114">Engenharia multimídia</option>
+                          <option value="115">Engenharia naval e oceânica</option>
+                          <option value="116">Engenharia nuclear</option>
+                          <option value="117">Engenharia óptica</option>
+                          <option value="118">Engenharia química</option>
+                          <option value="119">Engenharia sanitária</option>
+                          <option value="120">Engenharia têxtil</option>
+                          <option value="121">Engenharia Urbana</option>
+                          <option value="122">Escultura</option>
+                          <option value="123">Esportes</option>
+                          <option value="124">Estatística</option>
+                          <option value="125">Estudos literários</option>
+                          <option value="126">Eventos (tecnologia)</option>
+                          <option value="127">Farmacêutica (ou Farmácia ou ainda Bioquímica)</option>
+                          <option value="128">Filosofia</option>
+                          <option value="129">Física</option>
+                          <option value="130">Física biológica</option>
+                          <option value="131">Física computacional</option>
+                          <option value="132">Física médica</option>
+                          <option value="133">Fisioterapia</option>
+                          <option value="134">Fonoaudiologia</option>
+                          <option value="135">Fotografia (ou Gravura)</option>
+                          <option value="136">Gastronomia</option>
+                          <option value="137">Geociências (ou Ciências da Terra)</option>
+                          <option value="138">Geofísica</option>
+                          <option value="139">Geografia</option>
+                          <option value="140">Geologia</option>
+                          <option value="141">Gerontologia</option>
+                          <option value="142">Gestão ambiental (tecnologia)]</option>
+                          <option value="143">Gestão da produção de calçados (tecnologia)</option>
+                          <option value="144">Gestão da Qualidade (tecnologia)</option>
+                          <option value="145">Gestão de comércio internacional</option>
+                          <option value="146">Gestão de empresas</option>
+                          <option value="147">Gestão de políticas públicas</option>
+                          <option value="148">Gestão empresarial (tecnologia)</option>
+                          <option value="149">História</option>
+                          <option value="150">História da arte</option>
+                          <option value="151">Hotelaria</option>
+                          <option value="152">Informática (ou Ciência da Computação)</option>
+                          <option value="153">Informática biomédica</option>
+                          <option value="154">Jornalismo</option>
+                          <option value="155">Lazer</option>
+                          <option value="156">Letras</option>
+                          <option value="157">Linguística</option>
+                          <option value="158">Logística (tecnologia)</option>
+                          <option value="159">Logística aeroportuária (tecnologia)</option>
+                          <option value="160">Logística e transportes (tecnologia)</option>
+                          <option value="161">Manutenção Industrial (tecnologia)</option>
+                          <option value="162">Marketing (ou propaganda)</option>
+                          <option value="163">Matemática</option>
+                          <option value="164">Matemática Aplicada</option>
+                          <option value="165">Matemática Computacional</option>
+                          <option value="166">Mecânica - processos de produção (tecnologia)</option>
+                          <option value="167">Mecânica de precisão (ou Mecatrônica [tecnologia])</option>
+                          <option value="168">Medicina</option>
+                          <option value="169">Medicina veterinária</option>
+                          <option value="170">Meio ambiente e recursos hídricos (tecnologia)</option>
+                          <option value="171">Metalurgia (tecnologia)</option>
+                          <option value="172">Meteorologia</option>
+                          <option value="173">Microbiologia (ou imunologia)</option>
+                          <option value="174">Museologia</option>
+                          <option value="175">Música</option>
+                          <option value="176">Nutrição</option>
+                          <option value="177">Obstetrícia</option>
+                          <option value="178">Oceanografia (ou oceanologia ou ainda Ciência dos Mares)</option>
+                          <option value="179">Odontologia</option>
+                          <option value="180">Paisagismo</option>
+                          <option value="181">Pedagogia</option>
+                          <option value="182">Pintura</option>
+                          <option value="183">Processamento de dados</option>
+                          <option value="184">Processos Gerenciais (tecnologia)</option>
+                          <option value="185">Produção (tecnologia)</option>
+                          <option value="186">Produção de materiais plásticos (tecnologia)</option>
+                          <option value="187">Produção Fonográfica</option>
+                          <option value="188">Produção Têxtil</option>
+                          <option value="189">Prospecção Geofísica</option>
+                          <option value="190">Psicologia</option>
+                          <option value="191">Psicopedagogia</option>
+                          <option value="192">Publicidade</option>
+                          <option value="193">Química</option>
+                          <option value="194">Química Ambiental</option>
+                          <option value="195">Química Industrial</option>
+                          <option value="196">Radialismo (ou Rádio &amp; TV, ou ainda Audiovisual)</option>
+                          <option value="197">Radiologia (tecnologia)</option>
+                          <option value="198">Recursos humanos</option>
+                          <option value="199">Relações internacionais (ou Diplomacia)</option>
+                          <option value="200">Relações públicas</option>
+                          <option value="201">Saneamento (tecnologia)</option>
+                          <option value="202">Saúde - projetos, manutenção e operação de aparelhos médico-hospitalares (tecnologia)</option>
+                          <option value="203">Secretariado (tecnologia)</option>
+                          <option value="204">Segurança da informação (tecnologia)</option>
+                          <option value="205">Serviço social</option>
+                          <option value="206">Silvicultura (tecnologia)</option>
+                          <option value="207">Sistemas de informação</option>
+                          <option value="208">Teatro</option>
+                          <option value="209">Tecnologia da informação (licenciatura)</option>
+                          <option value="210">Tecnologias em saúde - oftálmica e radiológica</option>
+                          <option value="211">Telecomunicações</option>
+                          <option value="212">Telemática (tecnologia)</option>
+                          <option value="213">Teologia</option>
+                          <option value="214">Terapia ocupacional</option>
+                          <option value="215">Transporte Hidroviário (ou Transporte Marítimo [tecnologia])</option>
+                          <option value="216">Turismologia</option>
+                          <option value="217">Urbanismo</option>
+                          <option value="218">Zootecnia</option>
+                          <option value="0">OUTRO</option>
+                      </select>
+                  </div>
+                  <script>
+                      document.addEventListener('DOMContentLoaded', function() {
+                          // Get the educationLevel select field and the studyArea select field
+                          var educationLevelSelect = document.getElementById('educationLevel');
+                          var studyAreaSelect = document.getElementById('studyArea');
+                          var parentContainer = studyAreaSelect.parentElement;
+                  
+                          // Initially disable the studyArea select field and make the parent container slightly transparent
+                          studyAreaSelect.disabled = true;
+                          parentContainer.classList.add('opacity-50');
+                  
+                          // Add a change event listener to the educationLevel select field
+                          educationLevelSelect.addEventListener('change', function() {
+                              // Get the selected option
+                              var selectedOption = educationLevelSelect.options[educationLevelSelect.selectedIndex];
+                  
+                              // If the selected option has the class enableStudyArea, enable the studyArea select field and make the parent container fully opaque
+                              if (selectedOption.classList.contains('enableStudyArea')) {
+                                  studyAreaSelect.disabled = false;
+                                  parentContainer.classList.remove('opacity-50');
+                              } else {
+                                  // Otherwise, disable the studyArea select field, reset its value, and make the parent container slightly transparent
+                                  studyAreaSelect.disabled = true;
+                                  studyAreaSelect.value = '';
+                                  parentContainer.classList.add('opacity-50');
+                              }
+                          });
+                      });
+                  </script>
+                  <!-- Membro Adventista do Sétimo Dia? -->
+                  <div class="mb-3">
+                    <label for="seventhDayAdventist" class="form-label">Membro Adventista do Sétimo Dia?</label>
+                    <div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="adventistNo" name="seventhDayAdventist" value="Não" checked>
+                        <label class="form-check-label" for="adventistNo">Não</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="adventistYes" name="seventhDayAdventist" value="Sim">
+                        <label class="form-check-label" for="adventistYes">Sim</label>
+                      </div>
+                    </div>
+                    <div class="form-text opacity-75">Considerando a possibilidade de alguma das etapas serem realizadas em um dia de sábado.</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Seção Endereço -->
+              <div class="card shadow-lg mb-4">
+                <div class="card-body p-4">
+                  <h4 class="fs-4 card-title fw-bold mb-4">Endereço</h4>
+                  <div class="mb-3">
+                      <label for="cep" class="form-label">CEP</label>
+                      <input type="text" class="form-control" id="cep" name="cep" placeholder="00000-000" required inputmode="numeric">
+                      <div id="viaCEPerror" class="invalid-feedback">
+                          <!-- resposta da API -->
+                      </div>
+                  </div>
+                  <!-- Logradouro -->
+                  <div class="mb-3">
+                      <label class="form-label" for="addressName">Logradouro</label>
+                      <input type="text" class="form-control" id="addressName" name="addressName" placeholder="Rua Exemplo da Silva" required>
+                  </div>
+                  <!-- Numero -->
+                  <div class="mb-3">
+                      <label for="addressNumber" class="form-label">Número</label>
+                      <input type="text" class="form-control" id="addressNumber" placeholder="000" name="addressNumber" required>
+                  </div>
+                  <!-- complemento -->
+                  <div class="mb-3">
+                      <label for="complement" class="form-label">Complemento</label>
+                      <input type="text" class="form-control" id="complement" placeholder="Apartamento 000" name="complement">
+                  </div>
+                  <!-- bairro -->
+                  <div class="mb-3">
+                      <label for="neighbourhood" class="form-label">Bairro</label>
+                      <input type="text" class="form-control" id="neighbourhood" placeholder="Nome do Bairro" name="neighbourhood" required>
+                  </div>
+                  <!-- Cidade -->
+                  <div>
+                      <label for="addressState" class="form-label">Cidade</label>
+                      <div class="input-group mb-3">
+                          <select class="form-select" id="addressState" name="addressState" required style="max-width: 80px;">
+                              <option selected disabled value="">UF</option>
+                              <option value="AC">AC</option>
+                              <option value="AL">AL</option>
+                              <option value="AP">AP</option>
+                              <option value="AM">AM</option>
+                              <option value="BA">BA</option>
+                              <option value="CE">CE</option>
+                              <option value="DF">DF</option>
+                              <option value="ES">ES</option>
+                              <option value="GO">GO</option>
+                              <option value="MA">MA</option>
+                              <option value="MT">MT</option>
+                              <option value="MS">MS</option>
+                              <option value="MG">MG</option>
+                              <option value="PA">PA</option>
+                              <option value="PB">PB</option>
+                              <option value="PR">PR</option>
+                              <option value="PE">PE</option>
+                              <option value="PI">PI</option>
+                              <option value="RJ">RJ</option>
+                              <option value="RN">RN</option>
+                              <option value="RS">RS</option>
+                              <option value="RO">RO</option>
+                              <option value="RR">RR</option>
+                              <option value="SC">SC</option>
+                              <option value="SP">SP</option>
+                              <option value="SE">SE</option>
+                              <option value="TO">TO</option>
+                          </select>
+                          <input type="text" class="form-control" id="addressCity" name="addressCity" placeholder="Nome da Cidade"
+                              required>
+                      </div>
+                  </div>
+                  <!-- completar endereco com o CEP automaticamente -->
+                  <script>
+                      document.getElementById('cep').addEventListener('keyup', function (e) {
+                          var cep = e.target.value.replace(/\D/g, ''); // Remove all non-numeric characters
+                          if (cep.length > 8) {
+                              cep = cep.slice(0, 8); // Limit to 8 characters
+                          }
+                          cep = cep.replace(/^(\d{5})(\d{3})/, '$1-$2'); // Insert dash after the fifth digit
+                          e.target.value = cep;
+                  
+                          // If the CEP is complete, fetch the address information
+                          if (cep.length === 9) {
+                              fetch(`https://viacep.com.br/ws/${cep.replace('-', '')}/json/`)
+                                  .then(response => response.json())
+                                  .then(data => {
+                                      if (data.erro) {
+                                          throw new Error('CEP inválido ou indisponível.');
+                                      }
+                                      // Populate the address fields
+                                      document.getElementById('addressName').value = data.logradouro;
+                                      document.getElementById('addressState').value = data.uf;
+                                      document.getElementById('addressCity').value = data.localidade;
+                                      document.getElementById('neighbourhood').value = data.bairro;
+                                      // Remove the is-invalid class and clear the error message
+                                      document.getElementById('cep').classList.remove('is-invalid');
+                                      document.getElementById('viaCEPerror').textContent = '';
+                                  })
+                                  .catch(error => {
+                                      console.error('Error:', error);
+                                      document.getElementById('viaCEPerror').textContent = error.message;
+                                      // Add the is-invalid class to show the error message
+                                      document.getElementById('cep').classList.add('is-invalid');
+                                  });
+                          }
+                      });
+                  </script>
+                </div>
+              </div>
+
+              <!-- Seção Contato -->
+              <div class="card shadow-lg mb-4">
+                <div class="card-body p-4">
+                  <h4 class="fs-4 card-title fw-bold mb-4">Dados para Contato</h4>
+                  <div id="telefones">
+                    <div class="mb-3">
+                      <label for="phone1" class="form-label">Telefone 1</label>
+                      <input type="tel" class="form-control" id="phone1" name="phone1" placeholder="(00) 00000-0000" inputmode="numeric" required>
+                    </div>
+                    <div class="mb-3">
+                      <label for="phone2" class="form-label">Telefone 2</label>
+                      <input type="tel" class="form-control" id="phone2" name="phone2" placeholder="(00) 00000-0000" inputmode="numeric">
+                    </div>
+                    <div class="mb-3">
+                      <label for="phone3" class="form-label">Telefone 3</label>
+                      <input type="tel" class="form-control" id="phone3" name="phone3" placeholder="(00) 00000-0000" inputmode="numeric">
+                    </div>
+                  </div>
+                  <script>
+                    ['phone1', 'phone2', 'phone3'].forEach(function(id) {
+                      document.getElementById(id).addEventListener('keyup', function(e) {
+                        var phone = e.target.value.replace(/\D/g, ''); // Remove all non-numeric characters
+                        if (phone.length > 11) {
+                          phone = phone.slice(0, 11); // Limit to 11 characters
+                        }
+                        phone = phone.replace(/^(\d{2})(\d{5})(\d{4})/, '($1) $2-$3'); // Format as (00) 00000-0000
+                        e.target.value = phone;
+                      });
+                    });
+                  </script>
+                  <div id="emails">
+                    <div class="mb-3">
+                      <label for="email" class="form-label">E-mail</label>
+                      <input type="email" class="form-control" id="email" name="email" placeholder="seu@email.com" required>
+                    </div>
+                    <div class="mb-3">
+                      <label for="emailRepeat" class="form-label">E-mail</label>
+                      <input type="email" class="form-control" id="emailRepeat" name="emailRepeat" placeholder="seu@email.com" required>
+                      <div class="form-text opacity-75">Você receberá uma mensagem no endereço cadastrado para confirmar o seu Email.</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Seção Acesso -->
+              <div class="card shadow-lg mb-4">
+                <div class="card-body p-4">
+                  <h4 class="fs-4 card-title fw-bold mb-4">Acesso e confirmação</h4>
+                  <div class="mb-3">
+                    <label class="form-label" for="password">Senha</label>
+                    <div class="input-group">
+                        <input id="password" type="password" class="form-control" name="password" required>
+                        <button id="togglePassword" class="btn btn-outline-secondary" type="button">
+                            <svg id="passwordIcon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                class="bi bi-eye-fill" viewBox="0 1 16 16">
+                                <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
+                                <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" />
+                            </svg>
+                            <svg id="passwordIconSlash" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                class="bi bi-eye-slash-fill d-none" viewBox="0 1 16 16">
+                                <path
+                                    d="m10.79 12.912-1.614-1.615a3.5 3.5 0 0 1-4.474-4.474l-2.06-2.06C.938 6.278 0 8 0 8s3 5.5 8 5.5a7.029 7.029 0 0 0 2.79-.588zM5.21 3.088A7.028 7.028 0 0 1 8 2.5c5 0 8 5.5 8 5.5s-.939 1.721-2.641 3.238l-2.062-2.062a3.5 3.5 0 0 0-4.474-4.474L5.21 3.089z" />
+                                <path
+                                    d="M5.525 7.646a2.5 2.5 0 0 0 2.829 2.829l-2.83-2.829zm4.95.708-2.829-2.83a2.5 2.5 0 0 1 2.829 2.829zm3.171 6-12-12 .708-.708 12 12-.708.708z" />
+                            </svg>
+                        </button>
+                    </div>
+                    <script>
+                        // This code adds an event listener to the 'togglePassword' element, which toggles the visibility of the password input field when clicked. If the password input field is currently of type 'password', it changes it to type 'text', and vice versa.
+                        document.getElementById('togglePassword').addEventListener('click', function (e) {
+                            var passwordInput = document.getElementById('password');
+                            var passwordIcon = document.getElementById('passwordIcon');
+                            var passwordIconSlash = document.getElementById('passwordIconSlash');
+                            if (passwordInput.type === "password") {
+                                passwordInput.type = "text";
+                                passwordIcon.classList.replace('bi-eye', 'bi-eye-slash');
+                                passwordIcon.classList.add('d-none');
+                                passwordIconSlash.classList.remove('d-none');
+                            } else {
+                                passwordInput.type = "password";
+                                passwordIcon.classList.replace('bi-eye-slash', 'bi-eye');
+                                passwordIcon.classList.remove('d-none');
+                                passwordIconSlash.classList.add('d-none');
+                            }
+                        });
+                    </script>
+                    
+                    <div class="form-text opacity-75">
+                      A sua senha deve conter pelo menos:
+                      <ul>
+                        <li>1 letra maiúscula</li>
+                        <li>1 minúscula</li>
+                        <li>1 número</li>
+                        <li>1 caractere especial</li>
+                      </ul>
+                    </div>
+                    <div class="invalid-feedback">
+                      A Senha não segue os critérios de segurança.
+                    </div>
+                  </div>
+                  <div class="form-check mb-3">
+                    <input class="form-check-input" type="checkbox" value="" id="termsOfService" required>
+                    <label class="form-check-label" for="termsOfService">
+                      Eu aceito os <a href="termos.html">termos de uso</a>.
+                    </label>
+                    <div class="invalid-feedback">
+                      Você precisa aceitar para prosseguir.
+                    </div>
+                  </div>
+                  <div class="form-check mb-3">
+                    <input class="form-check-input" type="checkbox" value="" id="newsletterSubscription">
+                    <label class="form-check-label" for="newsletterSubscription">
+                      Eu autorizo o envio de notícias e informativos sobre novos concursos para meu email.
+                    </label>
+                  </div>
+                  <div class="d-grid">
+                    <button type="submit" class="btn btn-primary">
+                      Cadastrar
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+            </form>
+            <div class="text-center my-5 text-muted">
+                FGV Conhecimento - Inscreve Versão 2.4.0
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- scripts -->
+  <script src="js/bootstrap.js"></script>
+
+  <script>
+    // Add * after the label for every required input field
+    document.addEventListener('DOMContentLoaded', function() {
+      // Get all required input and select elements
+      var requiredInputs = document.querySelectorAll('input[required], select[required]');
+      
+      // Loop through each required input/select element
+      requiredInputs.forEach(function(input) {
+        // Get the label for this input/select
+        var label = document.querySelector('label[for="' + input.id + '"]');
+        
+        // If a label was found, add an asterisk to its text
+        if (label) {
+          label.innerHTML += ' <span class="text-danger">*</span>';
+        }
+      });
+    });
+
+    // Add the .unselected class to all .form-select elements para que eu possa estilizar o select placeholder
+    window.onload = function() {
+      // Get all .form-select elements
+      var selects = document.querySelectorAll('.form-select');
+
+      // Loop through each select element
+      selects.forEach(function(select) {
+        // Skip the select with id 'nationality'
+        if (select.id !== 'nationality') {
+          // Add the .unselected class
+          select.classList.add('unselected');
+
+          // Add an event listener for the change event
+          select.addEventListener('change', function() {
+            // When an option is selected, remove the .unselected class
+            this.classList.remove('unselected');
+          });
+        }
+      });
+    };
+  </script>
+
+</body>
+
+</html>

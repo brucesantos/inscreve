@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="pt">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Sistema Inscreve da FGV Conhecimento, para inscrições em concursos">
+    <title>Inscreve - FGV Conhecimento</title>
+    <link href="styles/main.css" rel="stylesheet">
+  </head>
+
+  <body class="bg-light">
+
+    <main class="container">
+
+      <section class="h-100">
+        <div class="container h-100">
+          <div class="row justify-content-sm-center h-100">
+            <div class="col-lg-6 col-md-7 col-sm-9">
+              <div class="text-center my-5">
+                <img src="images/logo-fgv-conhecimento.svg" alt="logo">
+              </div>
+              <div class="card shadow-lg">
+                <div class="card-body p-4">
+                  <h1 class="fs-4 card-title fw-bold mb-4">Acesso (Login)</h1>
+                  <form method="POST" class="needs-validation" novalidate="" autocomplete="off">
+                    <div class="mb-3">
+                        <label for="cpf" class="form-label">CPF</label>
+                        <input type="text" class="form-control" id="cpf" name="cpf" placeholder="000.000.000-00" required inputmode="numeric">
+                    </div>
+                    <script>
+                        // This code adds an event listener to the 'cpf' element, which formats the CPF input field as the user types. It adds a dot after the third digit, another dot after the sixth digit, and a dash before the last two digits.
+                        document.getElementById('cpf').addEventListener('input', function (e) {
+                            var value = e.target.value;
+                            value = value.replace(/\D/g, ""); // Remove all non-numeric characters
+                            if (value.length > 11) {
+                                value = value.slice(0, 11); // Limit the length to 11 digits
+                            }
+                            value = value.replace(/(\d{3})(\d)/, "$1.$2"); // Add a dot after the third digit
+                            value = value.replace(/(\d{3})(\d)/, "$1.$2"); // Add a dot after the third digit (again)
+                            value = value.replace(/(\d{3})(\d{2})$/, "$1-$2"); // Add a dash before the last two digits
+                            e.target.value = value;
+                        });
+                    </script>
+                    <div class="mb-3">
+                      <div class="w-100">
+                          <label class="form-label" for="password">Senha</label>
+                          <a href="forgot.html" class="float-end">
+                              Esqueceu a senha?
+                          </a>
+                      </div>
+                      <div class="input-group">
+                          <input id="password" type="password" class="form-control" name="password" required>
+                          <button id="togglePassword" class="btn btn-outline-secondary" type="button">
+                              <svg id="passwordIcon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                  class="bi bi-eye-fill" viewBox="0 1 16 16">
+                                  <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
+                                  <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" />
+                              </svg>
+                              <svg id="passwordIconSlash" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                  class="bi bi-eye-slash-fill d-none" viewBox="0 1 16 16">
+                                  <path
+                                      d="m10.79 12.912-1.614-1.615a3.5 3.5 0 0 1-4.474-4.474l-2.06-2.06C.938 6.278 0 8 0 8s3 5.5 8 5.5a7.029 7.029 0 0 0 2.79-.588zM5.21 3.088A7.028 7.028 0 0 1 8 2.5c5 0 8 5.5 8 5.5s-.939 1.721-2.641 3.238l-2.062-2.062a3.5 3.5 0 0 0-4.474-4.474L5.21 3.089z" />
+                                  <path
+                                      d="M5.525 7.646a2.5 2.5 0 0 0 2.829 2.829l-2.83-2.829zm4.95.708-2.829-2.83a2.5 2.5 0 0 1 2.829 2.829zm3.171 6-12-12 .708-.708 12 12-.708.708z" />
+                              </svg>
+                          </button>
+                      </div>
+                      <script>
+                          // This code adds an event listener to the 'togglePassword' element, which toggles the visibility of the password input field when clicked. If the password input field is currently of type 'password', it changes it to type 'text', and vice versa.
+                          document.getElementById('togglePassword').addEventListener('click', function (e) {
+                              var passwordInput = document.getElementById('password');
+                              var passwordIcon = document.getElementById('passwordIcon');
+                              var passwordIconSlash = document.getElementById('passwordIconSlash');
+                              if (passwordInput.type === "password") {
+                                  passwordInput.type = "text";
+                                  passwordIcon.classList.replace('bi-eye', 'bi-eye-slash');
+                                  passwordIcon.classList.add('d-none');
+                                  passwordIconSlash.classList.remove('d-none');
+                              } else {
+                                  passwordInput.type = "password";
+                                  passwordIcon.classList.replace('bi-eye-slash', 'bi-eye');
+                                  passwordIcon.classList.remove('d-none');
+                                  passwordIconSlash.classList.add('d-none');
+                              }
+                          });
+                      </script>
+                      
+                      <div class="invalid-feedback">
+                          Usuário ou senha, inválidos.
+                      </div>
+                    </div>
+                    <div class="d-flex align-items-center mt-4">
+                      <div class="form-check">
+                        <input type="checkbox" name="remember" id="remember" class="form-check-input">
+                        <label for="remember" class="form-check-label">Lembre de mim</label>
+                      </div>
+                      <button type="submit" class="btn btn-primary ms-auto">
+                        Entrar
+                      </button>
+                    </div>
+                  </form>
+                </div>
+                <div class="card-footer py-3 border-0">
+                  <div class="text-center">
+                    Não tem uma Conta? <a href="register.html" class="text-dark">Cadastre-se</a>
+                  </div>
+                </div>
+              </div>
+              <div class="text-center my-5 text-muted">
+                  FGV Conhecimento - Inscreve Versão 2.4.0
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+    </main>
+
+    <!-- scripts -->
+    <script src="js/bootstrap.js"></script>
+
+  </body>
+</html>
