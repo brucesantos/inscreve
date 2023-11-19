@@ -1,0 +1,65 @@
+<nav id="containerDoConteudo" class="d-none d-lg-block position-fixed">
+    <ul id="conteudoDoCadastro" class="list-unstyled text-body-secondary">
+        <li><a href="#etapaCadastro">Cadastro</a></li>
+        <li><a href="#etapaFamiliares">Dados de Familiares</a></li>
+        <li><a href="#etapaRG">Documento (RG)</a></li>
+        <li><a href="#etapaOrigem">Origem</a></li>
+        <li><a href="#etapaPessoais">Informações Pessoais</a></li>
+        <li><a href="#etapaEndereco">Endereço</a></li>
+        <li><a href="#etapaContato">Dados para Contato</a></li>
+        <li><a href="#etapaAcesso">Acesso e Confirmação</a></li>
+    </ul>
+</nav>
+<script>
+    // centralizar o conteudo do cadastro
+    function updateMarginTop() {
+        var element = document.getElementById('conteudoDoCadastro');
+        var container = document.getElementById('containerDoConteudo');
+        var elementHeight = element.getBoundingClientRect().height;
+        var containerHeight = container.getBoundingClientRect().height;
+        var marginTop = (elementHeight - containerHeight) / 2;
+        element.style.marginTop = -marginTop + 'px';
+        // console.log("Margin Top: " + -marginTop + 'px');
+    }
+    // atualizar o margin top quando a janela for redimensionada
+    document.addEventListener('DOMContentLoaded', function() {
+        updateMarginTop();
+        window.onresize = updateMarginTop;
+    });
+
+    // ativar cada item do conteudo de acordo com a seção que está visível
+    document.addEventListener('DOMContentLoaded', function() {
+        
+        // Prevent default action of click event on anchor elements, para não usar a sidebar como navegacao do conteudo
+        document.querySelectorAll('#conteudoDoCadastro li a').forEach(function(a) {
+            a.addEventListener('click', function(event) {
+                event.preventDefault();
+            });
+        });
+
+        // Add 'active' class to the first list item
+        var observer = new IntersectionObserver(function(entries) {
+            var closestEntry = entries.reduce(function(prev, curr) {
+                var prevTop = prev.boundingClientRect.top;
+                var currTop = curr.boundingClientRect.top;
+                return (Math.abs(prevTop) < Math.abs(currTop)) ? prev : curr;
+            });
+
+            var id = closestEntry.target.getAttribute('id');
+            var navLink = document.querySelector('#conteudoDoCadastro li a[href="#' + id + '"]');
+
+            // Remove 'active' class from all list items
+            document.querySelectorAll('#conteudoDoCadastro li').forEach(function(li) {
+                li.classList.remove('active');
+            });
+
+            // Add 'active' class to the closest list item
+            navLink.parentElement.classList.add('active');
+        }, { threshold: 1 });
+
+        // Track all divs with class 'card' that have an `id` applied
+        document.querySelectorAll('div.card[id]').forEach(function (section) {
+            observer.observe(section);
+        });
+    });
+</script>

@@ -32,12 +32,57 @@
         <select class="form-select" id="addressState" name="addressState" required style="max-width: 80px;">
             <!-- @import estadosbrasileiros -->
         </select>
-        <input type="text" class="form-control" id="addressCity" name="addressCity" placeholder="Nome da Cidade"
-            required>
+        <select class="form-select" id="addressCity" name="addressCity" required>
+            <option selected disabled value="">Escolha o Estado primeiro</option>
+            <!-- City options will be populated here -->
+        </select>
     </div>
 </div>
-<!-- completar endereco com o CEP automaticamente -->
 <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var addressStateSelect = document.getElementById('addressState');
+        var addressCitySelect = document.getElementById('addressCity');
+
+        // Initially disable the addressCity select field
+        addressCitySelect.disabled = true;
+
+        // Add a change event listener to the addressState select field
+        addressStateSelect.addEventListener('change', function() {
+            // Get the selected state
+            var selectedState = addressStateSelect.value;
+
+            // Show a loading message in the addressCity select field and keep it disabled
+            addressCitySelect.innerHTML = '<option>Carregando...</option>';
+            addressCitySelect.disabled = true;
+
+            // Fetch the cities of the selected state from the IBGE API
+            fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${selectedState}/municipios`)
+                .then(response => response.json())
+                .then(data => {
+                    // Clear the addressCity select field
+                    addressCitySelect.innerHTML = '<option selected disabled value="">Município</option>';
+
+                    // Add an option for each city
+                    data.forEach(city => {
+                        var option = document.createElement('option');
+                        option.value = city.nome;
+                        option.text = city.nome;
+                        addressCitySelect.appendChild(option);
+                    });
+
+                    // Enable the addressCity select field
+                    addressCitySelect.disabled = false;
+                })
+                .catch(error => {
+                    // Show an error message in the addressCity select field and keep it disabled
+                    addressCitySelect.innerHTML = '<option>Error loading cities</option>';
+                    addressCitySelect.disabled = true;
+
+                    console.error('Error:', error);
+                });
+        });
+    });
+
     document.getElementById('cep').addEventListener('keyup', function (e) {
         var cep = e.target.value.replace(/\D/g, ''); // Remove all non-numeric characters
         if (cep.length > 8) {
@@ -57,7 +102,15 @@
                     // Populate the address fields
                     document.getElementById('addressName').value = data.logradouro;
                     document.getElementById('addressState').value = data.uf;
-                    document.getElementById('addressCity').value = data.localidade;
+
+                    // Create a new option element for the city
+                    var citySelect = document.getElementById('addressCity');
+                    citySelect.innerHTML = ''; // Clear any existing options
+                    var option = document.createElement('option');
+                    option.value = data.localidade;
+                    option.text = data.localidade;
+                    citySelect.add(option);
+
                     document.getElementById('neighbourhood').value = data.bairro;
                     // Remove the is-invalid class and clear the error message
                     document.getElementById('cep').classList.remove('is-invalid');
@@ -68,6 +121,9 @@
                     document.getElementById('viaCEPerror').textContent = error.message;
                     // Add the is-invalid class to show the error message
                     document.getElementById('cep').classList.add('is-invalid');
+
+                    // Enable the addressState select field to allow the user to select a state
+                    document.getElementById('addressState').disabled = false;
                 });
         }
     });

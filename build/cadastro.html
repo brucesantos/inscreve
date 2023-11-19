@@ -13,6 +13,72 @@
 
   <main class="container">
 
+    <nav id="containerDoConteudo" class="d-none d-lg-block position-fixed">
+        <ul id="conteudoDoCadastro" class="list-unstyled text-body-secondary">
+            <li><a href="#etapaCadastro">Cadastro</a></li>
+            <li><a href="#etapaFamiliares">Dados de Familiares</a></li>
+            <li><a href="#etapaRG">Documento (RG)</a></li>
+            <li><a href="#etapaOrigem">Origem</a></li>
+            <li><a href="#etapaPessoais">Informações Pessoais</a></li>
+            <li><a href="#etapaEndereco">Endereço</a></li>
+            <li><a href="#etapaContato">Dados para Contato</a></li>
+            <li><a href="#etapaAcesso">Acesso e Confirmação</a></li>
+        </ul>
+    </nav>
+    <script>
+        // centralizar o conteudo do cadastro
+        function updateMarginTop() {
+            var element = document.getElementById('conteudoDoCadastro');
+            var container = document.getElementById('containerDoConteudo');
+            var elementHeight = element.getBoundingClientRect().height;
+            var containerHeight = container.getBoundingClientRect().height;
+            var marginTop = (elementHeight - containerHeight) / 2;
+            element.style.marginTop = -marginTop + 'px';
+            // console.log("Margin Top: " + -marginTop + 'px');
+        }
+        // atualizar o margin top quando a janela for redimensionada
+        document.addEventListener('DOMContentLoaded', function() {
+            updateMarginTop();
+            window.onresize = updateMarginTop;
+        });
+    
+        // ativar cada item do conteudo de acordo com a seção que está visível
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // Prevent default action of click event on anchor elements, para não usar a sidebar como navegacao do conteudo
+            document.querySelectorAll('#conteudoDoCadastro li a').forEach(function(a) {
+                a.addEventListener('click', function(event) {
+                    event.preventDefault();
+                });
+            });
+    
+            // Add 'active' class to the first list item
+            var observer = new IntersectionObserver(function(entries) {
+                var closestEntry = entries.reduce(function(prev, curr) {
+                    var prevTop = prev.boundingClientRect.top;
+                    var currTop = curr.boundingClientRect.top;
+                    return (Math.abs(prevTop) < Math.abs(currTop)) ? prev : curr;
+                });
+    
+                var id = closestEntry.target.getAttribute('id');
+                var navLink = document.querySelector('#conteudoDoCadastro li a[href="#' + id + '"]');
+    
+                // Remove 'active' class from all list items
+                document.querySelectorAll('#conteudoDoCadastro li').forEach(function(li) {
+                    li.classList.remove('active');
+                });
+    
+                // Add 'active' class to the closest list item
+                navLink.parentElement.classList.add('active');
+            }, { threshold: 1 });
+    
+            // Track all divs with class 'card' that have an `id` applied
+            document.querySelectorAll('div.card[id]').forEach(function (section) {
+                observer.observe(section);
+            });
+        });
+    </script>
+
     <section class="h-100">
       <div class="container h-100">
         <div class="row justify-content-sm-center h-100">
@@ -23,7 +89,7 @@
 
             <form method="POST" class="needs-validation" novalidate="" autocomplete="off"></form>
 
-              <div class="card shadow-lg mb-4">
+              <div id="etapaCadastro" class="card shadow-lg mb-4">
                 <div class="card-body p-4">
                   <h1 class="fs-4 card-title fw-bold mb-4">Cadastro</h1>
                   <p><span class="text-danger">*</span> <span class="opacity-75">Campos obrigatórios</span></p>
@@ -80,7 +146,7 @@
                 </div>
               </div>
 
-              <div class="card shadow-lg mb-4">
+              <div id="etapaFamiliares" class="card shadow-lg mb-4">
                 <div class="card-body p-4">
                   <h4 class="fs-4 card-title fw-bold mb-4">Dados Familiares</h4>
                   <div class="mb-3">
@@ -124,13 +190,13 @@
               </div>
 
               <!-- Seção Documento (RG) -->
-              <div class="card shadow-lg mb-4">
+              <div id="etapaRG" class="card shadow-lg mb-4">
                 <div class="card-body p-4">
                   <h4 class="fs-4 card-title fw-bold mb-4">Documento (RG)</h4>
                   <div class="mb-3">
                     <label for="rg" class="form-label">Nº do RG</label>
                     <div class="input-group">
-                        <input type="text" class="form-control" id="rg" name="rg" placeholder="00.000.000" required inputmode="numeric">
+                        <input type="text" class="form-control" id="rg" name="rg" placeholder="00.000.000" required inputmode="numeric" style="max-width: 130px;">
                         <span class="input-group-text">Dígito</span>
                         <input type="text" class="form-control" id="rgDigit" name="rgDigit" placeholder="0" style="max-width: 50px;">
                     </div>
@@ -234,7 +300,7 @@
               </div>
 
               <!-- Seção Origem -->
-              <div class="card shadow-lg mb-4">
+              <div id="etapaOrigem" class="card shadow-lg mb-4">
                 <div class="card-body p-4">
                   <h4 class="fs-4 card-title fw-bold mb-4">Origem</h4>
                   <!-- Nacionalidade -->
@@ -654,7 +720,7 @@
               </div>
 
               <!-- Seção Informações Pessoais -->
-              <div class="card shadow-lg mb-4">
+              <div id="etapaPessoais" class="card shadow-lg mb-4">
                 <div class="card-body p-4">
                   <h4 class="fs-4 card-title fw-bold mb-4">Informações Pessoais</h4>
                   <!-- Estado Civil -->
@@ -975,7 +1041,7 @@
               </div>
 
               <!-- Seção Endereço -->
-              <div class="card shadow-lg mb-4">
+              <div id="etapaEndereco" class="card shadow-lg mb-4">
                 <div class="card-body p-4">
                   <h4 class="fs-4 card-title fw-bold mb-4">Endereço</h4>
                   <div class="mb-3">
@@ -1039,12 +1105,57 @@
                               <option value="SE">SE</option>
                               <option value="TO">TO</option>
                           </select>
-                          <input type="text" class="form-control" id="addressCity" name="addressCity" placeholder="Nome da Cidade"
-                              required>
+                          <select class="form-select" id="addressCity" name="addressCity" required>
+                              <option selected disabled value="">Escolha o Estado primeiro</option>
+                              <!-- City options will be populated here -->
+                          </select>
                       </div>
                   </div>
-                  <!-- completar endereco com o CEP automaticamente -->
                   <script>
+                      document.addEventListener('DOMContentLoaded', function() {
+                          var addressStateSelect = document.getElementById('addressState');
+                          var addressCitySelect = document.getElementById('addressCity');
+                  
+                          // Initially disable the addressCity select field
+                          addressCitySelect.disabled = true;
+                  
+                          // Add a change event listener to the addressState select field
+                          addressStateSelect.addEventListener('change', function() {
+                              // Get the selected state
+                              var selectedState = addressStateSelect.value;
+                  
+                              // Show a loading message in the addressCity select field and keep it disabled
+                              addressCitySelect.innerHTML = '<option>Carregando...</option>';
+                              addressCitySelect.disabled = true;
+                  
+                              // Fetch the cities of the selected state from the IBGE API
+                              fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${selectedState}/municipios`)
+                                  .then(response => response.json())
+                                  .then(data => {
+                                      // Clear the addressCity select field
+                                      addressCitySelect.innerHTML = '<option selected disabled value="">Município</option>';
+                  
+                                      // Add an option for each city
+                                      data.forEach(city => {
+                                          var option = document.createElement('option');
+                                          option.value = city.nome;
+                                          option.text = city.nome;
+                                          addressCitySelect.appendChild(option);
+                                      });
+                  
+                                      // Enable the addressCity select field
+                                      addressCitySelect.disabled = false;
+                                  })
+                                  .catch(error => {
+                                      // Show an error message in the addressCity select field and keep it disabled
+                                      addressCitySelect.innerHTML = '<option>Error loading cities</option>';
+                                      addressCitySelect.disabled = true;
+                  
+                                      console.error('Error:', error);
+                                  });
+                          });
+                      });
+                  
                       document.getElementById('cep').addEventListener('keyup', function (e) {
                           var cep = e.target.value.replace(/\D/g, ''); // Remove all non-numeric characters
                           if (cep.length > 8) {
@@ -1064,7 +1175,15 @@
                                       // Populate the address fields
                                       document.getElementById('addressName').value = data.logradouro;
                                       document.getElementById('addressState').value = data.uf;
-                                      document.getElementById('addressCity').value = data.localidade;
+                  
+                                      // Create a new option element for the city
+                                      var citySelect = document.getElementById('addressCity');
+                                      citySelect.innerHTML = ''; // Clear any existing options
+                                      var option = document.createElement('option');
+                                      option.value = data.localidade;
+                                      option.text = data.localidade;
+                                      citySelect.add(option);
+                  
                                       document.getElementById('neighbourhood').value = data.bairro;
                                       // Remove the is-invalid class and clear the error message
                                       document.getElementById('cep').classList.remove('is-invalid');
@@ -1075,6 +1194,9 @@
                                       document.getElementById('viaCEPerror').textContent = error.message;
                                       // Add the is-invalid class to show the error message
                                       document.getElementById('cep').classList.add('is-invalid');
+                  
+                                      // Enable the addressState select field to allow the user to select a state
+                                      document.getElementById('addressState').disabled = false;
                                   });
                           }
                       });
@@ -1083,7 +1205,7 @@
               </div>
 
               <!-- Seção Contato -->
-              <div class="card shadow-lg mb-4">
+              <div id="etapaContato" class="card shadow-lg mb-4">
                 <div class="card-body p-4">
                   <h4 class="fs-4 card-title fw-bold mb-4">Dados para Contato</h4>
                   <div id="telefones">
@@ -1127,7 +1249,7 @@
               </div>
 
               <!-- Seção Acesso -->
-              <div class="card shadow-lg mb-4">
+              <div id="etapaAcesso" class="card shadow-lg mb-4">
                 <div class="card-body p-4">
                   <h4 class="fs-4 card-title fw-bold mb-4">Acesso e confirmação</h4>
                   <div class="mb-3">

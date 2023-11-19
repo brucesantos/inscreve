@@ -45,6 +45,14 @@
       "oO" : 1,
       "oS" : 1
     },
+    "\/source\/_conteudo-do-cadastro.kit" : {
+      "cB" : 0,
+      "ft" : 2048,
+      "hM" : 0,
+      "oA" : 1,
+      "oAP" : "\/build\/_conteudo-do-cadastro.html",
+      "oF" : 0
+    },
     "\/source\/_cpf.kit" : {
       "cB" : 0,
       "ft" : 2048,
@@ -83,14 +91,6 @@
       "hM" : 0,
       "oA" : 1,
       "oAP" : "\/build\/_filhos.html",
-      "oF" : 0
-    },
-    "\/source\/_logradouro.kit" : {
-      "cB" : 0,
-      "ft" : 2048,
-      "hM" : 0,
-      "oA" : 1,
-      "oAP" : "\/build\/_logradouro.html",
       "oF" : 0
     },
     "\/source\/_nascimento.kit" : {
@@ -148,6 +148,19 @@
       "oA" : 0,
       "oAP" : "\/build\/cadastro.html",
       "oF" : 0
+    },
+    "\/source\/images\/fundo.jpg" : {
+      "ft" : 16384,
+      "iS" : 112768,
+      "jF" : 0,
+      "oA" : 0,
+      "oAP" : "\/build\/images\/fundo.jpg",
+      "oF" : 0,
+      "oIPL" : 0,
+      "opt" : 1,
+      "ou" : "lpckwebp-none",
+      "q" : 100,
+      "rq" : 75
     },
     "\/source\/images\/logo-fgv-conhecimento.svg" : {
       "ft" : 2097152,
@@ -214,6 +227,21 @@
       "sC" : 3,
       "tS" : 0
     },
+    "\/source\/styles\/_cadastro.scss" : {
+      "aP" : 1,
+      "bl" : 0,
+      "co" : 2,
+      "dP" : 10,
+      "ec" : 1,
+      "ft" : 4,
+      "ma" : 0,
+      "oA" : 1,
+      "oAP" : "\/build\/styles\/_cadastro.css",
+      "oF" : 0,
+      "oS" : 0,
+      "pg" : 0,
+      "sct" : 0
+    },
     "\/source\/styles\/_custom.scss" : {
       "aP" : 1,
       "bl" : 0,
@@ -257,7 +285,7 @@
     "displayValueWasSetByUser" : 0,
     "iconImageName" : "\/source\/images\/logo@2x.png",
     "iconImageWasSetByUser" : 0,
-    "lastBuiltDate" : 721940066.22044206
+    "lastBuiltDate" : 722101009.556952
   },
   "projectSettings" : {
     "abortBuildOnError" : 1,

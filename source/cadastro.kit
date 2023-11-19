@@ -13,6 +13,8 @@
 
   <main class="container">
 
+    <!-- @import "conteudo-do-cadastro" -->
+
     <section class="h-100">
       <div class="container h-100">
         <div class="row justify-content-sm-center h-100">
@@ -23,7 +25,7 @@
 
             <form method="POST" class="needs-validation" novalidate="" autocomplete="off"></form>
 
-              <div class="card shadow-lg mb-4">
+              <div id="etapaCadastro" class="card shadow-lg mb-4">
                 <div class="card-body p-4">
                   <h1 class="fs-4 card-title fw-bold mb-4">Cadastro</h1>
                   <p><span class="text-danger">*</span> <span class="opacity-75">Campos obrigatórios</span></p>
@@ -45,7 +47,7 @@
                 </div>
               </div>
 
-              <div class="card shadow-lg mb-4">
+              <div id="etapaFamiliares" class="card shadow-lg mb-4">
                 <div class="card-body p-4">
                   <h4 class="fs-4 card-title fw-bold mb-4">Dados Familiares</h4>
                   <!-- @import filhos -->
@@ -63,13 +65,13 @@
               </div>
 
               <!-- Seção Documento (RG) -->
-              <div class="card shadow-lg mb-4">
+              <div id="etapaRG" class="card shadow-lg mb-4">
                 <div class="card-body p-4">
                   <h4 class="fs-4 card-title fw-bold mb-4">Documento (RG)</h4>
                   <div class="mb-3">
                     <label for="rg" class="form-label">Nº do RG</label>
                     <div class="input-group">
-                        <input type="text" class="form-control" id="rg" name="rg" placeholder="00.000.000" required inputmode="numeric">
+                        <input type="text" class="form-control" id="rg" name="rg" placeholder="00.000.000" required inputmode="numeric" style="max-width: 130px;">
                         <span class="input-group-text">Dígito</span>
                         <input type="text" class="form-control" id="rgDigit" name="rgDigit" placeholder="0" style="max-width: 50px;">
                     </div>
@@ -146,7 +148,7 @@
               </div>
 
               <!-- Seção Origem -->
-              <div class="card shadow-lg mb-4">
+              <div id="etapaOrigem" class="card shadow-lg mb-4">
                 <div class="card-body p-4">
                   <h4 class="fs-4 card-title fw-bold mb-4">Origem</h4>
                   <!-- @import naturalidade -->
@@ -177,7 +179,7 @@
               </div>
 
               <!-- Seção Informações Pessoais -->
-              <div class="card shadow-lg mb-4">
+              <div id="etapaPessoais" class="card shadow-lg mb-4">
                 <div class="card-body p-4">
                   <h4 class="fs-4 card-title fw-bold mb-4">Informações Pessoais</h4>
                   <!-- Estado Civil -->
@@ -212,7 +214,7 @@
               </div>
 
               <!-- Seção Endereço -->
-              <div class="card shadow-lg mb-4">
+              <div id="etapaEndereco" class="card shadow-lg mb-4">
                 <div class="card-body p-4">
                   <h4 class="fs-4 card-title fw-bold mb-4">Endereço</h4>
                   <!-- @import endereco -->
@@ -220,7 +222,7 @@
               </div>
 
               <!-- Seção Contato -->
-              <div class="card shadow-lg mb-4">
+              <div id="etapaContato" class="card shadow-lg mb-4">
                 <div class="card-body p-4">
                   <h4 class="fs-4 card-title fw-bold mb-4">Dados para Contato</h4>
                   <div id="telefones">
@@ -264,7 +266,7 @@
               </div>
 
               <!-- Seção Acesso -->
-              <div class="card shadow-lg mb-4">
+              <div id="etapaAcesso" class="card shadow-lg mb-4">
                 <div class="card-body p-4">
                   <h4 class="fs-4 card-title fw-bold mb-4">Acesso e confirmação</h4>
                   <div class="mb-3">

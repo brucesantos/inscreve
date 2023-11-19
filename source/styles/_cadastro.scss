@@ -1,0 +1,35 @@
+#containerDoConteudo {
+    left: 0;
+    top: 0;
+    bottom: 0;
+    margin: 2em;
+}
+#conteudoDoCadastro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    li {
+        padding: .5em 1em;
+        &.active {
+            border-left: 3px solid $primary;
+            background-color: rgba($color: $primary, $alpha: .1);
+            @extend .rounded-end;
+            @extend .fw-bold;
+        }
+        a {
+            color: inherit;  /* Make the text color the same as the surrounding text */
+            text-decoration: none;  /* Remove underline */
+            cursor: default;  /* Change cursor style to default */
+        }
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    body {
+        background-image: url('../images/fundo.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }
+}
