@@ -93,6 +93,14 @@
       "oAP" : "\/build\/_filhos.html",
       "oF" : 0
     },
+    "\/source\/_header.kit" : {
+      "cB" : 0,
+      "ft" : 2048,
+      "hM" : 0,
+      "oA" : 1,
+      "oAP" : "\/build\/_header.html",
+      "oF" : 0
+    },
     "\/source\/_nascimento.kit" : {
       "cB" : 0,
       "ft" : 2048,
@@ -147,6 +155,14 @@
       "hM" : 0,
       "oA" : 0,
       "oAP" : "\/build\/cadastro.html",
+      "oF" : 0
+    },
+    "\/source\/dashboard.kit" : {
+      "cB" : 0,
+      "ft" : 2048,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/build\/dashboard.html",
       "oF" : 0
     },
     "\/source\/images\/fundo.jpg" : {
@@ -257,6 +273,21 @@
       "pg" : 0,
       "sct" : 0
     },
+    "\/source\/styles\/_dashboard.scss" : {
+      "aP" : 1,
+      "bl" : 0,
+      "co" : 2,
+      "dP" : 10,
+      "ec" : 1,
+      "ft" : 4,
+      "ma" : 0,
+      "oA" : 1,
+      "oAP" : "\/build\/styles\/_dashboard.css",
+      "oF" : 0,
+      "oS" : 0,
+      "pg" : 0,
+      "sct" : 0
+    },
     "\/source\/styles\/main.scss" : {
       "aP" : 1,
       "bl" : 0,
@@ -285,7 +316,7 @@
     "displayValueWasSetByUser" : 0,
     "iconImageName" : "\/source\/images\/logo@2x.png",
     "iconImageWasSetByUser" : 0,
-    "lastBuiltDate" : 722101009.556952
+    "lastBuiltDate" : 722572523.48251498
   },
   "projectSettings" : {
     "abortBuildOnError" : 1,

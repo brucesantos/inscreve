@@ -23,13 +23,3 @@
         }
     }
 }
-
-@include media-breakpoint-up(lg) {
-    body {
-        background-image: url('../images/fundo.jpg');
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed;
-    }
-}

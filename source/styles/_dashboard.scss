@@ -1,0 +1,23 @@
+#dadosPessoais {
+    border-right: 1px solid rgba(black, .1);
+}
+
+// deixar os espaçamentos entre as colunas menores
+.row-smaller-gutter {
+    --bs-gutter-x: 0.5rem;
+}
+
+#previewDados {
+    .label {
+        opacity: .6;
+    }
+    li {
+        height: 56px;
+        align-items: center;
+    }
+}
+
+// serve para deixar o header das duas colunas com o mesmo tamanho
+.headerColuna {
+    height: 40px;
+}
