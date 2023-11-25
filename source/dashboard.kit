@@ -113,6 +113,15 @@
                 }
             }
         });
+
+        // Select the #inscricoes element
+        var inscricoes = document.querySelector('#inscricoes');
+
+        // Check if it contains any .card elements
+        if (inscricoes.querySelectorAll('.card').length === 0) {
+            // If it does not contain any .card elements, insert an empty state message
+            inscricoes.innerHTML = '<p class="text-center">No cards available.</p>';
+        }
     </script>
 
     <!-- @import "versao" -->
