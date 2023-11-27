@@ -51,51 +51,37 @@
     <div class="espacoHeader" style="height: 56px;"></div>
 
     <main class="container">
-        <div class="row mt-4">
-            <div class="col-lg-4" id="dadosPessoais">
-                <div class="mx-3 my-3 d-flex align-items-center headerColuna">
-                    <h5 style="margin: 0;">Dados Pessoais</h5>
+        <div class="mx-3 my-3 d-sm-flex justify-content-between align-items-center">
+            <h5>Concursos</h5>
+            <div class="d-flex align-items-center">
+                <div class="input-group me-2">
+                    <input type="text" class="form-control" id="buscaConcurso" name="buscaConcurso" placeholder="Concurso..." style="background-color: transparent;">
+                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">Buscar</button>
                 </div>
-                <ul class="list-group" id="previewDados">
-                    <li class="list-group-item d-flex justify-content-between">
-                        <div class="label">Nome</div>
-                        <div class="value" id="nome">Eudes Penteado da Silva</div>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between">
-                        <div class="label">CPF</div>
-                        <div class="value" id="cpf">000.000.000-00</div>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between">
-                        <div class="label">Nascimento</div>
-                        <div class="value" id="nome">01/02/2003</div>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="#" class="btn btn-secondary">Alteração Dados de Cadastro</a>
-                    </li>
-                </ul>
+                <div class="dropdown">
+                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Filtro
+                    </button>
+                    <ul class="dropdown-menu" id="availableFilterOptions">
+                        <li><a class="dropdown-item" href="#">Inscrições abertas</a></li>
+                        <li><a class="dropdown-item" href="#">Lorem Ipsum</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="col-lg-8">
-                <div class="mx-3 my-3 d-flex justify-content-between align-items-center headerColuna">
-                    <h5 style="margin: 0;">Inscrições</h5>
-                    <div class="d-flex align-items-center">
-                        <div class="dropdown mx-2">
-                            <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Filtro
-                            </button>
-                            <ul class="dropdown-menu" id="availableFilterOptions">
-                                <li><a class="dropdown-item" href="#">Pagamento pendente</a></li>
-                                <li><a class="dropdown-item" href="#">Aguardando resultado</a></li>
-                                <li><a class="dropdown-item" href="#">Concurso cancelado</a></li>
-                                <li><a class="dropdown-item" href="#">Concurso finalizado</a></li>
-                            </ul>
-                        </div>
-                        <div>
-                            <a href="#" class="btn btn-primary">Nova inscrição</a>
-                        </div>
-                    </div>
+        </div>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-smaller-gutter" id="concursos">
+        </div>
+        <div class="row" id="loadingList">
+            <div class="col text-center mt-4">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
                 </div>
-                <div class="row row-cols-1 row-cols-md-2 row-smaller-gutter" id="iscricoes">
-                </div>
+            </div>
+        </div>
+        <div class="row" id="emptyList">
+            <div class="col text-center mt-4 opacity-50">
+                <img src="images/empty.svg" width="100" alt="desenho de uma caixa sem nada dentro e um rosto triste">
+                <p class="mt-2">Nenhum concurso encontrado.</p>
             </div>
         </div>
       
@@ -124,7 +110,7 @@
             complete: function (results) {
                 var data = results.data;
                 // Get the container where the cards will be appended
-                var container = document.getElementById('iscricoes');
+                var container = document.getElementById('concursos');
 
                 // Loop through each row in the data
                 for (var i = 0; i < data.length; i++) {
@@ -138,8 +124,6 @@
                                 <div class="card-body">
                                     <span class="badge ${badgeColor} rounded-pill">${data[i].status}</span>
                                     <h5 class="card-title my-3">${data[i].examName}</h5>
-                                    <h6 class="card-subtitle mb-2 text-muted opacity-50">${data[i].applicationId}</h6>
-                                    <p class="card-text">${data[i].positionTitle}</p>
                                     <a href="#" class="btn btn-secondary">Ver Detalhes</a>
                                 </div>
                             </div>

@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="pt">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Sistema Inscreve da FGV Conhecimento, para inscrições em concursos">
+    <title>Inscreve - FGV Conhecimento</title>
+    <link href="styles/main.css" rel="stylesheet">
+  </head>
+
+  <body class="bg-light">
+    <!-- também conhecido como navbar -->
+    <!-- @import header -->
+
+    <main class="container">
+        <div class="mx-3 my-3 d-sm-flex justify-content-between align-items-center">
+            <h5>Concursos</h5>
+            <div class="d-flex align-items-center">
+                <div class="input-group me-2">
+                    <input type="text" class="form-control" id="buscaConcurso" name="buscaConcurso" placeholder="Concurso..." style="background-color: transparent;">
+                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">Buscar</button>
+                </div>
+                <div class="dropdown">
+                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Filtro
+                    </button>
+                    <ul class="dropdown-menu" id="availableFilterOptions">
+                        <li><a class="dropdown-item" href="#">Inscrições abertas</a></li>
+                        <li><a class="dropdown-item" href="#">Lorem Ipsum</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-smaller-gutter" id="concursos">
+        </div>
+        <div class="row" id="loadingList">
+            <div class="col text-center mt-4">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+        </div>
+        <div class="row" id="emptyList">
+            <div class="col text-center mt-4 opacity-50">
+                <img src="images/empty.svg" width="100" alt="desenho de uma caixa sem nada dentro e um rosto triste">
+                <p class="mt-2">Nenhum concurso encontrado.</p>
+            </div>
+        </div>
+      
+    </main>
+
+    <!-- parse the csv file -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+
+    <script>
+        // URL of the published CSV file
+        var csvUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQZKY0lECicrWHD6z-tIni39gG_cxnl-HF-UTDLHapR3aIoalQTfoO37dXB2Jfe1kMNQrCwoIEppHP8/pub?output=csv';
+
+        // Mapping from status to badge color
+        var statusToColor = {
+            'Pagamento pendente': 'text-bg-warning',
+            'Aguardando resultado': 'text-bg-info',
+            'Resultado disponível': 'text-bg-success',
+            'Concurso cancelado': 'text-bg-danger',
+            'Concurso finalizado': 'text-bg-secondary'
+        };
+
+        // Fetch and parse the CSV data
+        Papa.parse(csvUrl, {
+            download: true,
+            header: true,
+            complete: function (results) {
+                var data = results.data;
+                // Get the container where the cards will be appended
+                var container = document.getElementById('concursos');
+
+                // Loop through each row in the data
+                for (var i = 0; i < data.length; i++) {
+                    // Get the badge color for the current status
+                    var badgeColor = statusToColor[data[i].status] || 'text-bg-light';
+
+                    // Create a card for each row
+                    var card = `
+                        <div class="col d-flex">
+                            <div class="card mb-2 flex-grow-1">
+                                <div class="card-body">
+                                    <span class="badge ${badgeColor} rounded-pill">${data[i].status}</span>
+                                    <h5 class="card-title my-3">${data[i].examName}</h5>
+                                    <a href="#" class="btn btn-secondary">Ver Detalhes</a>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    
+                    // Append the card to the container
+                    container.innerHTML += card;
+                }
+            }
+        });
+
+        // Select the #inscricoes element
+        var inscricoes = document.querySelector('#inscricoes');
+
+        // Check if it contains any .card elements
+        if (inscricoes.querySelectorAll('.card').length === 0) {
+            // If it does not contain any .card elements, insert an empty state message
+            inscricoes.innerHTML = '<p class="text-center">No cards available.</p>';
+        }
+    </script>
+
+    <!-- @import "versao" -->
+
+    <!-- scripts -->
+    <script src="js/bootstrap.js"></script>
+
+  </body>
+</html>

@@ -149,6 +149,14 @@
       "oAP" : "\/build\/cadastro.html",
       "oF" : 0
     },
+    "\/source\/concursos.kit" : {
+      "cB" : 0,
+      "ft" : 2048,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/build\/concursos.html",
+      "oF" : 0
+    },
     "\/source\/dashboard.kit" : {
       "cB" : 0,
       "ft" : 2048,
@@ -156,6 +164,16 @@
       "oA" : 0,
       "oAP" : "\/build\/dashboard.html",
       "oF" : 0
+    },
+    "\/source\/images\/empty.svg" : {
+      "ft" : 2097152,
+      "miP" : 0,
+      "oA" : 0,
+      "oAP" : "\/build\/images\/empty.svg",
+      "oF" : 0,
+      "opt" : 1,
+      "plM" : 52780316221407,
+      "prP" : 0
     },
     "\/source\/images\/fundo.jpg" : {
       "ft" : 16384,
