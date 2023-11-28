@@ -196,6 +196,8 @@
 
     <!-- @import "rodape-enter" -->
 
+    <!-- @import "modal-exemplo" -->
+
     <!-- scripts -->
     <script src="js/bootstrap.js"></script>
    
@@ -205,6 +207,7 @@
             document.getElementById('previewDados').setAttribute('hidden', 'true');
             document.getElementById('etapasDoConcurso').setAttribute('hidden', 'true');
             document.getElementById('respostaUmFeedback').setAttribute('hidden', 'true');
+            document.getElementById('rodapeEnter').setAttribute('hidden', 'true');
             
             var perguntaUmRespostaSim = document.getElementById('perguntaUmRespostaSim');
             perguntaUmRespostaSim.addEventListener('change', function() {
@@ -227,6 +230,7 @@
             document.getElementById('emptyDetalheConcurso').setAttribute('hidden', 'true');
             document.getElementById('previewDados').removeAttribute('hidden');
             document.getElementById('etapasDoConcurso').removeAttribute('hidden');
+            document.getElementById('rodapeEnter').removeAttribute('hidden');
         });
     </script>
 

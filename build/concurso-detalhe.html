@@ -235,17 +235,37 @@
     </div>
 
     <div id="rodapeEnter">
-        <div class="container d-flex justify-content-end align-items-center gap-3">
-            <div id="salvoEm" class="opacity-50">
+        <div class="container d-flex justify-content-end align-items-center gap-4">
+            <div id="salvoEm" class="opacity-50 fst-italic">
                 Salvo às 22:33 - 18/02/2024
             </div>
-            <div class="d-flex align-items-center gap-3">
-                <button class="btn btn-secondary">Voltar</button>
-                <button class="btn btn-primary">Salvar</button>
+            <div class="d-flex align-items-center gap-2">
+                <!-- Botao que ativa o modal-exemplo -->
+                <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">Voltar</button>
+                <button type="button" class="btn btn-primary">Salvar</button>
             </div>
         </div>
     </div>
     <div id="rodapeSpace" style="height: 56px;">
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Confirmação</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Existem alterações não salvas. Deseja realmente sair?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Continuar Editando</button>
+                    <button type="button" class="btn btn-primary">Sair sem Salvar</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- scripts -->
@@ -257,6 +277,7 @@
             document.getElementById('previewDados').setAttribute('hidden', 'true');
             document.getElementById('etapasDoConcurso').setAttribute('hidden', 'true');
             document.getElementById('respostaUmFeedback').setAttribute('hidden', 'true');
+            document.getElementById('rodapeEnter').setAttribute('hidden', 'true');
             
             var perguntaUmRespostaSim = document.getElementById('perguntaUmRespostaSim');
             perguntaUmRespostaSim.addEventListener('change', function() {
@@ -279,6 +300,7 @@
             document.getElementById('emptyDetalheConcurso').setAttribute('hidden', 'true');
             document.getElementById('previewDados').removeAttribute('hidden');
             document.getElementById('etapasDoConcurso').removeAttribute('hidden');
+            document.getElementById('rodapeEnter').removeAttribute('hidden');
         });
     </script>
 

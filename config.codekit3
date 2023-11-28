@@ -101,6 +101,14 @@
       "oAP" : "\/build\/_header.html",
       "oF" : 0
     },
+    "\/source\/_modal-exemplo.kit" : {
+      "cB" : 0,
+      "ft" : 2048,
+      "hM" : 0,
+      "oA" : 1,
+      "oAP" : "\/build\/_modal-exemplo.html",
+      "oF" : 0
+    },
     "\/source\/_nascimento.kit" : {
       "cB" : 0,
       "ft" : 2048,
