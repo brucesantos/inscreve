@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="pt">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Sistema Inscreve da FGV Conhecimento, para inscrições em concursos">
+    <title>Inscreve - FGV Conhecimento</title>
+    <link href="styles/main.css" rel="stylesheet">
+  </head>
+
+  <body class="bg-light">
+    <!-- também conhecido como navbar -->
+    <!-- @import header -->
+
+    <main class="container">
+        <nav class="mt-4" aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Concurso</li>
+            </ol>
+        </nav>
+        <div class="row mt-4">
+            <div class="col-lg-4" id="dadosConcurso">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5>Concurso Público para a Assembleia Legislativa do Estado do Tocantins – ALETO</h5>
+                        <p class="text-secondary">Informações sobre o concurso podem ser obtidas pelo telefone <a href="tel:08002834628">0800 2834628</a> e pelo e-mail <a href="mailto:concursoaleto@fgv.br">concursoaleto@fgv.br</a>.</p>
+                        <div class="mb-3">
+                            <label for="cargo" class="form-label">Cargo</label>
+                            <select class="form-select" id="cargo" name="cargo" required>
+                              <option selected disabled value="">Escolher</option>
+                              <option value="policial-legislativo-II">Policial Legislativo II, Técnico Legislativo e Analista Legislativo</option>
+                              <option value="procurador-juridico">Procurador Jurídico</option>
+                            </select>
+                        </div>
+                        <div class="d-flex flex-column align-items-center" id="escolhaOCargo">
+                            <img class="animate__animated animate__fadeInUp animate__infinite infinite" src="images/arrow-up.svg" alt="seta apontando para cima">
+                            <p class="mt-2 text-center text-primary">Escolha o Cargo</p>
+                        </div>
+                        <ul class="list-group" id="previewDados">
+                            <li class="list-group-item d-flex justify-content-between">
+                                <div class="label">Data da Prova</div>
+                                <div class="value" id="dataProva">14/01/2023</div>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between">
+                                <div class="label">Horário da Prova</div>
+                                <div class="value" id="horaProva">00:00</div>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between">
+                                <div class="label">Remuneração</div>
+                                <div class="value" id="remuneracao">R$ 14.500,00</div>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between">
+                                <div class="label">Taxa de Inscrição</div>
+                                <div class="value" id="taxaInscricao">R$ 140,00</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="text-center rounded" id="emptyDetalheConcurso">
+                    <img class="opacity-50" src="images/dica.svg" alt="balão de conversa com o desenho de um rosto feliz dentro">
+                    <p class="opacity-50">Selecione o cargo para mais Informações</p>
+                </div>
+                <div id="etapasDoConcurso">
+                    <div class="accordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseUm" aria-expanded="true" aria-controls="collapseUm">
+                                    <div class="informacaoEtapa">
+                                        <div class="nomeEtapa">Resolução TJ n. 48/2023 - Comissão permanente do Concurso</div>
+                                        <div class="datas mt-2 d-md-flex align-items-center" style="font-size: 14px;">
+                                            <div class="opacity-50 d-flex me-2">
+                                                <div id="dataInicioEtapa">
+                                                    Início: <span>01/01/2023</span>
+                                                </div>
+                                                <div id="separadorDatas" class="mx-1">
+                                                    -
+                                                </div>
+                                                <div id="dataFimEtapa">
+                                                    Fim <span>01/02/2023</span>
+                                                </div>
+                                            </div>
+                                            <div class="status">
+                                                <span class="badge rounded-pill text-bg-info mt-2 mt-md-0">Status aqui</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </button>
+                            </h2>
+                            <div id="collapseUm" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <p>
+                                        Para fins de desempate, exerceu ou exerce a <strong>função de jurado</strong>, nos termos do Art. 440 do Código de Processo Penal?
+                                    </p>
+                                    <div class="respostasRadioInline mb-2">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="perguntaUm" id="perguntaUmRespostaNao" value="nao">
+                                            <label class="form-check-label" for="perguntaUmRespostaNao">Não</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="perguntaUm" id="perguntaUmRespostaSim" value="sim">
+                                            <label class="form-check-label" for="perguntaUmRespostaSim">Sim</label>
+                                        </div>
+                                    </div>
+                                    <div id="respostaUmFeedback">
+                                        <div class="text-secondary">
+                                            <p>
+                                                O candidato que tiver exercido à função de jurado deverá enviar, via upload, a documentação comprobatória, obrigatoriamente até às <strong>16h (horário de Brasília/DF) de 23 de novembro de 2023</strong>.
+                                                A documentação deverá ser <strong>enviada através do campo "Enviar Documentos", disponível abaixo</strong>. O envio poderá ocorrer durante todo o período de inscrição.
+                                            </p>
+                                            <p>
+                                                Para fins de comprovação das funções a que se referem as alíneas “f” do item 17.1 do Edital de abertura, serão aceitos atestados, certidões, declarações, ou outros
+                                                documentos públicos (original ou cópia autenticada em cartório) emitidos pelos Tribunais de Justiça estaduais e federais do país, nos termos do art. 440 do Código de Processo Penal, alterado pela Lei nº 11.689/2008.
+                                            </p>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="formFile" class="form-label">Documento</label>
+                                            <input class="form-control" type="file" id="formFile">
+                                            <div class="form-text">Tamanho máximo do arquivo é 5MB. Formatos aceitos: PDF, JPEG e JPG.</div>
+                                          </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDois" aria-expanded="false" aria-controls="collapseDois">
+                                    <div class="informacaoEtapa">
+                                        <div class="nomeEtapa">Resolução TJ n. 48/2023 - Comissão permanente do Concurso</div>
+                                        <div class="datas mt-2 d-md-flex align-items-center" style="font-size: 14px;">
+                                            <div class="opacity-50 d-flex me-2">
+                                                <div id="dataInicioEtapa">
+                                                    Data: <span>01/01/2023</span>
+                                                </div>
+                                            </div>
+                                            <div class="status">
+                                                <span class="badge rounded-pill text-bg-warning mt-2 mt-md-0">Status aqui</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </button>
+                            </h2>
+                            <div id="collapseDois" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in lectus gravida, ullamcorper mi nec, lobortis lorem. Integer ac efficitur massa. Mauris sed sapien mauris. Nulla gravida ultricies magna sed sollicitudin. Nullam sed ante vitae est dapibus tincidunt ut nec sem. Donec vel lorem in eros eleifend iaculis nec et metus. Aenean eu congue elit.
+                                    </p>
+                                    <p>
+                                        Integer fermentum placerat quam eu tincidunt. Sed tincidunt consectetur turpis. Quisque vel elit purus. Pellentesque auctor est magna, eget convallis arcu egestas at. Nulla non tristique libero. Nunc eu cursus diam. Duis congue arcu id ipsum condimentum, a vehicula sapien egestas. Nulla laoreet arcu eu nisi gravida, at ultricies odio consectetur. Maecenas sollicitudin molestie lectus, eu pharetra lorem lacinia imperdiet.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTres" aria-expanded="false" aria-controls="collapseTres">
+                                    <div class="informacaoEtapa">
+                                        <div class="nomeEtapa">Resolução TJ n. 48/2023 - Comissão permanente do Concurso</div>
+                                        <div class="datas mt-2 d-md-flex align-items-center" style="font-size: 14px;">
+                                            <div class="opacity-50 d-flex me-2">
+                                                <div id="dataInicioEtapa">
+                                                    Data: <span>01/01/2023</span>
+                                                </div>
+                                            </div>
+                                            <div class="status">
+                                                <span class="badge rounded-pill text-bg-success mt-2 mt-md-0">Status aqui</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </button>
+                            </h2>
+                            <div id="collapseTres" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in lectus gravida, ullamcorper mi nec, lobortis lorem. Integer ac efficitur massa. Mauris sed sapien mauris. Nulla gravida ultricies magna sed sollicitudin. Nullam sed ante vitae est dapibus tincidunt ut nec sem. Donec vel lorem in eros eleifend iaculis nec et metus. Aenean eu congue elit.
+                                    </p>
+                                    <p>
+                                        Integer fermentum placerat quam eu tincidunt. Sed tincidunt consectetur turpis. Quisque vel elit purus. Pellentesque auctor est magna, eget convallis arcu egestas at. Nulla non tristique libero. Nunc eu cursus diam. Duis congue arcu id ipsum condimentum, a vehicula sapien egestas. Nulla laoreet arcu eu nisi gravida, at ultricies odio consectetur. Maecenas sollicitudin molestie lectus, eu pharetra lorem lacinia imperdiet.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- @import "versao" -->
+
+    <!-- @import "rodape-enter" -->
+
+    <!-- scripts -->
+    <script src="js/bootstrap.js"></script>
+   
+    <script>
+        // inicializar o script e esconder os elementos necessários
+        window.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('previewDados').setAttribute('hidden', 'true');
+            document.getElementById('etapasDoConcurso').setAttribute('hidden', 'true');
+            document.getElementById('respostaUmFeedback').setAttribute('hidden', 'true');
+            
+            var perguntaUmRespostaSim = document.getElementById('perguntaUmRespostaSim');
+            perguntaUmRespostaSim.addEventListener('change', function() {
+                if (this.checked) {
+                    document.getElementById('respostaUmFeedback').removeAttribute('hidden');
+                }
+            });
+
+            var perguntaUmRespostaNao = document.getElementById('perguntaUmRespostaNao');
+            perguntaUmRespostaNao.addEventListener('change', function() {
+                if (this.checked) {
+                    document.getElementById('respostaUmFeedback').setAttribute('hidden', 'true');
+                }
+            });
+        });
+
+        // mostrar os detalhes do concurso após a escolha do cargo e esconder os calls to action para escolher o cargo
+        document.getElementById('cargo').addEventListener('change', function () {
+            document.getElementById('escolhaOCargo').setAttribute('hidden', 'true');
+            document.getElementById('emptyDetalheConcurso').setAttribute('hidden', 'true');
+            document.getElementById('previewDados').removeAttribute('hidden');
+            document.getElementById('etapasDoConcurso').removeAttribute('hidden');
+        });
+    </script>
+
+    
+
+  </body>
+</html>

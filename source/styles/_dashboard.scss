@@ -2,11 +2,6 @@
     border-right: 1px solid rgba(black, .1);
 }
 
-// deixar os espaçamentos entre as colunas menores
-.row-smaller-gutter {
-    --bs-gutter-x: 0.5rem;
-}
-
 #previewDados {
     .label {
         opacity: .6;

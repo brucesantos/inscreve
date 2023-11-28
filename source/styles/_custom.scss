@@ -1,5 +1,6 @@
 @import "cadastro";
 @import "dashboard";
+@import "concurso-detalhe";
 
 .navbar-toggler {
     padding: 0;
@@ -42,7 +43,12 @@
         color: $primary;
     }
     &:active {
-        background-color: rgba($primary, .3);
-        color: $primary;
+        background-color: rgba(darken($primary, 20), .2) !important;
+        color: darken($primary, 20) !important;
     }
+}
+
+// deixar os espaçamentos entre as colunas menores
+.row-smaller-gutter {
+    --bs-gutter-x: 0.5rem;
 }

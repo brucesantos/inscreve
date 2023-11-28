@@ -80,6 +80,9 @@ $theme-colors: map-merge($theme-colors, $custom-theme-colors);
 @import "../node_modules/bootstrap/scss/helpers";
 
 
+// importa o animate.css
+@import "../node_modules/animate.css/animate";
+
 // 7. Finally, add your custom Sass below, either directly or via imports:
 @import "custom";
 

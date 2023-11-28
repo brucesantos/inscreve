@@ -1,0 +1,20 @@
+#emptyDetalheConcurso {
+    background-color: rgba($color: $secondary, $alpha: .1);
+    padding: 142px 1em;
+}
+
+#etapasDoConcurso {
+    .accordion {
+        margin-bottom: 1em;
+    }
+}
+
+#rodapeEnter {
+    background-color: $white;
+    border-top: 1px solid rgba($black, .1);
+    padding: .5em 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
