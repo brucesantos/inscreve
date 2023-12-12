@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="pt">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Sistema Inscreve da FGV Conhecimento, para inscrições em concursos">
+    <title>Inscreve - FGV Conhecimento</title>
+    <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
+    <link href="styles/main.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <main class="container">
+        <form action="/file-upload" class="dropzone rounded border border-3 mt-4" id="my-awesome-dropzone">
+        </form>
+    </main>
+
+    <!-- scripts -->
+    <script src="js/bootstrap.js"></script>
+    <script>
+        Dropzone.options.myAwesomeDropzone = {
+            paramName: "file", // The name that will be used to transfer the file
+            maxFilesize: 8, // MB
+            addRemoveLinks: true, // Enables the removal of file previews
+            dictRemoveFile: '<img src="images/times.svg" alt="botão para remover o arquivo">', // botao de remover
+            dictDefaultMessage: "Arraste os arquivos aqui para fazer upload, ou clique aqui para escolher" // mensagem em portugues, quando está vazio
+        };
+    </script>
+
+  </body>
+</html>

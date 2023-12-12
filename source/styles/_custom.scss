@@ -52,3 +52,40 @@
 .row-smaller-gutter {
     --bs-gutter-x: 0.5rem;
 }
+
+// dropzone
+.dropzone {
+        border: 2px dashed $primary !important;
+        background: rgba($primary, 0.10);
+    }
+.dz-remove {
+    position: absolute;
+    top: -18px;
+    right: -18px;
+    background: $white;
+    border-radius: 99px;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    padding-top: 6px;
+    border: 1px solid rgba($black, .6);
+    box-shadow: $box-shadow;
+    transition: all .3s ease-in-out;
+    &:hover {
+        box-shadow: $box-shadow-sm;
+    }
+}
+.dz-preview {
+    background-color: transparent !important;
+}
+.dz-image {
+    border-radius: $border-radius-lg !important;
+}
+.dz-message {
+    color: $primary;
+    font-weight: bold;
+    padding-top: .25em;
+}
