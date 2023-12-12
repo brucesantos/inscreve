@@ -315,6 +315,14 @@
       "sC" : 3,
       "tS" : 0
     },
+    "\/source\/multiselect.kit" : {
+      "cB" : 0,
+      "ft" : 2048,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/build\/multiselect.html",
+      "oF" : 0
+    },
     "\/source\/styles\/_cadastro.scss" : {
       "aP" : 1,
       "bl" : 0,
@@ -325,6 +333,21 @@
       "ma" : 0,
       "oA" : 1,
       "oAP" : "\/build\/styles\/_cadastro.css",
+      "oF" : 0,
+      "oS" : 0,
+      "pg" : 0,
+      "sct" : 0
+    },
+    "\/source\/styles\/_choices.scss" : {
+      "aP" : 1,
+      "bl" : 0,
+      "co" : 2,
+      "dP" : 10,
+      "ec" : 1,
+      "ft" : 4,
+      "ma" : 0,
+      "oA" : 1,
+      "oAP" : "\/build\/styles\/_choices.css",
       "oF" : 0,
       "oS" : 0,
       "pg" : 0,
@@ -418,7 +441,7 @@
     "displayValueWasSetByUser" : 0,
     "iconImageName" : "\/source\/images\/logo@2x.png",
     "iconImageWasSetByUser" : 0,
-    "lastBuiltDate" : 724040230.29263401
+    "lastBuiltDate" : 724086111.35849905
   },
   "projectSettings" : {
     "abortBuildOnError" : 1,

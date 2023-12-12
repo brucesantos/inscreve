@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="pt">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Sistema Inscreve da FGV Conhecimento, para inscrições em concursos">
+    <title>Inscreve - FGV Conhecimento</title>
+    <!-- Multi select -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js@9.0.1/public/assets/styles/choices.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/choices.js@9.0.1/public/assets/scripts/choices.min.js"></script>
+    <!-- Nosso estilo -->
+    <link href="styles/main.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <main class="container">
+        <div class="mt-3">
+            <label for="exemploMultiSelect" class="form-label">Multi Select</label>
+            <select class="choices-multiple" id="exemploMultiSelect" multiple>
+                <option value="">Selecione as opções desejadas</option>
+                <option>Mustard</option>
+                <option>Ketchup</option>
+                <option>Relish</option>
+                <option>Maio</option>
+                <option>Pepper</option>
+            </select>
+        </div>
+    </main>
+
+    <!-- scripts -->
+    <script src="js/bootstrap.js"></script>
+    
+    <script>
+        // Multi select
+        document.addEventListener('DOMContentLoaded', function() {
+            var choices = new Choices('.choices-multiple', {
+                removeItemButton: true,
+                loadingText: 'Carregando...',
+                noResultsText: 'Nenhum resultado encontrado',
+                noChoicesText: 'Nada para escolher',
+                itemSelectText: 'Selecionar',
+                uniqueItemText: 'Apenas valores únicos podem ser adicionados',
+                customAddItemText: 'Apenas valores específicos podem ser adicionados',
+                addItemText: (value) => {
+                return `Aperte enter para adicionar <b>"${value}"</b>`;
+                },
+                maxItemText: (maxItemCount) => {
+                return `Apenas ${maxItemCount} itens podem ser adicionados`;
+                },
+            });
+        });  
+    </script>
+
+  </body>
+</html>
