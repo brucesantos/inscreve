@@ -375,6 +375,21 @@
       "pg" : 0,
       "sct" : 0
     },
+    "\/source\/styles\/_dropzone.scss" : {
+      "aP" : 1,
+      "bl" : 0,
+      "co" : 2,
+      "dP" : 10,
+      "ec" : 1,
+      "ft" : 4,
+      "ma" : 0,
+      "oA" : 1,
+      "oAP" : "\/build\/styles\/_dropzone.css",
+      "oF" : 0,
+      "oS" : 0,
+      "pg" : 0,
+      "sct" : 0
+    },
     "\/source\/styles\/main.scss" : {
       "aP" : 1,
       "bl" : 0,
