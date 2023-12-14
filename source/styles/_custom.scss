@@ -16,6 +16,10 @@
     }
 }
 
+.nav-item .active {
+    font-weight: 700;
+}
+
 // imagem de fundo que só aparece em telas grandes, incluir a classe decorado no body de cada página
 @include media-breakpoint-up(lg) {
     body.decorado {

@@ -1,36 +1,36 @@
-<nav class="navbar bg-body-tertiary fixed-top border-bottom">
+<nav class="navbar bg-body-tertiary navbar-expand-lg fixed-top border-bottom">
     <div class="container">
-        <a class="navbar-brand" href="#">
-            <img src="images/logo-fgv-conhecimento.svg" alt="Bootstrap" width="290">
+        <a class="navbar-brand" href="index.html">
+            <img src="images/logo-fgv-conhecimento.svg" alt="fgv conhecimento" width="290">
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
-            aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-            <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Opções</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body">
-                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="dashboard.html">Inscrições</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="concursos.html">Concursos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Alterar Dados de Cadastro</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Alterar Senha</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Sair do Sistema</a>
-                    </li>
-                </ul>
-            </div>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item ms-3">
+                    <a class="nav-link active" aria-current="page" href="dashboard.html">Inscrições</a>
+                </li>
+                <li class="nav-item ms-3">
+                    <a class="nav-link" href="concursos.html">Concursos</a>
+                </li>
+                <li class="nav-item dropdown ms-1 ms-lg-2">
+                    <button class="btn dropdown-toggle opacity-75" data-bs-toggle="dropdown" aria-expanded="false">
+                        Eudes Penteado
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li class="nav-item mx-2">
+                            <a class="nav-link" href="cadastro.html">Dados Pessoais</a>
+                        </li>
+                        <li class="nav-item mx-2">
+                            <a class="nav-link" href="#">Alterar Senha</a>
+                        </li>
+                        <li class="nav-item mx-2">
+                            <a class="nav-link" href="index.html">Sair</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
         </div>
     </div>
 </nav>
