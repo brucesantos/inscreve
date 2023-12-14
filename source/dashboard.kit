@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Sistema Inscreve da FGV Conhecimento, para inscrições em concursos">
     <title>Inscreve - FGV Conhecimento</title>
+    <!-- Dropzone -->
+    <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
+    <!-- Nosso estilo -->
     <link href="styles/main.css" rel="stylesheet">
   </head>
 
@@ -14,7 +18,7 @@
 
     <main class="container">
         <div class="row mt-4">
-            <div class="col-lg-4" id="dadosPessoais">
+            <!-- <div class="col-lg-4" id="dadosPessoais">
                 <div class="mx-3 my-3 d-flex align-items-center headerColuna">
                     <h5 style="margin: 0;">Dados Pessoais</h5>
                 </div>
@@ -35,8 +39,8 @@
                         <a href="#" class="btn btn-secondary">Alteração Dados de Cadastro</a>
                     </li>
                 </ul>
-            </div>
-            <div class="col-lg-8">
+            </div> -->
+            <div class="col">
                 <div class="mx-3 my-3 d-flex justify-content-between align-items-center headerColuna">
                     <h5 style="margin: 0;">Inscrições</h5>
                     <div class="d-flex align-items-center">
@@ -56,12 +60,117 @@
                         </div>
                     </div>
                 </div>
-                <div class="row row-cols-1 row-cols-md-2 row-smaller-gutter" id="iscricoes">
+                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-smaller-gutter" id="iscricoes">
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="enviarArquivoModal" tabindex="-1" aria-labelledby="enviarArquivoModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="enviarArquivoModalLabel">Enviar Arquivo</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="finalidadeDocumento" class="form-label">Finalidade do Documento</label>
+                            <select class="form-select" id="finalidadeDocumento" name="finalidadeDocumento" required>
+                                <option selected disabled value="">Escolher</option>
+                                <option value="coisa1">Comprovar coisa 1</option>
+                                <option value="coisa2">Comprovar PCD</option>
+                                <option value="coisa3">Fazer alguma outra coisa</option>
+                            </select>
+                        </div>
+                        <div id="areaDeUpload">
+                            <form action="/file-upload" class="dropzone rounded border border-3 mt-2" id="my-awesome-dropzone">
+                            </form>
+                            <div class="form-text opacity-75">Limitações de upload: tamanho máximo do arquivo 8MB, tipos de arquivo permitidos: jpg, png, pdf.</div>
+                        </div>
+                        <!-- esse script a seguir serve para mostrar o dropzone apenas quando o usuário já escolheu a finalidade do arquivo -->
+                        <script>
+                            document.addEventListener('DOMContentLoaded', function() {
+                                // Get the select and dropzone elements
+                                var select = document.getElementById('finalidadeDocumento');
+                                var dropzone = document.getElementById('areaDeUpload');
+
+                                // Initially hide the dropzone
+                                dropzone.style.display = 'none';
+
+                                // Add an event listener for when the select value changes
+                                select.addEventListener('change', function() {
+                                    // If a value has been selected, show the dropzone
+                                    if (select.value) {
+                                        dropzone.style.display = 'block';
+                                    } else {
+                                        // Otherwise, hide the dropzone
+                                        dropzone.style.display = 'none';
+                                    }
+                                });
+                            });
+                        </script>
+                        <div id="documentosEnviadosAnteriormente">
+                            <hr class="mt-4">
+                            <h5 class="">Arquivos Enviados Anteriormente</h5>
+                            <div class="table-responsive">
+                                <table class="table align-middle">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col" class="d-none d-lg-block">Protocolo</th>
+                                        <th scope="col">Finalidade</th>
+                                        <th scope="col">Arquivo</th>
+                                        <th scope="col">Excluir</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td class="d-none d-lg-block">72135775948882513122023094735</td>
+                                        <td>Comprovar coisa 1</td>
+                                        <td>
+                                            <a href="#" target="_blank">foto-da-cnh.png</a>
+                                        </td>
+                                        <td>
+                                            <!-- @import botao-excluir -->
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="d-none d-lg-block">4893789478437984379847398479</td>
+                                        <td>Comprovar coisa 1</td>
+                                        <td>
+                                            <a href="#" target="_blank">foto-da-cnh.png</a>
+                                        </td>
+                                        <td>
+                                            <!-- @import botao-excluir -->
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="d-none d-lg-block">3863484983894738479747843794</td>
+                                        <td>Comprovar coisa 1</td>
+                                        <td>
+                                            <a href="#" target="_blank">foto-da-cnh.png</a>
+                                        </td>
+                                        <td>
+                                            <!-- @import botao-excluir -->
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-primary">Salvar</button>
+                    </div>
                 </div>
             </div>
         </div>
       
     </main>
+    <!-- @import "versao" -->
+
+    <!-- @import "scripts-gerais" -->
 
     <!-- parse the csv file -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
@@ -95,17 +204,21 @@
 
                     // Create a card for each row
                     var card = `
-                        <div class="col d-flex">
-                            <div class="card mb-2 flex-grow-1">
-                                <div class="card-body">
-                                    <span class="badge ${badgeColor} rounded-pill">${data[i].status}</span>
-                                    <h5 class="card-title my-3">${data[i].examName}</h5>
-                                    <h6 class="card-subtitle mb-2 text-muted opacity-50">${data[i].applicationId}</h6>
-                                    <p class="card-text">${data[i].positionTitle}</p>
-                                    <a href="#" class="btn btn-secondary">Ver Detalhes</a>
+                    <div class="col d-flex">
+                        <div class="card mb-2 flex-grow-1">
+                            <div class="card-body">
+                                <span class="badge ${badgeColor} rounded-pill">${data[i].status}</span>
+                                <h5 class="card-title my-3">${data[i].examName}</h5>
+                                <h6 class="card-subtitle mb-2 text-muted opacity-50">${data[i].applicationId}</h6>
+                                <p class="card-text">${data[i].positionTitle}</p>
+                                <div class="d-flex">
+                                    <a href="concurso-detalhe.html" class="btn btn-secondary me-2">Ver Detalhes</a>
+                                    <a href="#" class="btn btn-link me-2">Gerar Boleto</a>
+                                    <a href="" data-bs-toggle="modal" data-bs-target="#enviarArquivoModal" class="btn btn-link me-2">Enviar Arquivo</a>
                                 </div>
                             </div>
                         </div>
+                    </div>
                     `;
                     
                     // Append the card to the container
@@ -118,16 +231,21 @@
         var inscricoes = document.querySelector('#inscricoes');
 
         // Check if it contains any .card elements
-        if (inscricoes.querySelectorAll('.card').length === 0) {
+        if (inscricoes && inscricoes.querySelectorAll('.card').length === 0) {
             // If it does not contain any .card elements, insert an empty state message
-            inscricoes.innerHTML = '<p class="text-center">No cards available.</p>';
+            inscricoes.innerHTML = '<p class="text-center">Você ainda não se inscreveu em nenhum concurso</p>';
         }
     </script>
 
-    <!-- @import "versao" -->
-
-    <!-- scripts -->
-    <script src="js/bootstrap.js"></script>
+    <script>
+        Dropzone.options.myAwesomeDropzone = {
+            paramName: "file", // The name that will be used to transfer the file
+            maxFilesize: 8, // MB
+            addRemoveLinks: true, // Enables the removal of file previews
+            dictRemoveFile: '<img src="images/times.svg" alt="botão para remover o arquivo">', // botao de remover
+            dictDefaultMessage: "Arraste os arquivos aqui para fazer upload, ou clique aqui para escolher" // mensagem em portugues, quando está vazio
+        };
+    </script>
 
   </body>
 </html>

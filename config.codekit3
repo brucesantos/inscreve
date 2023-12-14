@@ -45,6 +45,14 @@
       "oO" : 1,
       "oS" : 1
     },
+    "\/source\/_botao-excluir.kit" : {
+      "cB" : 0,
+      "ft" : 2048,
+      "hM" : 0,
+      "oA" : 1,
+      "oAP" : "\/build\/_botao-excluir.html",
+      "oF" : 0
+    },
     "\/source\/_conteudo-do-cadastro.kit" : {
       "cB" : 0,
       "ft" : 2048,
@@ -139,6 +147,14 @@
       "hM" : 0,
       "oA" : 1,
       "oAP" : "\/build\/_rodape-enter.html",
+      "oF" : 0
+    },
+    "\/source\/_scripts-gerais.kit" : {
+      "cB" : 0,
+      "ft" : 2048,
+      "hM" : 0,
+      "oA" : 1,
+      "oAP" : "\/build\/_scripts-gerais.html",
       "oF" : 0
     },
     "\/source\/_senha.kit" : {

@@ -1,0 +1,21 @@
+<!-- scripts do bootstrap -->
+<script src="js/bootstrap.js"></script>
+
+<!-- Adicionar * após o rótulo para cada campo de entrada obrigatório -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Get all required input and select elements
+        var requiredInputs = document.querySelectorAll('input[required], select[required]');
+
+        // Loop through each required input/select element
+        requiredInputs.forEach(function (input) {
+            // Get the label for this input/select
+            var label = document.querySelector('label[for="' + input.id + '"]');
+
+            // If a label was found, add an asterisk to its text
+            if (label) {
+                label.innerHTML += ' <span class="text-danger">*</span>';
+            }
+        });
+    });
+</script>
