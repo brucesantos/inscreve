@@ -197,6 +197,14 @@
       "oAP" : "\/build\/concursos.html",
       "oF" : 0
     },
+    "\/source\/dashboard-menu.kit" : {
+      "cB" : 0,
+      "ft" : 2048,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/build\/dashboard-menu.html",
+      "oF" : 0
+    },
     "\/source\/dashboard.kit" : {
       "cB" : 0,
       "ft" : 2048,
@@ -212,6 +220,16 @@
       "oA" : 0,
       "oAP" : "\/build\/dropzone.html",
       "oF" : 0
+    },
+    "\/source\/images\/answer.svg" : {
+      "ft" : 2097152,
+      "miP" : 0,
+      "oA" : 0,
+      "oAP" : "\/build\/images\/answer.svg",
+      "oF" : 0,
+      "opt" : 1,
+      "plM" : 52780316221407,
+      "prP" : 0
     },
     "\/source\/images\/arrow-up.svg" : {
       "ft" : 2097152,
@@ -301,6 +319,26 @@
       "ou" : "lpckwebp-none",
       "q" : 90,
       "rq" : 75
+    },
+    "\/source\/images\/rating.svg" : {
+      "ft" : 2097152,
+      "miP" : 0,
+      "oA" : 0,
+      "oAP" : "\/build\/images\/rating.svg",
+      "oF" : 0,
+      "opt" : 1,
+      "plM" : 52780316221407,
+      "prP" : 0
+    },
+    "\/source\/images\/search.svg" : {
+      "ft" : 2097152,
+      "miP" : 0,
+      "oA" : 0,
+      "oAP" : "\/build\/images\/search.svg",
+      "oF" : 0,
+      "opt" : 1,
+      "plM" : 52780316221407,
+      "prP" : 0
     },
     "\/source\/images\/times.svg" : {
       "ft" : 2097152,
