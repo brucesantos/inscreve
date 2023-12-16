@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Sistema Inscreve da FGV Conhecimento, para inscrições em concursos">
     <title>Inscreve - FGV Conhecimento</title>
+    <!-- Dropzone -->
+    <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
+    <!-- Nosso estilo -->
     <link href="styles/main.css" rel="stylesheet">
   </head>
 
@@ -58,7 +62,7 @@
             </ol>
         </nav>
         <div class="row mt-4">
-            <div class="col-lg-4" id="dadosConcurso">
+            <div id="dadosConcurso">
                 <div class="card mb-4">
                     <div class="card-body">
                         <h5>Concurso Público para a Assembleia Legislativa do Estado do Tocantins – ALETO</h5>
@@ -96,11 +100,11 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-8">
-                <div class="text-center rounded" id="emptyDetalheConcurso">
+            <div>
+                <!-- <div class="text-center rounded" id="emptyDetalheConcurso">
                     <img class="opacity-50" src="images/dica.svg" alt="balão de conversa com o desenho de um rosto feliz dentro">
                     <p class="opacity-50">Selecione o cargo para mais Informações</p>
-                </div>
+                </div> -->
                 <div id="etapasDoConcurso">
                     <div class="accordion">
                         <div class="accordion-item">
@@ -127,7 +131,7 @@
                                     </div>
                                 </button>
                             </h2>
-                            <div id="collapseUm" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                            <div id="collapseUm" class="accordion-collapse collapse show">
                                 <div class="accordion-body">
                                     <p>
                                         Para fins de desempate, exerceu ou exerce a <strong>função de jurado</strong>, nos termos do Art. 440 do Código de Processo Penal?
@@ -166,7 +170,7 @@
                     <div class="accordion">
                         <div class="accordion-item">
                             <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDois" aria-expanded="false" aria-controls="collapseDois">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDois" aria-expanded="true" aria-controls="collapseDois">
                                     <div class="informacaoEtapa">
                                         <div class="nomeEtapa">Resolução TJ n. 48/2023 - Comissão permanente do Concurso</div>
                                         <div class="datas mt-2 d-md-flex align-items-center" style="font-size: 14px;">
@@ -182,7 +186,7 @@
                                     </div>
                                 </button>
                             </h2>
-                            <div id="collapseDois" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div id="collapseDois" class="accordion-collapse collapse show">
                                 <div class="accordion-body">
                                     <p>
                                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in lectus gravida, ullamcorper mi nec, lobortis lorem. Integer ac efficitur massa. Mauris sed sapien mauris. Nulla gravida ultricies magna sed sollicitudin. Nullam sed ante vitae est dapibus tincidunt ut nec sem. Donec vel lorem in eros eleifend iaculis nec et metus. Aenean eu congue elit.
@@ -190,6 +194,72 @@
                                     <p>
                                         Integer fermentum placerat quam eu tincidunt. Sed tincidunt consectetur turpis. Quisque vel elit purus. Pellentesque auctor est magna, eget convallis arcu egestas at. Nulla non tristique libero. Nunc eu cursus diam. Duis congue arcu id ipsum condimentum, a vehicula sapien egestas. Nulla laoreet arcu eu nisi gravida, at ultricies odio consectetur. Maecenas sollicitudin molestie lectus, eu pharetra lorem lacinia imperdiet.
                                     </p>
+                                    <h5 class="">Enviar Documento para Blabla</h5>
+                                    <div id="areaDeUpload">
+                                        <form action="/file-upload" class="dropzone rounded border border-3 mt-2" id="my-awesome-dropzone">
+                                        </form>
+                                        <div class="form-text opacity-75">Limitações de upload: tamanho máximo do arquivo 8MB, tipos de arquivo permitidos: jpg, png, pdf.</div>
+                                    </div>
+                                    <div id="documentosEnviadosAnteriormente">
+                                        <hr class="mt-4">
+                                        <h5 class="">Arquivos Enviados</h5>
+                                        <div class="table-responsive">
+                                            <table class="table align-middle">
+                                                <thead>
+                                                <tr>
+                                                    <th scope="col" class="d-none d-lg-block">Protocolo</th>
+                                                    <th scope="col">Finalidade</th>
+                                                    <th scope="col">Arquivo</th>
+                                                    <th scope="col">Excluir</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    <td class="d-none d-lg-block">72135775948882513122023094735</td>
+                                                    <td>Comprovar coisa 1</td>
+                                                    <td>
+                                                        <a href="#" target="_blank">foto-da-cnh.png</a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="#" class="btn btn-secondary">
+                                                            <svg width="14" height="16" viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                <path d="M4.21875 0.5625C4.375 0.21875 4.71875 0 5.09375 0H8.875C9.25 0 9.59375 0.21875 9.75 0.5625L10 1H13C13.5312 1 14 1.46875 14 2C14 2.5625 13.5312 3 13 3H1C0.4375 3 0 2.5625 0 2C0 1.46875 0.4375 1 1 1H4L4.21875 0.5625ZM13 4L12.3125 14.5938C12.2812 15.4062 11.625 16 10.8125 16H3.15625C2.34375 16 1.6875 15.4062 1.65625 14.5938L1 4H13Z" fill="currentColor"/>
+                                                            </svg>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="d-none d-lg-block">4893789478437984379847398479</td>
+                                                    <td>Comprovar coisa 1</td>
+                                                    <td>
+                                                        <a href="#" target="_blank">foto-da-cnh.png</a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="#" class="btn btn-secondary">
+                                                            <svg width="14" height="16" viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                <path d="M4.21875 0.5625C4.375 0.21875 4.71875 0 5.09375 0H8.875C9.25 0 9.59375 0.21875 9.75 0.5625L10 1H13C13.5312 1 14 1.46875 14 2C14 2.5625 13.5312 3 13 3H1C0.4375 3 0 2.5625 0 2C0 1.46875 0.4375 1 1 1H4L4.21875 0.5625ZM13 4L12.3125 14.5938C12.2812 15.4062 11.625 16 10.8125 16H3.15625C2.34375 16 1.6875 15.4062 1.65625 14.5938L1 4H13Z" fill="currentColor"/>
+                                                            </svg>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="d-none d-lg-block">3863484983894738479747843794</td>
+                                                    <td>Comprovar coisa 1</td>
+                                                    <td>
+                                                        <a href="#" target="_blank">foto-da-cnh.png</a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="#" class="btn btn-secondary">
+                                                            <svg width="14" height="16" viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                <path d="M4.21875 0.5625C4.375 0.21875 4.71875 0 5.09375 0H8.875C9.25 0 9.59375 0.21875 9.75 0.5625L10 1H13C13.5312 1 14 1.46875 14 2C14 2.5625 13.5312 3 13 3H1C0.4375 3 0 2.5625 0 2C0 1.46875 0.4375 1 1 1H4L4.21875 0.5625ZM13 4L12.3125 14.5938C12.2812 15.4062 11.625 16 10.8125 16H3.15625C2.34375 16 1.6875 15.4062 1.65625 14.5938L1 4H13Z" fill="currentColor"/>
+                                                            </svg>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -197,7 +267,7 @@
                     <div class="accordion">
                         <div class="accordion-item">
                             <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTres" aria-expanded="false" aria-controls="collapseTres">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTres" aria-expanded="true" aria-controls="collapseTres">
                                     <div class="informacaoEtapa">
                                         <div class="nomeEtapa">Resolução TJ n. 48/2023 - Comissão permanente do Concurso</div>
                                         <div class="datas mt-2 d-md-flex align-items-center" style="font-size: 14px;">
@@ -213,8 +283,12 @@
                                     </div>
                                 </button>
                             </h2>
-                            <div id="collapseTres" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div id="collapseTres" class="accordion-collapse collapse show">
                                 <div class="accordion-body">
+                                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                        Se você precisa de ajuda pra se inscrever, <a href="#" class="alert-link">veja um tutorial aqui</a> sobre como fazer blabla. PS: acho que você não vai passar no concurso.
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
                                     <p>
                                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in lectus gravida, ullamcorper mi nec, lobortis lorem. Integer ac efficitur massa. Mauris sed sapien mauris. Nulla gravida ultricies magna sed sollicitudin. Nullam sed ante vitae est dapibus tincidunt ut nec sem. Donec vel lorem in eros eleifend iaculis nec et metus. Aenean eu congue elit.
                                     </p>
@@ -297,11 +371,20 @@
         // mostrar os detalhes do concurso após a escolha do cargo e esconder os calls to action para escolher o cargo
         document.getElementById('cargo').addEventListener('change', function () {
             document.getElementById('escolhaOCargo').setAttribute('hidden', 'true');
-            document.getElementById('emptyDetalheConcurso').setAttribute('hidden', 'true');
             document.getElementById('previewDados').removeAttribute('hidden');
             document.getElementById('etapasDoConcurso').removeAttribute('hidden');
             document.getElementById('rodapeEnter').removeAttribute('hidden');
         });
+    </script>
+
+    <script>
+        Dropzone.options.myAwesomeDropzone = {
+            paramName: "file", // The name that will be used to transfer the file
+            maxFilesize: 8, // MB
+            addRemoveLinks: true, // Enables the removal of file previews
+            dictRemoveFile: '<img src="images/times.svg" alt="botão para remover o arquivo">', // botao de remover
+            dictDefaultMessage: "Arraste os arquivos aqui para fazer upload, ou clique aqui para escolher" // mensagem em portugues, quando está vazio
+        };
     </script>
 
     
