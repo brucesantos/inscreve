@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="pt">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Sistema Inscreve da FGV Conhecimento, para inscrições em concursos">
+    <title>Inscreve - FGV Conhecimento</title>
+    <!-- Flatpickr -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <!-- Nosso estilo -->
+    <link href="styles/main.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <main class="container">
+        <div class="mb-3">
+            <label for="myDateInput" class="form-label">Escolha uma data</label>
+            <input id="myDateInput" class="flatpickr flatpickr-input active" type="text" name="myDateInput" placeholder="Select Date.." readonly="readonly">
+        </div>
+        <div class="mb-3">
+            <label for="name" class="form-label">Nome completo</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="João Exemplo da Silva"
+              required>
+            <div class="invalid-feedback">
+              Por favor, informe seu nome completo.
+            </div>
+        </div>
+    </main>
+
+    <!-- scripts -->
+    <script src="js/bootstrap.js"></script>
+    
+    <script>
+        window.addEventListener('DOMContentLoaded', (event) => {
+            flatpickr("#myDateInput", {});
+        });
+    </script>
+
+  </body>
+</html>
