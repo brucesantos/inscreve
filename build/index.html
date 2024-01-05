@@ -109,9 +109,30 @@
                   </div>
                 </div>
               </div>
-              <div class="text-center my-5 text-muted">
+              <div id="footerDiv" class="text-center my-4 text-muted" style="width: 100%;">
                   FGV Conhecimento - Inscreve Versão 2.4.0
               </div>
+              
+              <script>
+                  function positionFooter() {
+                      var footerDiv = document.getElementById('footerDiv');
+                      if (document.body.offsetHeight < window.innerHeight) {
+                          footerDiv.style.position = "fixed";
+                          footerDiv.style.bottom = "0";
+                      } else {
+                          footerDiv.style.position = "static";
+                      }
+                  }
+              
+                  window.onload = positionFooter;
+                  window.onresize = positionFooter;
+              
+                  // Create a new MutationObserver instance
+                  var observer = new MutationObserver(positionFooter);
+              
+                  // Start observing the document with the configured parameters
+                  observer.observe(document.body, { childList: true, subtree: true });
+              </script>
             </div>
           </div>
         </div>

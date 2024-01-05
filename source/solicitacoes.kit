@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="pt">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Sistema Inscreve da FGV Conhecimento, para inscrições em concursos">
+    <title>Inscreve - FGV Conhecimento</title>
+    <!-- Nosso estilo -->
+    <link href="styles/main.css" rel="stylesheet">
+  </head>
+
+  <body class="bg-light">
+    <!-- também conhecido como navbar -->
+    <!-- @import header -->
+
+    <main class="container">
+        
+        <div class="col">
+            <div class="mx-3 my-3 d-flex justify-content-between align-items-center headerColuna">
+                <h5 style="margin: 0;">Solicitações</h5>
+                <div class="dropdown mx-2">
+                    <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Filtro
+                    </button>
+                    <ul class="dropdown-menu" id="availableFilterOptions">
+                        <li><a class="dropdown-item" href="#">Todas as solicitações</a></li>
+                        <li><a class="dropdown-item" href="#">Concurso Público para a Assembleia Legislativa do Estado do Tocantins – ALETO</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-smaller-gutter" id="iscricoes">
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">Concurso</th>
+                                <th scope="col">Cargo</th>
+                                <th scope="col">Finalidade</th>
+                                <th scope="col">Situação</th>
+                                <th scope="col">Recurso</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="align-middle">Concurso Público para a Assembleia Legislativa do Estado do Tocantins – ALETO</td>
+                                <td class="align-middle">CONSULTOR TÉCNICO LEGISLATIVO - ARQUITETURA</td>
+                                <td class="align-middle">Isenção da taxa de inscrição</td>
+                                <td class="align-middle" style="white-space: nowrap;"><button type="button" class="btn btn-danger">Indeferida</button></td>
+                                <td class="align-middle" style="white-space: nowrap;"><button type="button" class="btn btn-danger" data-bs-target="#modalRecursoIndeferido" data-bs-toggle="modal">Indeferido</button></td>
+                            </tr>
+                            <tr>
+                                <td class="align-middle">Concurso Público para a Assembleia Legislativa do Estado do Tocantins – ALETO</td>
+                                <td class="align-middle">CONSULTOR TÉCNICO LEGISLATIVO - ARQUITETURA</td>
+                                <td class="align-middle">Isenção da taxa de inscrição</td>
+                                <td class="align-middle" style="white-space: nowrap;"><button type="button" class="btn btn-danger">Indeferida</button></td>
+                                <td class="align-middle" style="white-space: nowrap;"><button type="button" class="btn btn-warning">Em Análise</button></td>
+                            </tr>
+                            <tr>
+                                <td class="align-middle">Concurso Público para a Assembleia Legislativa do Estado do Tocantins – ALETO</td>
+                                <td class="align-middle">CONSULTOR TÉCNICO LEGISLATIVO - ARQUITETURA</td>
+                                <td class="align-middle">Isenção da taxa de inscrição</td>
+                                <td class="align-middle" style="white-space: nowrap;"><button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal-solicitacao-indeferida-sem-recurso">Indeferida</button></td>
+                                <td class="align-middle" style="white-space: nowrap;"><button type="button" class="btn btn-primary" data-bs-target="#modalIniciarRecurso" data-bs-toggle="modal">Iniciar</button></td>
+                            </tr>
+                            <tr>
+                                <td class="align-middle">Concurso Público para a Assembleia Legislativa do Estado do Tocantins – ALETO</td>
+                                <td class="align-middle">CONSULTOR TÉCNICO LEGISLATIVO - ARQUITETURA</td>
+                                <td class="align-middle">Outra coisa que pode ser solicitada</td>
+                                <td class="align-middle" style="white-space: nowrap;"><button type="button" class="btn btn-success">Deferida</button></td>
+                                <td class="align-middle"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- modals -->
+    <div class="modal fade" id="modal-solicitacao-indeferida-sem-recurso" tabindex="-1" aria-labelledby="modalDetalheDaSolicitacao" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="modalDetalheDaSolicitacao">Solicitação</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col">
+                        <div class="label-value-pair">
+                            <h6 class="label">Nº de Protocolo</h6>
+                            <div class="value">
+                                26873678673628736782
+                            </div>
+                        </div>
+                        <div class="label-value-pair">
+                            <h6 class="label">Concurso</h6>
+                            <div class="value">
+                                Concurso Público para a Assembleia Legislativa do Estado do Tocantins – ALETO
+                            </div>
+                        </div>
+                        <div class="label-value-pair">
+                            <h6 class="label">Cargo</h6>
+                            <div class="value">
+                                CONSULTOR TÉCNICO LEGISLATIVO - ARQUITETURA
+                            </div>
+                        </div>
+                        <div class="label-value-pair">
+                            <h6 class="label">Finalidade</h6>
+                            <div class="value">
+                                Isenção da taxa de inscrição
+                            </div>
+                        </div>
+                        <div class="label-value-pair">
+                            <h6 class="label">Etapa</h6>
+                            <div class="value">
+                                Etapa 1 - Titulo da etapa
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="label-value-pair">
+                            <h6 class="label">Situação</h6>
+                            <div class="value">
+                                <span class="badge rounded-pill text-bg-danger">Indeferida</span>
+                            </div>
+                        </div>
+                        <div class="label-value-pair">
+                            <h6 class="label">Motivo</h6>
+                            <div class="value">
+                                Documento enviado está fora da data vigente.
+                            </div>
+                        </div>
+                        <div>
+                            <h6 class="label">Histórico</h6>
+                            <div class="timeline">
+                                <div class="timeline-item">
+                                    <div class="decoration">
+                                        <div class="line-up"></div>
+                                        <div class="icon">
+                                            <img src="images/history-event.svg" alt="ícone de calendário">
+                                        </div>
+                                        <div class="line-down"></div>
+                                    </div>
+                                    <div class="information">
+                                        <div class="time">
+                                            22/02/2024 às 16:20
+                                        </div>
+                                        <div class="event">
+                                            Situação mudou para Indeferida
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="decoration">
+                                        <div class="line-up"></div>
+                                        <div class="icon">
+                                            <img src="images/history-event.svg" alt="ícone de calendário">
+                                        </div>
+                                        <div class="line-down"></div>
+                                    </div>
+                                    <div class="information">
+                                        <div class="time">
+                                            22/02/2024 às 16:20
+                                        </div>
+                                        <div class="event">
+                                            Situação mudou para Indeferida
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="decoration">
+                                        <div class="line-up"></div>
+                                        <div class="icon">
+                                            <img src="images/history-event.svg" alt="ícone de calendário">
+                                        </div>
+                                        <div class="line-down"></div>
+                                    </div>
+                                    <div class="information">
+                                        <div class="time">
+                                            22/02/2024 às 16:20
+                                        </div>
+                                        <div class="event">
+                                            Situação mudou para Indeferida
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-bs-target="#modalIniciarRecurso" data-bs-toggle="modal">Iniciar Um Recurso</button>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modalIniciarRecurso" aria-hidden="true" aria-labelledby="modalDeIniciarUmRecurso" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="modalDeIniciarUmRecurso">Recurso</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div>
+                        <label for="name" class="form-label">Descrição do Recurso</label>
+                        <textarea class="form-control" placeholder="Escreva aqui o motivo do seu recurso. Exemplo: Eu tenho direito a isenção da taxa pois prestei serviço eleitoral como demonstrado no documento anexado na solicitação." id="descricaoDoRecurso" style="height: 100px"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">Cancelar</button>
+                    <button class="btn btn-primary">Enviar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modalRecursoIndeferido" aria-hidden="true" aria-labelledby="modalDeDetalheDoRecurso" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="modalDeDetalheDoRecurso">Recurso</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="label-value-pair">
+                        <h6 class="label">Nº de Protocolo</h6>
+                        <div class="value">
+                            26873678673628736782
+                        </div>
+                    </div>
+                    <div class="label-value-pair">
+                        <h6 class="label">Descrição do Recurso</h6>
+                        <div class="value">
+                            Eu tenho direito a isenção da taxa pois prestei serviço eleitoral como demonstrado no documento anexado na solicitação.
+                        </div>
+                    </div>
+                    <div class="label-value-pair">
+                        <h6 class="label">Situação</h6>
+                        <div class="value">
+                            <span class="badge rounded-pill text-bg-danger">Indeferido</span>
+                        </div>
+                    </div>
+                    <div class="label-value-pair">
+                        <h6 class="label">Motivo do Indeferimento</h6>
+                        <div class="value">
+                            Documento enviado está fora da data vigente.
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">Cancelar</button>
+                    <button class="btn btn-primary">Enviar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- @import "versao" -->
+    <!-- @import "scripts-gerais" -->
+  </body>
+</html>

@@ -282,6 +282,16 @@
       "q" : 100,
       "rq" : 75
     },
+    "\/source\/images\/history-event.svg" : {
+      "ft" : 2097152,
+      "miP" : 0,
+      "oA" : 0,
+      "oAP" : "\/build\/images\/history-event.svg",
+      "oF" : 0,
+      "opt" : 1,
+      "plM" : 52780316221407,
+      "prP" : 0
+    },
     "\/source\/images\/logo-fgv-conhecimento.svg" : {
       "ft" : 2097152,
       "miP" : 0,
@@ -348,6 +358,16 @@
       "plM" : 52780316221407,
       "prP" : 0
     },
+    "\/source\/images\/solicitacoes.svg" : {
+      "ft" : 2097152,
+      "miP" : 0,
+      "oA" : 0,
+      "oAP" : "\/build\/images\/solicitacoes.svg",
+      "oF" : 0,
+      "opt" : 1,
+      "plM" : 52780316221407,
+      "prP" : 0
+    },
     "\/source\/images\/times.svg" : {
       "ft" : 2097152,
       "miP" : 0,
@@ -383,6 +403,14 @@
       "hM" : 0,
       "oA" : 0,
       "oAP" : "\/build\/multiselect.html",
+      "oF" : 0
+    },
+    "\/source\/solicitacoes.kit" : {
+      "cB" : 0,
+      "ft" : 2048,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/build\/solicitacoes.html",
       "oF" : 0
     },
     "\/source\/styles\/_cadastro.scss" : {
@@ -485,6 +513,21 @@
       "ma" : 0,
       "oA" : 1,
       "oAP" : "\/build\/styles\/_flatpickr.css",
+      "oF" : 0,
+      "oS" : 0,
+      "pg" : 0,
+      "sct" : 0
+    },
+    "\/source\/styles\/_solicitacoes.scss" : {
+      "aP" : 1,
+      "bl" : 0,
+      "co" : 2,
+      "dP" : 10,
+      "ec" : 1,
+      "ft" : 4,
+      "ma" : 0,
+      "oA" : 1,
+      "oAP" : "\/build\/styles\/_solicitacoes.css",
       "oF" : 0,
       "oS" : 0,
       "pg" : 0,

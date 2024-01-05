@@ -27,6 +27,9 @@
                     <li class="nav-item ms-3">
                         <a class="nav-link" href="concursos.html">Concursos</a>
                     </li>
+                    <li class="nav-item ms-3">
+                        <a class="nav-link" href="solicitacoes.html">Solicitações</a>
+                    </li>
                     <li class="nav-item dropdown ms-1 ms-lg-2">
                         <button class="btn dropdown-toggle opacity-75" data-bs-toggle="dropdown" aria-expanded="false">
                             Eudes Penteado
@@ -54,7 +57,7 @@
     <main class="container">
         <div class="row mt-4">
             <div class="col-lg-4 d-flex">
-                <div class="card mb-2 flex-grow-1">
+                <div class="card mb-4 flex-grow-1">
                     <div class="card-body d-flex align-items-center">
                         <div class="me-3">
                             <img src="images/search.svg" alt="Minhas Inscrições" class="opacity-25">
@@ -68,7 +71,7 @@
                 </div>
             </div>
             <div class="col-lg-4 d-flex">
-                <div class="card mb-2 flex-grow-1">
+                <div class="card mb-4 flex-grow-1">
                     <div class="card-body d-flex align-items-center">
                         <div class="me-3">
                             <img src="images/answer.svg" alt="Concursos abertos" class="opacity-25">
@@ -82,7 +85,7 @@
                 </div>
             </div>
             <div class="col-lg-4 d-flex">
-                <div class="card mb-2 flex-grow-1">
+                <div class="card mb-4 flex-grow-1">
                     <div class="card-body d-flex align-items-center">
                         <div class="me-3">
                             <img src="images/rating.svg" alt="Minhas Inscrições" class="opacity-25">
@@ -95,33 +98,66 @@
                     </div>
                 </div>
             </div>
-        </div>      
+            <div class="col-lg-4 d-flex">
+                <div class="card mb-4 flex-grow-1">
+                    <div class="card-body d-flex align-items-center">
+                        <div class="me-3">
+                            <img src="images/solicitacoes.svg" alt="ícone minimalista de um boneco com um balão de chat sobre a sua cabeça" class="opacity-25">
+                        </div>
+                        <div>
+                            <h5 class="card-title">Solicitações</h5>
+                            <p class="card-text opacity-50">Tabela com a situação de todas as solicitações realizadas por você.</p>
+                            <a href="solicitacoes.html" class="btn btn-secondary">Ver Todas as Solicitações</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
-    <div class="text-center my-5 text-muted">
+    <div id="footerDiv" class="text-center my-4 text-muted" style="width: 100%;">
         FGV Conhecimento - Inscreve Versão 2.4.0
     </div>
-
-    <!-- scripts do bootstrap -->
-    <script src="js/bootstrap.js"></script>
     
-    <!-- Adicionar * após o rótulo para cada campo de entrada obrigatório -->
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Get all required input and select elements
-            var requiredInputs = document.querySelectorAll('input[required], select[required]');
+        function positionFooter() {
+            var footerDiv = document.getElementById('footerDiv');
+            if (document.body.offsetHeight < window.innerHeight) {
+                footerDiv.style.position = "fixed";
+                footerDiv.style.bottom = "0";
+            } else {
+                footerDiv.style.position = "static";
+            }
+        }
     
-            // Loop through each required input/select element
-            requiredInputs.forEach(function (input) {
-                // Get the label for this input/select
-                var label = document.querySelector('label[for="' + input.id + '"]');
+        window.onload = positionFooter;
+        window.onresize = positionFooter;
     
-                // If a label was found, add an asterisk to its text
-                if (label) {
-                    label.innerHTML += ' <span class="text-danger">*</span>';
-                }
-            });
-        });
+        // Create a new MutationObserver instance
+        var observer = new MutationObserver(positionFooter);
+    
+        // Start observing the document with the configured parameters
+        observer.observe(document.body, { childList: true, subtree: true });
     </script>
-
+    <!-- scripts do bootstrap -->
+        <script src="js/bootstrap.js"></script>
+        
+        <!-- Adicionar * após o rótulo para cada campo de entrada obrigatório -->
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                // Get all required input and select elements
+                var requiredInputs = document.querySelectorAll('input[required], select[required]');
+        
+                // Loop through each required input/select element
+                requiredInputs.forEach(function (input) {
+                    // Get the label for this input/select
+                    var label = document.querySelector('label[for="' + input.id + '"]');
+        
+                    // If a label was found, add an asterisk to its text
+                    if (label) {
+                        label.innerHTML += ' <span class="text-danger">*</span>';
+                    }
+                });
+            });
+        </script>
   </body>
 </html>

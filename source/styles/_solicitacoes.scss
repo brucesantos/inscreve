@@ -1,0 +1,58 @@
+.label-value-pair {
+    .label {
+        margin: 0 0 .25rem 0;
+    }
+    .value {
+        color: rgba($black, .6);
+        line-height: 1.2;
+    }
+    margin-bottom: 1rem;
+}
+.timeline {
+    margin-top: -.5rem;
+    .timeline-item {
+        display: flex;
+        align-items: stretch;
+        gap: .5rem;
+        &:first-of-type {
+            .decoration {
+                .line-up {
+                    background-color: transparent;
+                }
+            }
+        }
+        &:last-of-type {
+            .decoration {
+                .line-down {
+                    background-color: transparent;
+                }
+            }
+        }
+        .decoration {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .line-up,.line-down {
+                width: 2px;
+                flex-grow: 1;
+                background-color: rgba($black, .2);
+            }
+            .icon {
+                height: 22px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+        .information {
+            margin: .5rem 0;
+            line-height: 1.2;
+            .time {
+                margin-bottom: .25rem;
+            }
+            .event {
+                color: rgba($black, .6);
+            }
+        }
+    }
+}
