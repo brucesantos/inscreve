@@ -292,6 +292,16 @@
       "plM" : 52780316221407,
       "prP" : 0
     },
+    "\/source\/images\/logo-enare.svg" : {
+      "ft" : 2097152,
+      "miP" : 0,
+      "oA" : 0,
+      "oAP" : "\/build\/images\/logo-enare.svg",
+      "oF" : 0,
+      "opt" : 1,
+      "plM" : 52780316221407,
+      "prP" : 0
+    },
     "\/source\/images\/logo-fgv-conhecimento.svg" : {
       "ft" : 2097152,
       "miP" : 0,
@@ -557,7 +567,7 @@
   },
   "projectAttributes" : {
     "creationDate" : 721401416.82732999,
-    "displayValue" : "inscreve",
+    "displayValue" : "enare",
     "displayValueWasSetByUser" : 0,
     "iconImageName" : "\/source\/images\/logo@2x.png",
     "iconImageWasSetByUser" : 0,
