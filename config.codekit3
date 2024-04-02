@@ -528,6 +528,21 @@
       "pg" : 0,
       "sct" : 0
     },
+    "\/source\/styles\/_select2.scss" : {
+      "aP" : 1,
+      "bl" : 0,
+      "co" : 2,
+      "dP" : 10,
+      "ec" : 1,
+      "ft" : 4,
+      "ma" : 0,
+      "oA" : 1,
+      "oAP" : "\/build\/styles\/_select2.css",
+      "oF" : 0,
+      "oS" : 0,
+      "pg" : 0,
+      "sct" : 0
+    },
     "\/source\/styles\/_solicitacoes.scss" : {
       "aP" : 1,
       "bl" : 0,
@@ -571,7 +586,7 @@
     "displayValueWasSetByUser" : 0,
     "iconImageName" : "\/source\/images\/logo@2x.png",
     "iconImageWasSetByUser" : 0,
-    "lastBuiltDate" : 724086111.35849905
+    "lastBuiltDate" : 733785524.69465005
   },
   "projectSettings" : {
     "abortBuildOnError" : 1,
