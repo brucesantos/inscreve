@@ -61,3 +61,13 @@
     --bs-gutter-x: 0.5rem;
 }
 
+// cards com sombra no hover
+.card-com-sombra-no-hover {
+    transition: all .3s ease;
+    &:hover {
+        cursor: pointer;
+        box-shadow: $box-shadow;
+        // 0 .5rem 1rem rgba(black, .15);
+        scale: 1.02;
+    }
+}

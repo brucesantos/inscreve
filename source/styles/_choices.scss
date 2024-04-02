@@ -8,7 +8,8 @@
     border-color: $border-color;
     font-size: 1rem;
     padding: 4px 12px 0;
-    min-height: auto;
+    min-height: auto; //isso serve pra zerar o min-height que o choices coloca no select de 44px
+    max-height: 38px; //adicionei agora pra garantir que o select não fique mais alto que os outros inputs
 }
 .choices__input.choices__input--cloned {
     background-color: $white;
