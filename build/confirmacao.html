@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="pt">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Confirmação de Conta</title>
+    <link href="styles/main.css" rel="stylesheet">
+  </head>
+
+  <body class="bg-light">
+
+    <main class="container">
+
+      <section class="h-100">
+        <div class="container h-100">
+          <div class="row justify-content-sm-center h-100">
+            <div class="col-lg-6 col-md-7 col-sm-9">
+              <div class="text-center my-5">
+                <img src="images/logo-fgv-conhecimento.svg" alt="logo">
+              </div>
+              <h1 class="fs-4 fw-bold mb-2">Confirmação de conta</h1>
+              <p>Para validar sua conta, precisamos garantir que você tem acesso a um dos contatos informados no seu cadastro. Escolha o método de sua preferência...</p>
+              <div class="d-flex justify-content-center mb-4">
+
+                <ul class="nav nav-underline">
+                  <li class="nav-item">
+                    <a class="nav-link active" href="#" id="email-tab" data-bs-toggle="tab" data-bs-target="#email-tab-conteudo" role="tab" aria-controls="email-tab-conteudo" aria-selected="true">E-mail</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#" id="celular-tab" data-bs-toggle="tab" data-bs-target="#celular-tab-conteudo" role="tab" aria-controls="celular-tab-conteudo" aria-selected="false">Celular</a>
+                  </li>
+                </ul>
+
+              </div>
+
+              <div class="tab-content">
+
+                <!-- Aba de confirmação por E-mail -->
+                <div class="card shadow-lg tab-pane fade show active" id="email-tab-conteudo" role="tabpanel" aria-labelledby="email-tab" tabindex="0">
+                  <div class="card-body p-4">
+                    <p class="mb-0">E-mail cadastrado: <span id="userEmail" class="fw-bold">eud***@email.com</span></p>
+                    <a href="" data-bs-toggle="modal" data-bs-target="#modal-trocar-email">Trocar o E-mail</a>
+                    <div id="loader-aguardando-validacao-email" class="d-none flex-column justify-content-center align-items-center m-4 opacity-50">
+                      <div class="spinner-border text-secondary" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                      </div>
+                      <p class="mt-1">Aguardando confirmação...</p>
+                    </div>
+                    <div class="feedback-para-usuario mt-3">
+                      <p id="mensagem-email-previa" class="text-secondary">Clique no botão para que uma mensagem com o link de confirmação seja enviada para o e-mail cadastrado.</p>
+                      <p id="mensagem-email-posterior" class="d-none text-success">Mensagem enviada! Clique no link recebido no e-mail ou digite o endereço no navegador.</p>
+                    </div>
+                    <div class="d-grid">
+                      <button type="button" id="botao-de-envio-de-email" class="btn btn-primary">Enviar mensagem para validação</button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Aba de confirmação por Celular -->
+                <div class="card shadow-lg tab-pane fade" id="celular-tab-conteudo" role="tabpanel" aria-labelledby="celular-tab" tabindex="0">
+                  <div class="card-body p-4">
+                    <p class="mb-0">Celular cadastrado: <span id="userPhone" class="fw-bold">(15) 99118-***2</span></p>
+                    <a href="" data-bs-toggle="modal" data-bs-target="#modal-trocar-celular">Trocar o Celular</a>
+                    <div id="container-form-codigo-celular" class="container mt-4 d-none">
+                      <h6 class="text-center mb-2">Digite o código recebido</h6>
+                      <form class="d-flex justify-content-center gap-2 mb-4">
+                        <input type="text" maxlength="1" class="form-control pin-input" style="width: 38px;"/>
+                        <input type="text" maxlength="1" class="form-control pin-input" style="width: 38px;"/>
+                        <input type="text" maxlength="1" class="form-control pin-input" style="width: 38px;"/>
+                        <input type="text" maxlength="1" class="form-control pin-input" style="width: 38px;"/>
+                        <input type="text" maxlength="1" class="form-control pin-input" style="width: 38px;"/>
+                        <input type="text" maxlength="1" class="form-control pin-input" style="width: 38px;"/>
+                      </form>
+                      <div id="codigo-incorreto" class="text-danger text-center d-none">
+                        Código incorreto. Por favor, tente novamente.
+                      </div>
+                    </div>
+                    <div class="feedback-para-usuario mt-3">
+                      <p id="mensagem-celular-previa" class="text-secondary">Clique no botão para que um código de confirmação seja enviado para o celular cadastrado.</p>
+                      <p id="mensagem-celular-posterior" class="d-none text-success">Mensagem enviada! Digite o código recebido no celular.</p>
+                    </div>
+                    <div class="d-grid">
+                      <button type="button" id="botao-de-envio-de-celular" class="btn btn-primary">Enviar mensagem para validação</button>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="mt-4 text-secondary">
+                <p>Se você não conseguiu fazer a confirmação por nenhum dos métodos disponíveis, entre em contato com o <a href="" class="text-secondary" data-bs-toggle="modal" data-bs-target="#modal-suporte">Suporte</a>.</p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Modal de trocar o email -->
+    <div class="modal fade" id="modal-trocar-email" tabindex="-1" aria-labelledby="trocarEnderecoDeEmail" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="trocarEnderecoDeEmail">Trocar endereço de E-mail</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+            <div class="modal-body">
+              <form class="mb-4">
+                <div class="mb-3">
+                  <label for="senhaParaTrocarEmail" class="form-label">Senha</label>
+                  <input type="password" class="form-control" id="senhaParaTrocarEmail">
+                </div>
+                <button type="submit" class="btn btn-primary">Validar senha</button>
+              </form>
+              <div class="mb-3">
+                <label for="novoEmail" class="form-label">Novo E-mail</label>
+                <input type="email" placeholder="seunovoendereco@email.com" class="form-control" id="novoEmail" aria-describedby="ajudaNovoEmail" disabled>
+                <div id="ajudaNovoEmail" class="form-text">Precisa ser diferente do endereço de E-mail anterior.</div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+              <button type="button" class="btn btn-primary" disabled>Salvar</button>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal de trocar o celular -->
+    <div class="modal fade" id="modal-trocar-celular" tabindex="-1" aria-labelledby="trocarNumeroDeCelular" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="trocarNumeroDeCelular">Trocar número do Celular</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+            <div class="modal-body">
+              <form class="mb-4">
+                <div class="mb-3">
+                  <label for="senhaParaTrocarCelular" class="form-label">Senha</label>
+                  <input type="password" class="form-control" id="senhaParaTrocarCelular">
+                </div>
+                <button type="submit" class="btn btn-primary">Validar senha</button>
+              </form>
+              <div class="mb-3">
+                <label for="novocelular" class="form-label">Novo Celular</label>
+                <input type="tel" class="form-control" id="novoCelular" name="novoCelular" placeholder="(00) 00000-0000" inputmode="numeric" disabled>
+                <div id="ajudaNovocelular" class="form-text">Precisa ser diferente do número anterior.</div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+              <button type="button" class="btn btn-primary" disabled>Salvar</button>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal de suporte -->
+    <div class="modal fade" id="modal-suporte" tabindex="-1" aria-labelledby="contatoSuporte" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="contatoSuporte">Contatos para Suporte</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+            <div class="modal-body">
+                <p>Telefone: <a href="tel:0800000000">0800 000 000</a></p>
+                <p>Email: <a href="mailto:support@example.com">support@example.com</a></p>
+                <p>Horário de funcionamento: de Segunda a Sexta das 9:00 às 18:00, exceto feriados.</p>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- scripts -->
+    <script src="js/bootstrap.js"></script>
+
+    <!-- custom script da pagina -->
+    <script>
+      // Navegação automática entre os inputs
+      document.querySelectorAll('.pin-input').forEach(function (input, index, arr) {
+        input.addEventListener('input', function () {
+          // Limita o input a dígitos numéricos
+          input.value = input.value.replace(/[^0-9]/g, '');
+          
+          if (input.value.length === input.maxLength && index < arr.length - 1) {
+            arr[index + 1].focus();
+          }
+    
+          // Remove a mensagem de erro ao digitar
+          var mensagemErro = document.getElementById('codigo-incorreto');
+          if (!mensagemErro.classList.contains('d-none')) {
+            mensagemErro.classList.add('d-none');
+          }
+    
+          // Se for o último input e estiver preenchido, validar o PIN
+          if (index === arr.length - 1 && input.value.length === input.maxLength) {
+            validarPIN();
+          }
+        });
+    
+        // Permite voltar ao input anterior com backspace
+        input.addEventListener('keydown', function (e) {
+          if (e.key === 'Backspace' && input.value === '' && index > 0) {
+            arr[index - 1].focus();
+          }
+        });
+      });
+    
+      function validarPIN() {
+        // Coleta os valores dos inputs
+        var pinInputs = document.querySelectorAll('.pin-input');
+        var pin = '';
+        pinInputs.forEach(function(input) {
+          pin += input.value;
+        });
+    
+        // Exemplo de PIN correto para demonstração (use "123456")
+        var pinCorreto = '123456';
+    
+        if (pin !== pinCorreto) {
+          // Exibe a mensagem de erro
+          var mensagemErro = document.getElementById('codigo-incorreto');
+          mensagemErro.classList.remove('d-none');
+    
+          // Limpa os inputs e foca no primeiro
+          pinInputs.forEach(function(input) {
+            input.value = '';
+          });
+          pinInputs[0].focus();
+        } else {
+          // PIN correto - redirecionar ou executar outra ação
+          alert('PIN correto! Sua conta foi validada com sucesso.');
+          // Aqui você pode redirecionar o usuário ou realizar outra ação desejada
+        }
+      }
+    
+      // Código para o botão de envio de e-mail
+      document.getElementById('botao-de-envio-de-email').addEventListener('click', function () {
+        var button = this;
+        var countdown = 60; // Inicia a contagem em 60 segundos
+    
+        // Desabilita o botão
+        button.disabled = true;
+    
+        // Altera o texto do botão para incluir a contagem regressiva
+        button.innerHTML = 'Reenvio disponível em <span class="contagem">' + countdown + '</span>s...';
+    
+        // Inicia a contagem regressiva
+        var interval = setInterval(function () {
+          countdown--;
+          button.querySelector('.contagem').textContent = countdown;
+    
+          if (countdown <= 0) {
+            // Para a contagem regressiva
+            clearInterval(interval);
+            // Reabilita o botão
+            button.disabled = false;
+            // Restaura o texto original do botão
+            button.innerHTML = 'Enviar mensagem para validação';
+          }
+        }, 1000);
+    
+        // Esconde a mensagem prévia adicionando a classe "d-none"
+        document.getElementById('mensagem-email-previa').classList.add('d-none');
+    
+        // Mostra a mensagem posterior removendo a classe "d-none"
+        document.getElementById('mensagem-email-posterior').classList.remove('d-none');
+    
+        // Mostra o loader removendo "d-none" e adicionando "d-flex"
+        var loader = document.getElementById('loader-aguardando-validacao-email');
+        loader.classList.remove('d-none');
+        loader.classList.add('d-flex');
+      });
+    
+      // Código atualizado para o botão de envio de celular
+      document.getElementById('botao-de-envio-de-celular').addEventListener('click', function () {
+        var button = this;
+        var countdown = 60; // Inicia a contagem em 60 segundos
+    
+        // Desabilita o botão
+        button.disabled = true;
+    
+        // Altera o texto do botão para incluir a contagem regressiva
+        button.innerHTML = 'Reenvio disponível em <span class="contagem">' + countdown + '</span>s...';
+    
+        // Inicia a contagem regressiva
+        var interval = setInterval(function () {
+          countdown--;
+          button.querySelector('.contagem').textContent = countdown;
+    
+          if (countdown <= 0) {
+            // Para a contagem regressiva
+            clearInterval(interval);
+            // Reabilita o botão
+            button.disabled = false;
+            // Restaura o texto original do botão
+            button.innerHTML = 'Enviar mensagem para validação';
+          }
+        }, 1000);
+    
+        // Esconde a mensagem prévia adicionando a classe "d-none"
+        document.getElementById('mensagem-celular-previa').classList.add('d-none');
+    
+        // Mostra a mensagem posterior removendo a classe "d-none"
+        document.getElementById('mensagem-celular-posterior').classList.remove('d-none');
+    
+        // Mostra o formulário de código removendo a classe "d-none"
+        var containerCodigo = document.getElementById('container-form-codigo-celular');
+        containerCodigo.classList.remove('d-none');
+    
+        // Foca no primeiro input do PIN
+        document.querySelector('.pin-input').focus();
+    
+        // Limpa os inputs do PIN
+        document.querySelectorAll('.pin-input').forEach(function(input) {
+          input.value = '';
+        });
+    
+        // Esconde a mensagem de erro se estiver visível
+        var mensagemErro = document.getElementById('codigo-incorreto');
+        mensagemErro.classList.add('d-none');
+      });
+    </script>
+
+  </body>
+</html>
