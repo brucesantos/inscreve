@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="pt">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Sistema Inscreve da FGV Conhecimento, para inscrições em concursos">
+    <title>Inscreve - FGV Conhecimento</title>
+    <!-- CSS do date range picker -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css">
+    <!-- Nosso estilo -->
+    <link href="styles/main.css" rel="stylesheet">
+  </head>
+
+  <body class="bg-light">
+    <!-- também conhecido como navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top border-bottom" style="background-color: #233769;" data-bs-theme="dark">
+        <div class="container">
+            <a class="navbar-brand" href="backoffice-index.html">
+                <img src="images/logo-fgv-conhecimento-inverse.svg" alt="fgv conhecimento" width="290">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav justify-content-end flex-grow-1">
+                    <li class="nav-item ms-3">
+                        <a class="nav-link " href="backoffice-index.html">Dashboard</a> 
+                    </li>
+                    <li class="nav-item ms-3">
+                        <a class="nav-link " href="backoffice-clientes.html">Clientes</a>
+                    </li>
+                    <li class="nav-item ms-3">
+                        <a class="nav-link " href="backoffice-concursos.html">Concursos</a>
+                    </li>
+                    <li class="nav-item ms-3">
+                        <a class="nav-link " href="backoffice-candidatos.html">Candidatos</a>
+                    </li>
+                    <li class="nav-item dropdown ms-1 ms-lg-2">
+                        <button class="btn btn-link dropdown-toggle opacity-75" data-bs-toggle="dropdown" aria-expanded="false" style="color: white; text-decoration: none;">
+                            Eudes Penteado
+                        </button>
+                        <ul class="dropdown-menu" style="background-color: #132349;">
+                            <li class="nav-item mx-2">
+                                <a class="nav-link" href="cadastro.html">Dados Pessoais</a>
+                            </li>
+                            <li class="nav-item mx-2">
+                                <a class="nav-link" href="#">Alterar Senha</a>
+                            </li>
+                            <li class="nav-item mx-2">
+                                <a class="nav-link" href="index.html">Sair</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- serve para preencher o espaco do header, que por ter posição fixa, não ocupa espaço no DOM -->
+    <div class="espacoHeader" style="height: 56px;"></div>
+
+    <main class="container">
+
+        <div class="mt-4 d-flex align-items-center justify-content-between">
+          <div>
+            <h1 class="fs-3 mb-0">Concurso</h1>
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="backoffice-concursos.html">Concursos</a></li>
+                <li class="breadcrumb-item active" aria-current="page">24786764896</li>
+              </ol>
+            </nav>
+          </div>
+          <div>
+            <button type="button" class="me-1 btn btn-outline-danger">Despublicar</button>
+            <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+              <button type="button" class="btn btn-primary">Publicar</button>
+              <div class="btn-group" role="group">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Publicar em data específica</a></li>
+                  <li><a class="dropdown-item" href="#">Outra opção</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="info-geral" data-bs-toggle="tab" data-bs-target="#info-geral-pane" type="button" role="tab" aria-controls="info-geral-pane" aria-selected="true">Info Geral</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="banco" data-bs-toggle="tab" data-bs-target="#banco-pane" type="button" role="tab" aria-controls="banco-pane" aria-selected="false">Banco</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="cargos" data-bs-toggle="tab" data-bs-target="#cargos-pane" type="button" role="tab" aria-controls="cargos-pane" aria-selected="false">Cargos</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="etapas" data-bs-toggle="tab" data-bs-target="#etapas-pane" type="button" role="tab" aria-controls="etapas-pane" aria-selected="false">Etapas</button>
+          </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane card rounded-0 rounded-bottom fade show active" id="info-geral-pane" role="tabpanel" aria-labelledby="info-geral" tabindex="0">
+            <div class="p-4">
+              <form action="">
+                <div class="mb-3">
+                  <label for="selecao-de-cliente" class="form-label">Cliente</label>
+                  <select required id="selecao-de-cliente" class="form-select" aria-label="seleção de cliente">
+                    <option selected>Escolha um cliente...</option>
+                    <option value="1">OAB</option>
+                    <option value="2">Detran SP</option>
+                    <option value="3">Governo do estado de São Paulo</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label for="nome-do-concurso" class="form-label">Nome do Concurso</label>
+                  <input required type="text" class="form-control" id="nome-do-concurso" aria-describedby="nome-do-concurso-maxchar">
+                  <div id="nome-do-concurso-maxchar" class="form-text">Número máximo de caracteres é 120</div>
+                </div>
+                <button type="submit" class="btn btn-primary">Salvar</button>
+              </form>
+            </div>
+          </div>
+          <div class="tab-pane card rounded-0 rounded-bottom fade" id="banco-pane" role="tabpanel" aria-labelledby="banco" tabindex="0">
+            <div class="p-4">
+              <div>
+                <h2>Dados para Integração com API Bancária</h2>
+                <form>
+                    <!-- Dados de Autenticação -->
+                    <h4 class="mt-4">Autenticação</h4>
+                    <div class="mb-3">
+                        <label for="apiKey" class="form-label">API Key</label>
+                        <input type="text" class="form-control" id="apiKey" placeholder="Chave de API fornecida pelo banco" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="apiSecret" class="form-label">API Secret</label>
+                        <input type="password" class="form-control" id="apiSecret" placeholder="Segredo de API fornecido pelo banco" required>
+                    </div>
+            
+                    <!-- Dados da Conta Empresa -->
+                    <h4 class="mt-4">Dados da Empresa</h4>
+                    <div class="mb-3">
+                        <label for="companyName" class="form-label">Nome da Empresa</label>
+                        <input type="text" class="form-control" id="companyName" placeholder="Nome legal da empresa" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="companyTaxId" class="form-label">CNPJ</label>
+                        <input type="text" class="form-control" id="companyTaxId" placeholder="CNPJ da empresa" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="bankAccountNumber" class="form-label">Número da Conta Bancária</label>
+                        <input type="text" class="form-control" id="bankAccountNumber" placeholder="Número da conta para recebimento" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="bankAgencyNumber" class="form-label">Agência Bancária</label>
+                        <input type="text" class="form-control" id="bankAgencyNumber" placeholder="Número da agência bancária" required>
+                    </div>
+            
+                    <!-- Dados do Boleto -->
+                    <h4 class="mt-4">Configurações do Boleto</h4>
+                    <div class="mb-3">
+                        <label for="dueDays" class="form-label">Dias para Vencimento</label>
+                        <input type="number" class="form-control" id="dueDays" placeholder="Quantidade de dias até o vencimento" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="finePercentage" class="form-label">Percentual de Multa (%)</label>
+                        <input type="number" class="form-control" id="finePercentage" placeholder="Percentual de multa por atraso" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="interestPercentage" class="form-label">Juros Mensais (%)</label>
+                        <input type="number" class="form-control" id="interestPercentage" placeholder="Percentual de juros mensais" required>
+                    </div>
+            
+                    <!-- Botão de Submissão -->
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane card rounded-0 rounded-bottom fade" id="cargos-pane" role="tabpanel" aria-labelledby="cargos" tabindex="0">
+            <div class="p-4">
+              <div class="d-flex align-items-center justify-content-between">
+                <div>
+                  <h5>Lista de cargos</h5>
+                </div>
+                <div>
+                  <button type="button" class="btn btn-primary" data-bs-target="#modalCargo" data-bs-toggle="modal">Novo Cargo</button>
+                </div>
+              </div>
+              <div class="table-responsive mt-4">
+                <table class="table table-striped table-hover">
+                  <thead>
+                    <tr>
+                      <th class="text-body" scope="col">#ID</th>
+                      <th class="text-body" scope="col">Nome do Cargo</th>
+                      <th class="text-body" scope="col">Turno</th>
+                      <th class="text-body" scope="col">Município</th>
+                      <th class="text-body" scope="col">Status</th>
+                      <th class="text-body" scope="col">Vagas</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="id-do-cargo" scope="row">001</td>
+                      <td class="nome-do-cargo">Professor de Matemática</td>
+                      <td class="turno">Manhã</td>
+                      <td class="municipio">São Paulo</td>
+                      <td class="status">Ativo</td>
+                      <td class="vagas">5</td>
+                    </tr>
+                    <tr>
+                      <td class="id-do-cargo" scope="row">002</td>
+                      <td class="nome-do-cargo">Enfermeiro</td>
+                      <td class="turno">Tarde</td>
+                      <td class="municipio">Campinas</td>
+                      <td class="status">Ativo</td>
+                      <td class="vagas">8</td>
+                    </tr>
+                    <tr>
+                      <td class="id-do-cargo" scope="row">003</td>
+                      <td class="nome-do-cargo">Analista de Sistemas</td>
+                      <td class="turno">Integral</td>
+                      <td class="municipio">Ribeirão Preto</td>
+                      <td class="status">Inativo</td>
+                      <td class="vagas">2</td>
+                    </tr>
+                    <tr>
+                      <td class="id-do-cargo" scope="row">004</td>
+                      <td class="nome-do-cargo">Auxiliar Administrativo</td>
+                      <td class="turno">Noite</td>
+                      <td class="municipio">Santos</td>
+                      <td class="status">Ativo</td>
+                      <td class="vagas">4</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane card rounded-0 rounded-bottom fade" id="etapas-pane" role="tabpanel" aria-labelledby="etapas" tabindex="0">...</div>
+        </div>
+        
+        
+    </main>
+
+     <!-- modal -->
+     <div class="modal fade" id="modalCargo" aria-hidden="true" tabindex="-1">
+      <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Cliente</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <!-- Nome do Cargo -->
+              <div class="mb-3">
+                <label for="cargoNome" class="form-label">Nome do Cargo</label>
+                <input type="text" class="form-control" id="cargoNome" required>
+              </div>
+            
+              <!-- Valor da Inscrição -->
+              <div class="mb-3">
+                <label for="valorInscricao" class="form-label">Valor da Inscrição</label>
+                <div class="input-group">
+                  <span class="input-group-text">R$</span>
+                  <input type="number" class="form-control" id="valorInscricao" placeholder="0,00" min="0" step="0.01" required>
+                </div>
+              </div>
+            
+              <!-- Turno -->
+              <div class="mb-3">
+                <label for="turno" class="form-label">Turno</label>
+                <select class="form-select" id="turno" required>
+                  <option value="" selected disabled>Selecione o turno</option>
+                  <option value="Manhã">Manhã</option>
+                  <option value="Tarde">Tarde</option>
+                  <option value="Noite">Noite</option>
+                  <option value="Integral">Integral</option>
+                </select>
+              </div>
+            
+              <!-- Local de Atuação -->
+              <h5 class="mt-5">Local de Atuação</h5>
+            
+              <!-- CEP -->
+              <div class="mb-3">
+                <label for="cep" class="form-label">CEP</label>
+                <input type="text" class="form-control" id="cep" placeholder="00000-000" required>
+              </div>
+            
+              <!-- Município (Determinado automaticamente pelo CEP) -->
+              <div class="mb-3">
+                <label for="municipio" class="form-label">Município</label>
+                <input type="text" class="form-control" id="municipio" readonly>
+              </div>
+            
+              <!-- Datas -->
+              <h5 class="mt-5">Datas</h5>
+            
+              <!-- Data de Início -->
+              <div class="mb-3">
+                <label for="dataInicio" class="form-label">Data de Início</label>
+                <input type="date" class="form-control" id="dataInicio" required>
+              </div>
+            
+              <!-- Data Fim -->
+              <div class="mb-3">
+                <label for="dataFim" class="form-label">Data Fim</label>
+                <input type="date" class="form-control" id="dataFim" required>
+              </div>
+            
+              <!-- Validação de Elegibilidade -->
+              <div class="mb-3">
+                <label class="form-label">Validação de Elegibilidade</label>
+                <div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="validacaoElegibilidade" id="elegibilidadeSim" value="Sim" required>
+                    <label class="form-check-label" for="elegibilidadeSim">Sim</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="validacaoElegibilidade" id="elegibilidadeNao" value="Não" required>
+                    <label class="form-check-label" for="elegibilidadeNao">Não</label>
+                  </div>
+                </div>
+              </div>
+            
+              <!-- Remuneração -->
+              <div class="mb-3">
+                <label for="remuneracao" class="form-label">Remuneração</label>
+                <div class="input-group">
+                  <span class="input-group-text">R$</span>
+                  <input type="number" class="form-control" id="remuneracao" placeholder="0,00" min="0" step="0.01" required>
+                </div>
+              </div>
+            
+              <!-- Vagas -->
+              <div class="mb-3">
+                <label for="vagas" class="form-label">Vagas</label>
+                <input type="number" class="form-control" id="vagas" min="0" step="1" required>
+              </div>
+            
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-primary">Salvar</button>
+          </div>
+        </div>
+      </div>
+      <script>
+        document.getElementById('cep').addEventListener('blur', function() {
+          var cep = this.value.replace(/\D/g, '');
+          if (cep.length === 8) {
+            fetch('https://viacep.com.br/ws/' + cep + '/json/')
+              .then(function(response) {
+                return response.json();
+              })
+              .then(function(data) {
+                if (!('erro' in data)) {
+                  document.getElementById('municipio').value = data.localidade;
+                } else {
+                  alert('CEP não encontrado.');
+                }
+              })
+              .catch(function(error) {
+                console.error('Erro ao buscar o CEP:', error);
+              });
+          }
+        });
+        $(function() {
+          $('#dataInicio, #dataFim').daterangepicker({
+            singleDatePicker: true,
+            locale: {
+              format: 'DD/MM/YYYY'
+            }
+          });
+        });
+      </script>
+    </div>
+    
+
+    <div id="footerDiv" class="text-center my-4 text-muted" style="width: 100%;">
+        FGV Conhecimento - Inscreve Versão 2.4.0
+    </div>
+    
+    <script>
+        function positionFooter() {
+            var footerDiv = document.getElementById('footerDiv');
+            if (document.body.offsetHeight < window.innerHeight) {
+                footerDiv.style.position = "fixed";
+                footerDiv.style.bottom = "0";
+            } else {
+                footerDiv.style.position = "static";
+            }
+        }
+    
+        window.onload = positionFooter;
+        window.onresize = positionFooter;
+    
+        // Create a new MutationObserver instance
+        var observer = new MutationObserver(positionFooter);
+    
+        // Start observing the document with the configured parameters
+        observer.observe(document.body, { childList: true, subtree: true });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- JS do date range picker e suas dependências (se utilizado) -->
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/min/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/daterangepicker@3.1/daterangepicker.min.js"></script>
+    <!-- scripts do bootstrap -->
+    <script src="js/bootstrap.js"></script>
+    
+    <!-- Adicionar * após o rótulo para cada campo de entrada obrigatório -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Get all required input and select elements
+            var requiredInputs = document.querySelectorAll('input[required], select[required]');
+    
+            // Loop through each required input/select element
+            requiredInputs.forEach(function (input) {
+                // Get the label for this input/select
+                var label = document.querySelector('label[for="' + input.id + '"]');
+    
+                // If a label was found, add an asterisk to its text
+                if (label) {
+                    label.innerHTML += ' <span class="text-danger">*</span>';
+                }
+            });
+        });
+    </script>
+  </body>
+</html>

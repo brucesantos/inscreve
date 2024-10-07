@@ -181,6 +181,38 @@
       "oAP" : "\/build\/_versao.html",
       "oF" : 0
     },
+    "\/source\/backoffice-clientes.kit" : {
+      "cB" : 0,
+      "ft" : 2048,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/build\/backoffice-clientes.html",
+      "oF" : 0
+    },
+    "\/source\/backoffice-concurso-exemplo.kit" : {
+      "cB" : 0,
+      "ft" : 2048,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/build\/backoffice-concurso-exemplo.html",
+      "oF" : 0
+    },
+    "\/source\/backoffice-concursos.kit" : {
+      "cB" : 0,
+      "ft" : 2048,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/build\/backoffice-concursos.html",
+      "oF" : 0
+    },
+    "\/source\/backoffice-index.kit" : {
+      "cB" : 0,
+      "ft" : 2048,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/build\/backoffice-index.html",
+      "oF" : 0
+    },
     "\/source\/cadastro.kit" : {
       "cB" : 0,
       "ft" : 2048,
@@ -211,6 +243,14 @@
       "hM" : 0,
       "oA" : 0,
       "oAP" : "\/build\/confirmacao.html",
+      "oF" : 0
+    },
+    "\/source\/dados\/mockup_concursos.csv" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/build\/dados\/mockup_concursos.csv",
       "oF" : 0
     },
     "\/source\/dashboard-menu.kit" : {
@@ -313,6 +353,16 @@
       "miP" : 0,
       "oA" : 0,
       "oAP" : "\/build\/images\/logo-enare.svg",
+      "oF" : 0,
+      "opt" : 1,
+      "plM" : 52780316221407,
+      "prP" : 0
+    },
+    "\/source\/images\/logo-fgv-conhecimento-inverse.svg" : {
+      "ft" : 2097152,
+      "miP" : 0,
+      "oA" : 0,
+      "oAP" : "\/build\/images\/logo-fgv-conhecimento-inverse.svg",
       "oF" : 0,
       "opt" : 1,
       "plM" : 52780316221407,
@@ -602,7 +652,7 @@
     "displayValueWasSetByUser" : 0,
     "iconImageName" : "\/source\/images\/logo@2x.png",
     "iconImageWasSetByUser" : 0,
-    "lastBuiltDate" : 748442326.21777201
+    "lastBuiltDate" : 750018841.58733797
   },
   "projectSettings" : {
     "abortBuildOnError" : 1,

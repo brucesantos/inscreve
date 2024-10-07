@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="pt">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Sistema Inscreve da FGV Conhecimento, para inscrições em concursos">
+    <title>Inscreve - FGV Conhecimento</title>
+    <!-- Nosso estilo -->
+    <link href="styles/main.css" rel="stylesheet">
+  </head>
+
+  <body class="bg-light">
+    <!-- também conhecido como navbar -->
+    <!-- $clientes = active -->
+    <!-- @import header-fgv -->
+
+    <main class="container">
+        <div class="mt-4 d-flex align-items-center justify-content-between">
+          <h1>Clientes</h1>
+          <a href="#" class="btn btn-primary" data-bs-target="#modalCliente" data-bs-toggle="modal">Novo Cliente</a>
+        </div>
+        
+        <div class="card">
+          <div class="card-body">
+            <div class="table-responsive mt-4">
+              <table class="table table-striped table-hover">
+                <thead>
+                  <tr>
+                    <th class="text-body" scope="col">#ID</th>
+                    <th class="text-body" scope="col">Empresa</th>
+                    <th class="text-body" scope="col">Contato</th>
+                    <th class="text-body" scope="col">Telefone</th>
+                    <th class="text-body" scope="col">Email</th>
+                    <th class="text-body" scope="col">Conc. Ativos</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="id-do-cliente" scope="row"><a href="#" data-bs-target="#modalCliente" data-bs-toggle="modal">0000001</a></td>
+                    <td class="text-body-secondary nome-da-empresa">OAB</td>
+                    <td class="text-body-secondary nome-do-contato">João Exemplo da Silva</td>
+                    <td class="telefone-do-contato"><a href="https://api.whatsapp.com/send?phone=5515991185773">(15) 99118-5773</a></td>
+                    <td class="email-do-contato"><a href="mailto:joaoexemplo@email.com.br">joaoexemplo@email.com.br</a></td>
+                    <td class="text-body-secondary concursos-ativos">2</td>
+                  </tr>
+                  <tr>
+                    <td class="id-do-cliente" scope="row"><a href="#" data-bs-target="#modalCliente" data-bs-toggle="modal">0000002</a></td>
+                    <td class="text-body-secondary nome-da-empresa">Detran</td>
+                    <td class="text-body-secondary nome-do-contato">Rodrigo Soares</td>
+                    <td class="telefone-do-contato"><a href="https://api.whatsapp.com/send?phone=5511937350000">(11) 93735-0000</a></td>
+                    <td class="email-do-contato"><a href="mailto:rodrigosoares@email.com.br">rodrigosoares@email.com.br</a></td>
+                    <td class="text-body-secondary concursos-ativos">0</td>
+                  </tr>
+                  <tr>
+                    <td class="id-do-cliente" scope="row"><a href="#" data-bs-target="#modalCliente" data-bs-toggle="modal">0000003</a></td>
+                    <td class="text-body-secondary nome-da-empresa">Governo do estado de SP</td>
+                    <td class="text-body-secondary nome-do-contato">João Reinaldo dos Santos</td>
+                    <td class="telefone-do-contato"><a href="https://api.whatsapp.com/send?phone=551998760000">(19) 99876-0000</a></td>
+                    <td class="email-do-contato"><a href="mailto:joaoreinaldodossantos@email.com.br">joaoreinaldodossantos@email.com.br</a></td>
+                    <td class="text-body-secondary concursos-ativos">1</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        
+        
+    </main>
+
+    <!-- modal -->
+    <div class="modal fade" id="modalCliente" aria-hidden="true" tabindex="-1">
+      <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Cliente</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <!-- Nome Oficial da Empresa -->
+              <div class="mb-3">
+                <label for="companyName" class="form-label">Nome Oficial da Empresa</label>
+                <input type="text" class="form-control" id="companyName" required>
+              </div>
+            
+              <!-- CNPJ -->
+              <div class="mb-3">
+                <label for="cnpj" class="form-label">CNPJ</label>
+                <input type="text" class="form-control" id="cnpj" required>
+              </div>
+            
+              <!-- Apelido -->
+              <div class="mb-3">
+                <label for="nickname" class="form-label">Apelido</label>
+                <input type="text" class="form-control" id="nickname" placeholder="Como a empresa é chamada no sistema" required>
+              </div>
+            
+              <!-- Contato -->
+              <h5 class="mt-5">Contato</h5>
+            
+              <!-- Nome do Contato -->
+              <div class="mb-3">
+                <label for="contactName" class="form-label">Nome do Contato</label>
+                <input type="text" class="form-control" id="contactName" required>
+              </div>
+            
+              <!-- Telefone do Contato -->
+              <div class="mb-3">
+                <label for="contactPhone" class="form-label">Telefone do Contato</label>
+                <input type="tel" class="form-control" id="contactPhone" required>
+              </div>
+            
+              <!-- Email do Contato -->
+              <div class="mb-3">
+                <label for="contactEmail" class="form-label">Email do Contato</label>
+                <input type="email" class="form-control" id="contactEmail" required>
+              </div>
+            
+              <!-- Estilo Visual -->
+              <h5 class="mt-5">Estilo Visual</h5>
+            
+              <!-- Cor Principal -->
+              <div class="mb-3">
+                <label for="mainColor" class="form-label">Cor Principal</label>
+                <input type="color" class="form-control form-control-color" id="mainColor" value="#000000" title="Escolha a cor principal">
+              </div>
+            
+              <!-- Imagem do Logo -->
+              <div class="mb-3">
+                <label for="logoImage" class="form-label">Imagem do Logo</label>
+                <input class="form-control" type="file" id="logoImage" accept=".png, .svg">
+                <div class="form-text">.png ou .svg - máximo 60px de altura por 300px de largura</div>
+              </div>
+            
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-primary">Salvar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- @import "versao" -->
+    <!-- @import "scripts-gerais" -->
+  </body>
+</html>
