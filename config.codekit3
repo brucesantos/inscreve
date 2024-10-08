@@ -14,25 +14,25 @@
       "ft" : 8192,
       "hM" : 0,
       "oA" : 0,
-      "oAP" : "\/build\/.gitattributes",
+      "oAP" : "\/docs\/.gitattributes",
       "oF" : 0
     },
     "\/build" : {
       "ft" : 65536,
       "oA" : 1,
-      "oAP" : "\/build\/build",
+      "oAP" : "\/docs\/build",
       "oF" : 0
     },
     "\/node_modules" : {
       "ft" : 65536,
       "oA" : 2,
-      "oAP" : "\/build\/node_modules",
+      "oAP" : "\/docs\/node_modules",
       "oF" : 0
     },
     "\/package-lock.json" : {
       "ft" : 524288,
       "oA" : 1,
-      "oAP" : "\/build\/package-lock.json",
+      "oAP" : "\/docs\/package-lock.json",
       "oF" : 0,
       "oO" : 1,
       "oS" : 1
@@ -40,7 +40,7 @@
     "\/package.json" : {
       "ft" : 524288,
       "oA" : 1,
-      "oAP" : "\/build\/package.json",
+      "oAP" : "\/docs\/package.json",
       "oF" : 0,
       "oO" : 1,
       "oS" : 1
@@ -50,7 +50,7 @@
       "ft" : 2048,
       "hM" : 0,
       "oA" : 1,
-      "oAP" : "\/build\/_botao-excluir.html",
+      "oAP" : "\/docs\/_botao-excluir.html",
       "oF" : 0
     },
     "\/source\/_conteudo-do-cadastro.kit" : {
@@ -58,7 +58,7 @@
       "ft" : 2048,
       "hM" : 0,
       "oA" : 1,
-      "oAP" : "\/build\/_conteudo-do-cadastro.html",
+      "oAP" : "\/docs\/_conteudo-do-cadastro.html",
       "oF" : 0
     },
     "\/source\/_cpf.kit" : {
@@ -66,7 +66,7 @@
       "ft" : 2048,
       "hM" : 0,
       "oA" : 1,
-      "oAP" : "\/build\/_cpf.html",
+      "oAP" : "\/docs\/_cpf.html",
       "oF" : 0
     },
     "\/source\/_endereco.kit" : {
@@ -74,7 +74,7 @@
       "ft" : 2048,
       "hM" : 0,
       "oA" : 1,
-      "oAP" : "\/build\/_endereco.html",
+      "oAP" : "\/docs\/_endereco.html",
       "oF" : 0
     },
     "\/source\/_escolaridade.kit" : {
@@ -82,7 +82,7 @@
       "ft" : 2048,
       "hM" : 0,
       "oA" : 1,
-      "oAP" : "\/build\/_escolaridade.html",
+      "oAP" : "\/docs\/_escolaridade.html",
       "oF" : 0
     },
     "\/source\/_estadosbrasileiros.kit" : {
@@ -90,7 +90,7 @@
       "ft" : 2048,
       "hM" : 0,
       "oA" : 1,
-      "oAP" : "\/build\/_estadosbrasileiros.html",
+      "oAP" : "\/docs\/_estadosbrasileiros.html",
       "oF" : 0
     },
     "\/source\/_filhos.kit" : {
@@ -98,7 +98,7 @@
       "ft" : 2048,
       "hM" : 0,
       "oA" : 1,
-      "oAP" : "\/build\/_filhos.html",
+      "oAP" : "\/docs\/_filhos.html",
       "oF" : 0
     },
     "\/source\/_header-fgv.kit" : {
@@ -106,7 +106,7 @@
       "ft" : 2048,
       "hM" : 0,
       "oA" : 1,
-      "oAP" : "\/build\/_header-fgv.html",
+      "oAP" : "\/docs\/_header-fgv.html",
       "oF" : 0
     },
     "\/source\/_header.kit" : {
@@ -114,7 +114,7 @@
       "ft" : 2048,
       "hM" : 0,
       "oA" : 1,
-      "oAP" : "\/build\/_header.html",
+      "oAP" : "\/docs\/_header.html",
       "oF" : 0
     },
     "\/source\/_modal-exemplo.kit" : {
@@ -122,7 +122,7 @@
       "ft" : 2048,
       "hM" : 0,
       "oA" : 1,
-      "oAP" : "\/build\/_modal-exemplo.html",
+      "oAP" : "\/docs\/_modal-exemplo.html",
       "oF" : 0
     },
     "\/source\/_nascimento.kit" : {
@@ -130,7 +130,7 @@
       "ft" : 2048,
       "hM" : 0,
       "oA" : 1,
-      "oAP" : "\/build\/_nascimento.html",
+      "oAP" : "\/docs\/_nascimento.html",
       "oF" : 0
     },
     "\/source\/_naturalidade.kit" : {
@@ -138,7 +138,7 @@
       "ft" : 2048,
       "hM" : 0,
       "oA" : 1,
-      "oAP" : "\/build\/_naturalidade.html",
+      "oAP" : "\/docs\/_naturalidade.html",
       "oF" : 0
     },
     "\/source\/_paises.kit" : {
@@ -146,7 +146,7 @@
       "ft" : 2048,
       "hM" : 0,
       "oA" : 1,
-      "oAP" : "\/build\/_paises.html",
+      "oAP" : "\/docs\/_paises.html",
       "oF" : 0
     },
     "\/source\/_rodape-enter.kit" : {
@@ -154,7 +154,7 @@
       "ft" : 2048,
       "hM" : 0,
       "oA" : 1,
-      "oAP" : "\/build\/_rodape-enter.html",
+      "oAP" : "\/docs\/_rodape-enter.html",
       "oF" : 0
     },
     "\/source\/_scripts-gerais.kit" : {
@@ -162,7 +162,7 @@
       "ft" : 2048,
       "hM" : 0,
       "oA" : 1,
-      "oAP" : "\/build\/_scripts-gerais.html",
+      "oAP" : "\/docs\/_scripts-gerais.html",
       "oF" : 0
     },
     "\/source\/_senha.kit" : {
@@ -170,7 +170,7 @@
       "ft" : 2048,
       "hM" : 0,
       "oA" : 1,
-      "oAP" : "\/build\/_senha.html",
+      "oAP" : "\/docs\/_senha.html",
       "oF" : 0
     },
     "\/source\/_versao.kit" : {
@@ -178,7 +178,7 @@
       "ft" : 2048,
       "hM" : 0,
       "oA" : 1,
-      "oAP" : "\/build\/_versao.html",
+      "oAP" : "\/docs\/_versao.html",
       "oF" : 0
     },
     "\/source\/backoffice-clientes.kit" : {
@@ -186,7 +186,7 @@
       "ft" : 2048,
       "hM" : 0,
       "oA" : 0,
-      "oAP" : "\/build\/backoffice-clientes.html",
+      "oAP" : "\/docs\/backoffice-clientes.html",
       "oF" : 0
     },
     "\/source\/backoffice-concurso-exemplo.kit" : {
@@ -194,7 +194,7 @@
       "ft" : 2048,
       "hM" : 0,
       "oA" : 0,
-      "oAP" : "\/build\/backoffice-concurso-exemplo.html",
+      "oAP" : "\/docs\/backoffice-concurso-exemplo.html",
       "oF" : 0
     },
     "\/source\/backoffice-concursos.kit" : {
@@ -202,7 +202,7 @@
       "ft" : 2048,
       "hM" : 0,
       "oA" : 0,
-      "oAP" : "\/build\/backoffice-concursos.html",
+      "oAP" : "\/docs\/backoffice-concursos.html",
       "oF" : 0
     },
     "\/source\/backoffice-index.kit" : {
@@ -210,7 +210,7 @@
       "ft" : 2048,
       "hM" : 0,
       "oA" : 0,
-      "oAP" : "\/build\/backoffice-index.html",
+      "oAP" : "\/docs\/backoffice-index.html",
       "oF" : 0
     },
     "\/source\/cadastro.kit" : {
@@ -218,7 +218,7 @@
       "ft" : 2048,
       "hM" : 0,
       "oA" : 0,
-      "oAP" : "\/build\/cadastro.html",
+      "oAP" : "\/docs\/cadastro.html",
       "oF" : 0
     },
     "\/source\/concurso-detalhe.kit" : {
@@ -226,7 +226,7 @@
       "ft" : 2048,
       "hM" : 0,
       "oA" : 0,
-      "oAP" : "\/build\/concurso-detalhe.html",
+      "oAP" : "\/docs\/concurso-detalhe.html",
       "oF" : 0
     },
     "\/source\/concursos.kit" : {
@@ -234,7 +234,7 @@
       "ft" : 2048,
       "hM" : 0,
       "oA" : 0,
-      "oAP" : "\/build\/concursos.html",
+      "oAP" : "\/docs\/concursos.html",
       "oF" : 0
     },
     "\/source\/confirmacao.kit" : {
@@ -242,7 +242,7 @@
       "ft" : 2048,
       "hM" : 0,
       "oA" : 0,
-      "oAP" : "\/build\/confirmacao.html",
+      "oAP" : "\/docs\/confirmacao.html",
       "oF" : 0
     },
     "\/source\/dados\/mockup_concursos.csv" : {
@@ -250,7 +250,7 @@
       "ft" : 8192,
       "hM" : 0,
       "oA" : 0,
-      "oAP" : "\/build\/dados\/mockup_concursos.csv",
+      "oAP" : "\/docs\/dados\/mockup_concursos.csv",
       "oF" : 0
     },
     "\/source\/dashboard-menu.kit" : {
@@ -258,7 +258,7 @@
       "ft" : 2048,
       "hM" : 0,
       "oA" : 0,
-      "oAP" : "\/build\/dashboard-menu.html",
+      "oAP" : "\/docs\/dashboard-menu.html",
       "oF" : 0
     },
     "\/source\/dashboard.kit" : {
@@ -266,7 +266,7 @@
       "ft" : 2048,
       "hM" : 0,
       "oA" : 0,
-      "oAP" : "\/build\/dashboard.html",
+      "oAP" : "\/docs\/dashboard.html",
       "oF" : 0
     },
     "\/source\/dropzone.kit" : {
@@ -274,7 +274,7 @@
       "ft" : 2048,
       "hM" : 0,
       "oA" : 0,
-      "oAP" : "\/build\/dropzone.html",
+      "oAP" : "\/docs\/dropzone.html",
       "oF" : 0
     },
     "\/source\/flatpickr.kit" : {
@@ -282,14 +282,14 @@
       "ft" : 2048,
       "hM" : 0,
       "oA" : 0,
-      "oAP" : "\/build\/flatpickr.html",
+      "oAP" : "\/docs\/flatpickr.html",
       "oF" : 0
     },
     "\/source\/images\/answer.svg" : {
       "ft" : 2097152,
       "miP" : 0,
       "oA" : 0,
-      "oAP" : "\/build\/images\/answer.svg",
+      "oAP" : "\/docs\/images\/answer.svg",
       "oF" : 0,
       "opt" : 1,
       "plM" : 52780316221407,
@@ -299,7 +299,7 @@
       "ft" : 2097152,
       "miP" : 0,
       "oA" : 0,
-      "oAP" : "\/build\/images\/arrow-up.svg",
+      "oAP" : "\/docs\/images\/arrow-up.svg",
       "oF" : 0,
       "opt" : 1,
       "plM" : 52780316221407,
@@ -309,7 +309,7 @@
       "ft" : 2097152,
       "miP" : 0,
       "oA" : 0,
-      "oAP" : "\/build\/images\/dica.svg",
+      "oAP" : "\/docs\/images\/dica.svg",
       "oF" : 0,
       "opt" : 1,
       "plM" : 52780316221407,
@@ -319,7 +319,7 @@
       "ft" : 2097152,
       "miP" : 0,
       "oA" : 0,
-      "oAP" : "\/build\/images\/empty.svg",
+      "oAP" : "\/docs\/images\/empty.svg",
       "oF" : 0,
       "opt" : 1,
       "plM" : 52780316221407,
@@ -330,7 +330,7 @@
       "iS" : 112768,
       "jF" : 0,
       "oA" : 0,
-      "oAP" : "\/build\/images\/fundo.jpg",
+      "oAP" : "\/docs\/images\/fundo.jpg",
       "oF" : 0,
       "oIPL" : 0,
       "opt" : 1,
@@ -342,7 +342,7 @@
       "ft" : 2097152,
       "miP" : 0,
       "oA" : 0,
-      "oAP" : "\/build\/images\/history-event.svg",
+      "oAP" : "\/docs\/images\/history-event.svg",
       "oF" : 0,
       "opt" : 1,
       "plM" : 52780316221407,
@@ -352,7 +352,7 @@
       "ft" : 2097152,
       "miP" : 0,
       "oA" : 0,
-      "oAP" : "\/build\/images\/logo-enare.svg",
+      "oAP" : "\/docs\/images\/logo-enare.svg",
       "oF" : 0,
       "opt" : 1,
       "plM" : 52780316221407,
@@ -362,7 +362,7 @@
       "ft" : 2097152,
       "miP" : 0,
       "oA" : 0,
-      "oAP" : "\/build\/images\/logo-fgv-conhecimento-inverse.svg",
+      "oAP" : "\/docs\/images\/logo-fgv-conhecimento-inverse.svg",
       "oF" : 0,
       "opt" : 1,
       "plM" : 52780316221407,
@@ -372,7 +372,7 @@
       "ft" : 2097152,
       "miP" : 0,
       "oA" : 0,
-      "oAP" : "\/build\/images\/logo-fgv-conhecimento.svg",
+      "oAP" : "\/docs\/images\/logo-fgv-conhecimento.svg",
       "oF" : 0,
       "opt" : 1,
       "plM" : 52780316221407,
@@ -382,7 +382,7 @@
       "ft" : 2097152,
       "miP" : 0,
       "oA" : 0,
-      "oAP" : "\/build\/images\/logo-fgv-inscreve.svg",
+      "oAP" : "\/docs\/images\/logo-fgv-inscreve.svg",
       "oF" : 0,
       "opt" : 1,
       "plM" : 52780316221407,
@@ -392,7 +392,7 @@
       "ft" : 32768,
       "iS" : 18193,
       "oA" : 0,
-      "oAP" : "\/build\/images\/logo.png",
+      "oAP" : "\/docs\/images\/logo.png",
       "oF" : 0,
       "oIPL" : 0,
       "opt" : 1,
@@ -405,7 +405,7 @@
       "ft" : 32768,
       "iS" : 66197,
       "oA" : 0,
-      "oAP" : "\/build\/images\/logo@2x.png",
+      "oAP" : "\/docs\/images\/logo@2x.png",
       "oF" : 0,
       "oIPL" : 0,
       "opt" : 1,
@@ -418,7 +418,7 @@
       "ft" : 2097152,
       "miP" : 0,
       "oA" : 0,
-      "oAP" : "\/build\/images\/rating.svg",
+      "oAP" : "\/docs\/images\/rating.svg",
       "oF" : 0,
       "opt" : 1,
       "plM" : 52780316221407,
@@ -428,7 +428,7 @@
       "ft" : 2097152,
       "miP" : 0,
       "oA" : 0,
-      "oAP" : "\/build\/images\/search.svg",
+      "oAP" : "\/docs\/images\/search.svg",
       "oF" : 0,
       "opt" : 1,
       "plM" : 52780316221407,
@@ -438,7 +438,7 @@
       "ft" : 2097152,
       "miP" : 0,
       "oA" : 0,
-      "oAP" : "\/build\/images\/solicitacoes.svg",
+      "oAP" : "\/docs\/images\/solicitacoes.svg",
       "oF" : 0,
       "opt" : 1,
       "plM" : 52780316221407,
@@ -448,7 +448,7 @@
       "ft" : 2097152,
       "miP" : 0,
       "oA" : 0,
-      "oAP" : "\/build\/images\/times.svg",
+      "oAP" : "\/docs\/images\/times.svg",
       "oF" : 0,
       "opt" : 1,
       "plM" : 52780316221407,
@@ -459,7 +459,7 @@
       "ft" : 2048,
       "hM" : 0,
       "oA" : 0,
-      "oAP" : "\/build\/index.html",
+      "oAP" : "\/docs\/index.html",
       "oF" : 0
     },
     "\/source\/js\/bootstrap.js" : {
@@ -468,7 +468,7 @@
       "ma" : 0,
       "mi" : 2,
       "oA" : 0,
-      "oAP" : "\/build\/js\/bootstrap.js",
+      "oAP" : "\/docs\/js\/bootstrap.js",
       "oF" : 0,
       "sC" : 3,
       "tS" : 0
@@ -478,7 +478,7 @@
       "ft" : 2048,
       "hM" : 0,
       "oA" : 0,
-      "oAP" : "\/build\/multiselect.html",
+      "oAP" : "\/docs\/multiselect.html",
       "oF" : 0
     },
     "\/source\/solicitacoes.kit" : {
@@ -486,7 +486,7 @@
       "ft" : 2048,
       "hM" : 0,
       "oA" : 0,
-      "oAP" : "\/build\/solicitacoes.html",
+      "oAP" : "\/docs\/solicitacoes.html",
       "oF" : 0
     },
     "\/source\/styles\/_cadastro.scss" : {
@@ -498,7 +498,7 @@
       "ft" : 4,
       "ma" : 0,
       "oA" : 1,
-      "oAP" : "\/build\/styles\/_cadastro.css",
+      "oAP" : "\/docs\/styles\/_cadastro.css",
       "oF" : 0,
       "oS" : 0,
       "pg" : 0,
@@ -513,7 +513,7 @@
       "ft" : 4,
       "ma" : 0,
       "oA" : 1,
-      "oAP" : "\/build\/styles\/_choices.css",
+      "oAP" : "\/docs\/styles\/_choices.css",
       "oF" : 0,
       "oS" : 0,
       "pg" : 0,
@@ -528,7 +528,7 @@
       "ft" : 4,
       "ma" : 0,
       "oA" : 1,
-      "oAP" : "\/build\/styles\/_concurso-detalhe.css",
+      "oAP" : "\/docs\/styles\/_concurso-detalhe.css",
       "oF" : 0,
       "oS" : 0,
       "pg" : 0,
@@ -543,7 +543,7 @@
       "ft" : 4,
       "ma" : 0,
       "oA" : 1,
-      "oAP" : "\/build\/styles\/_custom.css",
+      "oAP" : "\/docs\/styles\/_custom.css",
       "oF" : 0,
       "oS" : 0,
       "pg" : 0,
@@ -558,7 +558,7 @@
       "ft" : 4,
       "ma" : 0,
       "oA" : 1,
-      "oAP" : "\/build\/styles\/_dashboard.css",
+      "oAP" : "\/docs\/styles\/_dashboard.css",
       "oF" : 0,
       "oS" : 0,
       "pg" : 0,
@@ -573,7 +573,7 @@
       "ft" : 4,
       "ma" : 0,
       "oA" : 1,
-      "oAP" : "\/build\/styles\/_dropzone.css",
+      "oAP" : "\/docs\/styles\/_dropzone.css",
       "oF" : 0,
       "oS" : 0,
       "pg" : 0,
@@ -588,7 +588,7 @@
       "ft" : 4,
       "ma" : 0,
       "oA" : 1,
-      "oAP" : "\/build\/styles\/_flatpickr.css",
+      "oAP" : "\/docs\/styles\/_flatpickr.css",
       "oF" : 0,
       "oS" : 0,
       "pg" : 0,
@@ -603,7 +603,7 @@
       "ft" : 4,
       "ma" : 0,
       "oA" : 1,
-      "oAP" : "\/build\/styles\/_select2.css",
+      "oAP" : "\/docs\/styles\/_select2.css",
       "oF" : 0,
       "oS" : 0,
       "pg" : 0,
@@ -618,7 +618,7 @@
       "ft" : 4,
       "ma" : 0,
       "oA" : 1,
-      "oAP" : "\/build\/styles\/_solicitacoes.css",
+      "oAP" : "\/docs\/styles\/_solicitacoes.css",
       "oF" : 0,
       "oS" : 0,
       "pg" : 0,
@@ -633,7 +633,7 @@
       "ft" : 4,
       "ma" : 0,
       "oA" : 0,
-      "oAP" : "\/build\/styles\/main.css",
+      "oAP" : "\/docs\/styles\/main.css",
       "oF" : 0,
       "oS" : 0,
       "pg" : 0,
@@ -652,7 +652,7 @@
     "displayValueWasSetByUser" : 0,
     "iconImageName" : "\/source\/images\/logo@2x.png",
     "iconImageWasSetByUser" : 0,
-    "lastBuiltDate" : 750018841.58733797
+    "lastBuiltDate" : 750084688.26599097
   },
   "projectSettings" : {
     "abortBuildOnError" : 1,
@@ -948,7 +948,7 @@
     "browserslistString" : ">0.2%, last 2 versions, Firefox ESR, not dead",
     "buildEnvironment" : 0,
     "buildFolderActive" : 1,
-    "buildFolderName" : "build",
+    "buildFolderName" : "docs",
     "cleanBuild" : 1,
     "cssoForceMediaMerge" : 0,
     "cssoRestructure" : 1,
@@ -2545,7 +2545,7 @@
     "webpPresets" : {
 
     },
-    "websiteRelativeRoot" : "build"
+    "websiteRelativeRoot" : "docs"
   },
   "settingsFileVersion" : "3"
 }

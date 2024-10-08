@@ -100,8 +100,14 @@
           <li class="nav-item" role="presentation">
             <button class="nav-link" id="etapas" data-bs-toggle="tab" data-bs-target="#etapas-pane" type="button" role="tab" aria-controls="etapas-pane" aria-selected="false">Etapas</button>
           </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="historico" data-bs-toggle="tab" data-bs-target="#historico-pane" type="button" role="tab" aria-controls="historico-pane" aria-selected="false">Histórico</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="inscricoes" data-bs-toggle="tab" data-bs-target="#inscricoes-pane" type="button" role="tab" aria-controls="inscricoes-pane" aria-selected="false">Inscrições</button>
+          </li>
         </ul>
-        <div class="tab-content" id="myTabContent">
+        <div class="tab-content mb-5" id="myTabContent">
           <div class="tab-pane card rounded-0 rounded-bottom fade show active" id="info-geral-pane" role="tabpanel" aria-labelledby="info-geral" tabindex="0">
             <div class="p-4">
               <form action="">
@@ -126,10 +132,10 @@
           <div class="tab-pane card rounded-0 rounded-bottom fade" id="banco-pane" role="tabpanel" aria-labelledby="banco" tabindex="0">
             <div class="p-4">
               <div>
-                <h2>Dados para Integração com API Bancária</h2>
+                <h3 class="fs-4">Dados para Integração com API Bancária</h3>
                 <form>
                     <!-- Dados de Autenticação -->
-                    <h4 class="mt-4">Autenticação</h4>
+                    <h5 class="mt-5">Autenticação</h5>
                     <div class="mb-3">
                         <label for="apiKey" class="form-label">API Key</label>
                         <input type="text" class="form-control" id="apiKey" placeholder="Chave de API fornecida pelo banco" required>
@@ -140,7 +146,7 @@
                     </div>
             
                     <!-- Dados da Conta Empresa -->
-                    <h4 class="mt-4">Dados da Empresa</h4>
+                    <h5 class="mt-5">Dados da Empresa</h5>
                     <div class="mb-3">
                         <label for="companyName" class="form-label">Nome da Empresa</label>
                         <input type="text" class="form-control" id="companyName" placeholder="Nome legal da empresa" required>
@@ -159,7 +165,7 @@
                     </div>
             
                     <!-- Dados do Boleto -->
-                    <h4 class="mt-4">Configurações do Boleto</h4>
+                    <h5 class="mt-5">Configurações do Boleto</h5>
                     <div class="mb-3">
                         <label for="dueDays" class="form-label">Dias para Vencimento</label>
                         <input type="number" class="form-control" id="dueDays" placeholder="Quantidade de dias até o vencimento" required>
@@ -203,7 +209,7 @@
                   </thead>
                   <tbody>
                     <tr>
-                      <td class="id-do-cargo" scope="row">001</td>
+                      <td class="id-do-cargo" scope="row"><a href="#" data-bs-target="#modalCargo" data-bs-toggle="modal">001</a></td>
                       <td class="nome-do-cargo">Professor de Matemática</td>
                       <td class="turno">Manhã</td>
                       <td class="municipio">São Paulo</td>
@@ -211,7 +217,7 @@
                       <td class="vagas">5</td>
                     </tr>
                     <tr>
-                      <td class="id-do-cargo" scope="row">002</td>
+                      <td class="id-do-cargo" scope="row"><a href="#" data-bs-target="#modalCargo" data-bs-toggle="modal">002</a></td>
                       <td class="nome-do-cargo">Enfermeiro</td>
                       <td class="turno">Tarde</td>
                       <td class="municipio">Campinas</td>
@@ -219,7 +225,7 @@
                       <td class="vagas">8</td>
                     </tr>
                     <tr>
-                      <td class="id-do-cargo" scope="row">003</td>
+                      <td class="id-do-cargo" scope="row"><a href="#" data-bs-target="#modalCargo" data-bs-toggle="modal">003</a></td>
                       <td class="nome-do-cargo">Analista de Sistemas</td>
                       <td class="turno">Integral</td>
                       <td class="municipio">Ribeirão Preto</td>
@@ -227,7 +233,7 @@
                       <td class="vagas">2</td>
                     </tr>
                     <tr>
-                      <td class="id-do-cargo" scope="row">004</td>
+                      <td class="id-do-cargo" scope="row"><a href="#" data-bs-target="#modalCargo" data-bs-toggle="modal">004</a></td>
                       <td class="nome-do-cargo">Auxiliar Administrativo</td>
                       <td class="turno">Noite</td>
                       <td class="municipio">Santos</td>
@@ -239,9 +245,22 @@
               </div>
             </div>
           </div>
-          <div class="tab-pane card rounded-0 rounded-bottom fade" id="etapas-pane" role="tabpanel" aria-labelledby="etapas" tabindex="0">...</div>
+          <div class="tab-pane card rounded-0 rounded-bottom fade" id="etapas-pane" role="tabpanel" aria-labelledby="etapas" tabindex="0">
+            <div class="p-4">
+              ...
+            </div>
+          </div>
+          <div class="tab-pane card rounded-0 rounded-bottom fade" id="historico-pane" role="tabpanel" aria-labelledby="historico" tabindex="0">
+            <div class="p-4">
+              ...
+            </div>
+          </div>
+          <div class="tab-pane card rounded-0 rounded-bottom fade" id="inscricoes-pane" role="tabpanel" aria-labelledby="inscricoes" tabindex="0">
+            <div class="p-4">
+              ...
+            </div>
+          </div>
         </div>
-        
         
     </main>
 
@@ -380,32 +399,8 @@
         });
       </script>
     </div>
-    
 
-    <div id="footerDiv" class="text-center my-4 text-muted" style="width: 100%;">
-        FGV Conhecimento - Inscreve Versão 2.4.0
-    </div>
     
-    <script>
-        function positionFooter() {
-            var footerDiv = document.getElementById('footerDiv');
-            if (document.body.offsetHeight < window.innerHeight) {
-                footerDiv.style.position = "fixed";
-                footerDiv.style.bottom = "0";
-            } else {
-                footerDiv.style.position = "static";
-            }
-        }
-    
-        window.onload = positionFooter;
-        window.onresize = positionFooter;
-    
-        // Create a new MutationObserver instance
-        var observer = new MutationObserver(positionFooter);
-    
-        // Start observing the document with the configured parameters
-        observer.observe(document.body, { childList: true, subtree: true });
-    </script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- JS do date range picker e suas dependências (se utilizado) -->
     <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/min/moment.min.js"></script>
