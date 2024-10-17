@@ -7,6 +7,9 @@
     <title>Inscreve - FGV Conhecimento</title>
     <!-- CSS do date range picker -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css">
+    <!-- Lib do Quill editor de rich text para fazer o termo de aceite -->
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
     <!-- Nosso estilo -->
     <link href="styles/main.css" rel="stylesheet">
   </head>
@@ -77,21 +80,120 @@
                   </select>
                 </div>
                 <div class="mb-3">
-                  <label for="nome-do-concurso" class="form-label">Nome do Concurso</label>
-                  <input required type="text" class="form-control" id="nome-do-concurso" aria-describedby="nome-do-concurso-maxchar">
-                  <div id="nome-do-concurso-maxchar" class="form-text">Número máximo de caracteres é 120</div>
+                  <label for="nome-do-concurso" class="form-label">Nome do Concurso (curto)</label>
+                  <input required type="text" class="form-control" id="nome-do-concurso" maxlength="60" aria-describedby="nome-do-concurso-maxchar">
+                  <div id="nome-do-concurso-maxchar" class="form-text">Número máximo de caracteres é 60</div>
                 </div>
-                <button type="submit" class="btn btn-primary">Salvar</button>
+                <div class="mb-3">
+                  <label for="nome-do-concurso-extenso" class="form-label">Nome do Concurso por extenso</label>
+                  <input required type="text" class="form-control" id="nome-do-concurso-extenso" maxlength="120" aria-describedby="nome-do-concurso-extenso-maxchar">
+                  <div id="nome-do-concurso-extenso-maxchar" class="form-text">Número máximo de caracteres é 120</div>
+                </div>
+                <div class="mb-3">
+                  <label for="numero-do-edital" class="form-label">Número do Edital</label>
+                  <input required type="text" class="form-control" id="numero-do-edital" maxlength="50" aria-describedby="numero-do-edital-maxchar">
+                  <div id="numero-do-edital-maxchar" class="form-text">Número máximo de caracteres é 50</div>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Gerar certificado para os aprovados?</label>
+                  <div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="gerarCertificado" id="certificadoSim" value="Sim">
+                      <label class="form-check-label" for="certificadoSim">Sim</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="gerarCertificado" id="certificadoNao" value="Não">
+                      <label class="form-check-label" for="certificadoNao">Não</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="dataHoraInicioRecurso" class="form-label">Data e hora de Início do Recurso</label>
+                  <input type="datetime-local" class="form-control" id="dataHoraInicioRecurso" required>
+                </div>
+                <div class="mb-3">
+                  <label for="dataHoraFimRecurso" class="form-label">Data e hora de Fim do Recurso</label>
+                  <input type="datetime-local" class="form-control" id="dataHoraFimRecurso" required>
+                </div>
+
+                <h5 class="mt-4">Informações para Suporte ao usuário</h5>
+                <div class="mb-3">
+                  <label for="numero-de-contato" class="form-label">Telefone</label>
+                  <input type="tel" class="form-control" id="numero-de-contato" placeholder="0800-123-4567" pattern="0800-[0-9]{3}-[0-9]{4}" required>
+                </div>
+                <div class="mb-3">
+                  <label for="email-de-contato" class="form-label">Email</label>
+                  <input type="email" class="form-control" id="email-de-contato" placeholder="email@exemplo.com" required>
+                </div>
+                <div class="mb-3">
+                  <label for="observacao" class="form-label">Observação</label>
+                  <textarea class="form-control" id="observacao" rows="3" maxlength="200" placeholder="Informe o horário de funcionamento do suporte"></textarea>
+                  <div id="observacao-maxchar" class="form-text">Número máximo de caracteres é 200</div>
+                </div>
+
+                <h5 class="mt-4">Comunicação com o Candidato</h5>
+                <div class="mb-3">
+                  <label for="mensagem-confirmacao" class="form-label">Mensagem de Confirmação</label>
+                  <textarea class="form-control" id="mensagem-confirmacao" rows="3" maxlength="500" placeholder="Digite a mensagem de confirmação que será enviada por email ao candidato"></textarea>
+                  <div id="mensagem-confirmacao-maxchar" class="form-text">Número máximo de caracteres é 500</div>
+                </div>
               </form>
+
+              <button type="submit" class="btn btn-primary">Salvar</button>
             </div>
           </div>
           <div class="tab-pane card rounded-0 rounded-bottom fade" id="banco-pane" role="tabpanel" aria-labelledby="banco" tabindex="0">
             <div class="p-4">
               <div>
                 <h3 class="fs-4">Dados para Integração com API Bancária</h3>
-                <form>
+
+                <p class="text-secondary">
+                  Selecione abaixo se este concurso possui ou não taxa de inscrição. Caso o concurso não exija pagamento, a integração com o banco não é necessária.
+                </p>
+
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" role="switch" id="existeTaxaDeIsncricao">
+                  <label class="form-check-label" for="existeTaxaDeIsncricao">Taxa de inscrição</label>
+                </div>
+
+                <script>
+                  document.getElementById('existeTaxaDeIsncricao').addEventListener('change', function() {
+                    var integracaoComOBanco = document.getElementById('integracaoComOBanco');
+                    if (this.checked) {
+                      integracaoComOBanco.style.display = 'block';
+                    } else {
+                      integracaoComOBanco.style.display = 'none';
+                    }
+                  });
+
+                  // Initialize the form visibility based on the checkbox state
+                  document.addEventListener('DOMContentLoaded', function() {
+                    var integracaoComOBanco = document.getElementById('integracaoComOBanco');
+                    var checkbox = document.getElementById('existeTaxaDeIsncricao');
+                    integracaoComOBanco.style.display = checkbox.checked ? 'block' : 'none';
+                  });
+                </script>
+
+                <!-- form de integração com o banco -->
+                <form id="integracaoComOBanco">
                     <!-- Dados de Autenticação -->
                     <h5 class="mt-5">Autenticação</h5>
+                    <div class="mb-3">
+                      <label for="banco" class="form-label">Banco</label>
+                      <select required id="banco" class="form-select" aria-label="seleção de banco">
+                        <option selected>Escolha um banco...</option>
+                        <option value="001">Banco do Brasil</option>
+                        <option value="033">Santander</option>
+                        <option value="104">Caixa Econômica Federal</option>
+                        <option value="237">Bradesco</option>
+                        <option value="341">Itaú</option>
+                        <option value="745">Citibank</option>
+                        <option value="399">HSBC</option>
+                        <option value="422">Safra</option>
+                        <option value="453">Rural</option>
+                        <option value="633">Banco Rendimento</option>
+                      </select>
+                    </div>
                     <div class="mb-3">
                         <label for="apiKey" class="form-label">API Key</label>
                         <input type="text" class="form-control" id="apiKey" placeholder="Chave de API fornecida pelo banco" required>
@@ -120,21 +222,6 @@
                         <input type="text" class="form-control" id="bankAgencyNumber" placeholder="Número da agência bancária" required>
                     </div>
             
-                    <!-- Dados do Boleto -->
-                    <h5 class="mt-5">Configurações do Boleto</h5>
-                    <div class="mb-3">
-                        <label for="dueDays" class="form-label">Dias para Vencimento</label>
-                        <input type="number" class="form-control" id="dueDays" placeholder="Quantidade de dias até o vencimento" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="finePercentage" class="form-label">Percentual de Multa (%)</label>
-                        <input type="number" class="form-control" id="finePercentage" placeholder="Percentual de multa por atraso" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="interestPercentage" class="form-label">Juros Mensais (%)</label>
-                        <input type="number" class="form-control" id="interestPercentage" placeholder="Percentual de juros mensais" required>
-                    </div>
-            
                     <!-- Botão de Submissão -->
                     <button type="submit" class="btn btn-primary">Salvar</button>
                 </form>
@@ -154,48 +241,43 @@
               <div class="table-responsive mt-4">
                 <table class="table table-striped table-hover">
                   <thead>
-                    <tr>
-                      <th class="text-body" scope="col">#ID</th>
-                      <th class="text-body" scope="col">Nome do Cargo</th>
-                      <th class="text-body" scope="col">Turno</th>
-                      <th class="text-body" scope="col">Município</th>
-                      <th class="text-body" scope="col">Status</th>
-                      <th class="text-body" scope="col">Vagas</th>
-                    </tr>
+                  <tr>
+                    <th class="text-body" scope="col">#ID</th>
+                    <th class="text-body" scope="col">Nome do Cargo</th>
+                    <th class="text-body" scope="col">Turno</th>
+                    <th class="text-body" scope="col">Status</th>
+                    <th class="text-body" scope="col">Vagas</th>
+                  </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td class="id-do-cargo" scope="row"><a href="#" data-bs-target="#modalCargo" data-bs-toggle="modal">001</a></td>
-                      <td class="nome-do-cargo">Professor de Matemática</td>
-                      <td class="turno">Manhã</td>
-                      <td class="municipio">São Paulo</td>
-                      <td class="status">Ativo</td>
-                      <td class="vagas">5</td>
-                    </tr>
-                    <tr>
-                      <td class="id-do-cargo" scope="row"><a href="#" data-bs-target="#modalCargo" data-bs-toggle="modal">002</a></td>
-                      <td class="nome-do-cargo">Enfermeiro</td>
-                      <td class="turno">Tarde</td>
-                      <td class="municipio">Campinas</td>
-                      <td class="status">Ativo</td>
-                      <td class="vagas">8</td>
-                    </tr>
-                    <tr>
-                      <td class="id-do-cargo" scope="row"><a href="#" data-bs-target="#modalCargo" data-bs-toggle="modal">003</a></td>
-                      <td class="nome-do-cargo">Analista de Sistemas</td>
-                      <td class="turno">Integral</td>
-                      <td class="municipio">Ribeirão Preto</td>
-                      <td class="status">Inativo</td>
-                      <td class="vagas">2</td>
-                    </tr>
-                    <tr>
-                      <td class="id-do-cargo" scope="row"><a href="#" data-bs-target="#modalCargo" data-bs-toggle="modal">004</a></td>
-                      <td class="nome-do-cargo">Auxiliar Administrativo</td>
-                      <td class="turno">Noite</td>
-                      <td class="municipio">Santos</td>
-                      <td class="status">Ativo</td>
-                      <td class="vagas">4</td>
-                    </tr>
+                  <tr>
+                    <td class="id-do-cargo" scope="row"><a href="#" data-bs-target="#modalCargo" data-bs-toggle="modal">001</a></td>
+                    <td class="nome-do-cargo">Professor de Matemática</td>
+                    <td class="turno">Manhã</td>
+                    <td class="status">Ativo</td>
+                    <td class="vagas">5</td>
+                  </tr>
+                  <tr>
+                    <td class="id-do-cargo" scope="row"><a href="#" data-bs-target="#modalCargo" data-bs-toggle="modal">002</a></td>
+                    <td class="nome-do-cargo">Enfermeiro</td>
+                    <td class="turno">Tarde</td>
+                    <td class="status">Ativo</td>
+                    <td class="vagas">8</td>
+                  </tr>
+                  <tr>
+                    <td class="id-do-cargo" scope="row"><a href="#" data-bs-target="#modalCargo" data-bs-toggle="modal">003</a></td>
+                    <td class="nome-do-cargo">Analista de Sistemas</td>
+                    <td class="turno">Integral</td>
+                    <td class="status">Inativo</td>
+                    <td class="vagas">2</td>
+                  </tr>
+                  <tr>
+                    <td class="id-do-cargo" scope="row"><a href="#" data-bs-target="#modalCargo" data-bs-toggle="modal">004</a></td>
+                    <td class="nome-do-cargo">Auxiliar Administrativo</td>
+                    <td class="turno">Noite</td>
+                    <td class="status">Ativo</td>
+                    <td class="vagas">4</td>
+                  </tr>
                   </tbody>
                 </table>
               </div>
@@ -225,7 +307,7 @@
       <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title">Cliente</h5>
+            <h5 class="modal-title">Cargo</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
@@ -235,16 +317,7 @@
                 <label for="cargoNome" class="form-label">Nome do Cargo</label>
                 <input type="text" class="form-control" id="cargoNome" required>
               </div>
-            
-              <!-- Valor da Inscrição -->
-              <div class="mb-3">
-                <label for="valorInscricao" class="form-label">Valor da Inscrição</label>
-                <div class="input-group">
-                  <span class="input-group-text">R$</span>
-                  <input type="number" class="form-control" id="valorInscricao" placeholder="0,00" min="0" step="0.01" required>
-                </div>
-              </div>
-            
+        
               <!-- Turno -->
               <div class="mb-3">
                 <label for="turno" class="form-label">Turno</label>
@@ -256,52 +329,52 @@
                   <option value="Integral">Integral</option>
                 </select>
               </div>
-            
-              <!-- Local de Atuação -->
-              <h5 class="mt-5">Local de Atuação</h5>
-            
-              <!-- CEP -->
-              <div class="mb-3">
-                <label for="cep" class="form-label">CEP</label>
-                <input type="text" class="form-control" id="cep" placeholder="00000-000" required>
-              </div>
-            
-              <!-- Município (Determinado automaticamente pelo CEP) -->
-              <div class="mb-3">
-                <label for="municipio" class="form-label">Município</label>
-                <input type="text" class="form-control" id="municipio" readonly>
-              </div>
-            
-              <!-- Datas -->
-              <h5 class="mt-5">Datas</h5>
-            
-              <!-- Data de Início -->
-              <div class="mb-3">
-                <label for="dataInicio" class="form-label">Data de Início</label>
-                <input type="date" class="form-control" id="dataInicio" required>
-              </div>
-            
-              <!-- Data Fim -->
-              <div class="mb-3">
-                <label for="dataFim" class="form-label">Data Fim</label>
-                <input type="date" class="form-control" id="dataFim" required>
-              </div>
-            
+
               <!-- Validação de Elegibilidade -->
               <div class="mb-3">
                 <label class="form-label">Validação de Elegibilidade</label>
                 <div>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="validacaoElegibilidade" id="elegibilidadeSim" value="Sim" required>
+                    <input class="form-check-input" type="radio" name="validacaoElegibilidade" id="elegibilidadeSim" value="Sim">
                     <label class="form-check-label" for="elegibilidadeSim">Sim</label>
                   </div>
                   <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="validacaoElegibilidade" id="elegibilidadeNao" value="Não" required>
+                    <input class="form-check-input" type="radio" name="validacaoElegibilidade" id="elegibilidadeNao" value="Não">
                     <label class="form-check-label" for="elegibilidadeNao">Não</label>
                   </div>
                 </div>
               </div>
-            
+              <!-- Tipo de Validação de Elegibilidade -->
+              <div class="mb-3" id="tipoValidacaoElegibilidade" style="display: none;">
+                <label for="tipoValidacao" class="form-label">Tipo de Validação</label>
+                <select class="form-select" id="tipoValidacao">
+                  <option value="" selected disabled>Selecione o tipo de validação</option>
+                  <option value="CPF">CPF</option>
+                  <option value="Email">Email</option>
+                  <option value="RG">RG</option>
+                </select>
+              </div>
+
+              <script>
+                document.querySelectorAll('input[name="validacaoElegibilidade"]').forEach((elem) => {
+                  elem.addEventListener('change', function() {
+                    var tipoValidacao = document.getElementById('tipoValidacaoElegibilidade');
+                    if (this.value === 'Sim') {
+                      tipoValidacao.style.display = 'block';
+                    } else {
+                      tipoValidacao.style.display = 'none';
+                    }
+                  });
+                });
+
+                // Initialize the form visibility based on the radio button state
+                document.addEventListener('DOMContentLoaded', function() {
+                  var tipoValidacao = document.getElementById('tipoValidacaoElegibilidade');
+                  var elegibilidadeSim = document.getElementById('elegibilidadeSim');
+                  tipoValidacao.style.display = elegibilidadeSim.checked ? 'block' : 'none';
+                });
+              </script>
+
               <!-- Remuneração -->
               <div class="mb-3">
                 <label for="remuneracao" class="form-label">Remuneração</label>
@@ -316,7 +389,82 @@
                 <label for="vagas" class="form-label">Vagas</label>
                 <input type="number" class="form-control" id="vagas" min="0" step="1" required>
               </div>
+                        
+              <!-- Data da prova -->
+              <h5 class="mt-5">Prova</h5>
             
+              <!-- Data de Início -->
+              <div class="mb-3">
+                <label for="dataDaProva" class="form-label">Data</label>
+                <input type="date" class="form-control" id="dataDaProva" required>
+              </div>
+            
+              <!-- Hora de Início -->
+                <div class="mb-3">
+                <label for="horaFim" class="form-label">Hora</label>
+                <input type="time" class="form-control" id="horaFim" required>
+                </div>
+
+              <!-- Taxa de inscrição -->
+              <h5 class="mt-5">Taxa de inscrição</h5>
+              <div class="mb-3">
+                <label for="valorInscricao" class="form-label">Valor da Inscrição</label>
+                <div class="input-group">
+                  <span class="input-group-text">R$</span>
+                  <input type="number" class="form-control" id="valorInscricao" placeholder="0,00" min="0" step="0.01" required>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="dataVencimentoBoletoInscicaoCargo01" class="form-label">Data de Vencimento</label>
+                <input type="date" class="form-control" id="dataVencimentoBoletoInscicaoCargo01" required>
+              </div>
+
+              <!-- Termo de Aceite -->
+              <h5 class="mt-5 mb-2">Termos Legais</h5>
+              <div class="form-group mb-3">
+                <label for="termoAceite" class="mb-2">Termo de Aceite (até 1000 caracteres):</label>
+                <div id="editor" class="form-control" style="height: 200px;"></div>
+                <input type="hidden" id="termoAceite" name="termo_aceite">
+                <small class="form-text text-muted">Você pode usar negrito, itálico e criar listas.</small>
+              </div>
+              <script>
+                // Inicializa o Quill
+                var quill = new Quill('#editor', {
+                    theme: 'snow',
+                    placeholder: 'Escreva o termo de aceite aqui...',
+                    modules: {
+                        toolbar: [
+                            [{ 'header': [1, 2, false] }],
+                            ['bold', 'italic', 'underline'],
+                            ['link', 'blockquote', 'code-block'],
+                            [{ 'list': 'ordered' }, { 'list': 'bullet' }]
+                        ]
+                    }
+                });
+            
+                // Limitar o número de caracteres
+                quill.on('text-change', function () {
+                    var plainText = quill.getText();
+                    if (plainText.length > 1000) {
+                        quill.deleteText(1000, plainText.length);
+                    }
+            
+                    // Atualizar o input hidden com o conteúdo HTML do editor
+                    document.querySelector("#termoAceite").value = quill.root.innerHTML;
+                });
+            </script>
+
+            <!-- Termo de Aceite -->
+            <h5 class="mt-5 mb-2">Período de Divulgação</h5>
+            <div class="mb-3">
+              <label for="dataInicioDivulgacaoCCI" class="form-label">Início da Divulgação do CCI</label>
+              <input type="datetime-local" class="form-control" id="dataInicioDivulgacaoCCI" required>
+            </div>
+            <div class="mb-3">
+              <label for="dataFimDivulgacaoCCI" class="form-label">Fim da Divulgação do CCI</label>
+              <input type="datetime-local" class="form-control" id="dataFimDivulgacaoCCI" required>
+            </div>
+
             </form>
           </div>
           <div class="modal-footer">
@@ -326,27 +474,8 @@
         </div>
       </div>
       <script>
-        document.getElementById('cep').addEventListener('blur', function() {
-          var cep = this.value.replace(/\D/g, '');
-          if (cep.length === 8) {
-            fetch('https://viacep.com.br/ws/' + cep + '/json/')
-              .then(function(response) {
-                return response.json();
-              })
-              .then(function(data) {
-                if (!('erro' in data)) {
-                  document.getElementById('municipio').value = data.localidade;
-                } else {
-                  alert('CEP não encontrado.');
-                }
-              })
-              .catch(function(error) {
-                console.error('Erro ao buscar o CEP:', error);
-              });
-          }
-        });
         $(function() {
-          $('#dataInicio, #dataFim').daterangepicker({
+          $('#dataDaProva, #dataVencimentoBoletoInscicaoCargo01').daterangepicker({
             singleDatePicker: true,
             locale: {
               format: 'DD/MM/YYYY'

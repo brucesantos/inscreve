@@ -17,10 +17,10 @@
       "oAP" : "\/docs\/.gitattributes",
       "oF" : 0
     },
-    "\/build" : {
+    "\/docs" : {
       "ft" : 65536,
       "oA" : 1,
-      "oAP" : "\/docs\/build",
+      "oAP" : "\/docs\/docs",
       "oF" : 0
     },
     "\/node_modules" : {
@@ -594,6 +594,21 @@
       "pg" : 0,
       "sct" : 0
     },
+    "\/source\/styles\/_quill.scss" : {
+      "aP" : 1,
+      "bl" : 0,
+      "co" : 2,
+      "dP" : 10,
+      "ec" : 1,
+      "ft" : 4,
+      "ma" : 0,
+      "oA" : 1,
+      "oAP" : "\/docs\/styles\/_quill.css",
+      "oF" : 0,
+      "oS" : 0,
+      "pg" : 0,
+      "sct" : 0
+    },
     "\/source\/styles\/_select2.scss" : {
       "aP" : 1,
       "bl" : 0,
@@ -652,7 +667,7 @@
     "displayValueWasSetByUser" : 0,
     "iconImageName" : "\/source\/images\/logo@2x.png",
     "iconImageWasSetByUser" : 0,
-    "lastBuiltDate" : 750084688.26599097
+    "lastBuiltDate" : 750823539.55910206
   },
   "projectSettings" : {
     "abortBuildOnError" : 1,
