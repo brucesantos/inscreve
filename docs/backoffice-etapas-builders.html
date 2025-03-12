@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="pt">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Sistema Inscreve da FGV Conhecimento, para inscrições em concursos">
+    <title>Inscreve - FGV Conhecimento</title>
+    <!-- CSS do date range picker -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css">
+    <!-- Lib do Quill editor de rich text para fazer o termo de aceite -->
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <!-- Nosso estilo -->
+    <link href="styles/main.css" rel="stylesheet">
+  </head>
+
+  <body class="bg-light">
+    <!-- também conhecido como navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top border-bottom" style="background-color: #233769;" data-bs-theme="dark">
+        <div class="container">
+            <a class="navbar-brand" href="backoffice-index.html">
+                <img src="images/logo-fgv-conhecimento-inverse.svg" alt="fgv conhecimento" width="290">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav justify-content-end flex-grow-1">
+                    <li class="nav-item ms-3">
+                        <a class="nav-link " href="backoffice-index.html">Dashboard</a> 
+                    </li>
+                    <li class="nav-item ms-3">
+                        <a class="nav-link " href="backoffice-clientes.html">Clientes</a>
+                    </li>
+                    <li class="nav-item ms-3">
+                        <a class="nav-link " href="backoffice-concursos.html">Concursos</a>
+                    </li>
+                    <li class="nav-item ms-3">
+                        <a class="nav-link " href="backoffice-candidatos.html">Candidatos</a>
+                    </li>
+                    <li class="nav-item dropdown ms-1 ms-lg-2">
+                        <button class="btn btn-link dropdown-toggle opacity-75" data-bs-toggle="dropdown" aria-expanded="false" style="color: white; text-decoration: none;">
+                            Eudes Penteado
+                        </button>
+                        <ul class="dropdown-menu" style="background-color: #132349;">
+                            <li class="nav-item mx-2">
+                                <a class="nav-link" href="cadastro.html">Dados Pessoais</a>
+                            </li>
+                            <li class="nav-item mx-2">
+                                <a class="nav-link" href="#">Alterar Senha</a>
+                            </li>
+                            <li class="nav-item mx-2">
+                                <a class="nav-link" href="index.html">Sair</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- serve para preencher o espaco do header, que por ter posição fixa, não ocupa espaço no DOM -->
+    <div class="espacoHeader" style="height: 56px;"></div>
+
+    <main class="container">
+
+        <div class="mt-4 d-flex align-items-center justify-content-between">
+          <div>
+            <h1 class="fs-3 mb-0">Concurso</h1>
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="backoffice-concursos.html">Concursos</a></li>
+                <li class="breadcrumb-item">24786764896</li>
+                <li class="breadcrumb-item">Etapas</li>
+                <li class="breadcrumb-item active" aria-current="page">24786764896</li>
+              </ol>
+            </nav>
+          </div>
+          <div>
+            <button type="button" class="me-1 btn btn-outline-danger">Despublicar</button>
+            <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+              <button type="button" class="btn btn-primary">Publicar</button>
+              <div class="btn-group" role="group">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Publicar em data específica</a></li>
+                  <li><a class="dropdown-item" href="#">Outra opção</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        
+    </main>
+
+    <!-- ================================= -->
+    <!-- MODAIS ========================== -->
+    <!-- ================================= -->
+
+    <!-- modal de etapas -->
+    <div class="modal fade" id="modalEtapas" aria-hidden="true" tabindex="-1">
+      <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Copiar etapas de...</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-primary">Salvar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ================================= -->
+    <!-- SCRIPTS ========================= -->
+    <!-- ================================= -->
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- JS do date range picker e suas dependências (se utilizado) -->
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/min/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/daterangepicker@3.1/daterangepicker.min.js"></script>
+    <!-- scripts do bootstrap -->
+    <script src="js/bootstrap.js"></script>
+    
+    <!-- Adicionar * após o rótulo para cada campo de entrada obrigatório -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Get all required input and select elements
+            var requiredInputs = document.querySelectorAll('input[required], select[required]');
+    
+            // Loop through each required input/select element
+            requiredInputs.forEach(function (input) {
+                // Get the label for this input/select
+                var label = document.querySelector('label[for="' + input.id + '"]');
+    
+                // If a label was found, add an asterisk to its text
+                if (label) {
+                    label.innerHTML += ' <span class="text-danger">*</span>';
+                }
+            });
+        });
+    </script>
+  </body>
+</html>

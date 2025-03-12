@@ -285,7 +285,42 @@
           </div>
           <div class="tab-pane card rounded-0 rounded-bottom fade" id="etapas-pane" role="tabpanel" aria-labelledby="etapas" tabindex="0">
             <div class="p-4">
-              ...
+              <div class="d-flex align-items-center justify-content-between">
+                <div>
+                  <h5>Lista de Etapas por Cargo</h5>
+                </div>
+                <div>
+                  <button type="button" class="btn btn-primary" data-bs-target="#modalEtapas" data-bs-toggle="modal">Redefinir para todos os cargos</button>
+                </div>
+              </div>
+              <div class="table-responsive mt-4">
+                <table class="table table-striped table-hover" style="table-layout: fixed; width: 100%;">
+                  <thead>
+                  <tr>
+                    <th class="text-body" scope="col" style="width: 26%;">Nome do Cargo</th>
+                    <th class="text-body" scope="col" style="width: 10%;">Turno</th>
+                    <th class="text-body" scope="col" style="width: auto;">Etapas</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="nome-do-cargo text-truncate">Professor de Matemática</td>
+                      <td class="turno text-truncate">Manhã</td>
+                      <td class="etapas text-truncate"><a href="backoffice-etapas-builder.html">Inscrição, Prova Objetiva, Prova Discursiva, Prova Prática, Avaliação de Títulos, Teste de Aptidão Física, Avaliação Psicológica, Homologação e Nomeação</a></td>
+                    </tr>
+                    <tr>
+                      <td class="nome-do-cargo text-truncate">Professor de inglês</td>
+                      <td class="turno text-truncate">Integral</td>
+                      <td class="etapas text-truncate"><a href="backoffice-etapas-builder.html">Inscrição, Prova Objetiva, Prova Discursiva, Prova Prática, Avaliação de Títulos, Teste de Aptidão Física, Avaliação Psicológica, Homologação e Nomeação</a></td>
+                    </tr>
+                    <tr>
+                      <td class="nome-do-cargo text-truncate">Professor de Geografia</td>
+                      <td class="turno text-truncate">Tarde</td>
+                      <td class="etapas text-truncate"><a href="#" data-bs-target="#modalEtapas" data-bs-toggle="modal">Definir Etapas</a></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
           <div class="tab-pane card rounded-0 rounded-bottom fade" id="historico-pane" role="tabpanel" aria-labelledby="historico" tabindex="0">
@@ -302,8 +337,79 @@
         
     </main>
 
-     <!-- modal -->
-     <div class="modal fade" id="modalCargo" aria-hidden="true" tabindex="-1">
+    <!-- ================================= -->
+    <!-- MODAIS ========================== -->
+    <!-- ================================= -->
+
+    <!-- modal de etapas -->
+    <div class="modal fade" id="modalEtapas" aria-hidden="true" tabindex="-1">
+      <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Copiar etapas de...</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <input type="text" class="form-control" id="searchEtapas" placeholder="Busca">
+            </div>
+            <script>
+              document.getElementById('searchEtapas').addEventListener('input', function() {
+                var filter = this.value.toLowerCase();
+                var items = document.querySelectorAll('#modalEtapas .list-group-item');
+                items.forEach(function(item) {
+                  var text = item.textContent.toLowerCase();
+                  item.style.display = text.includes(filter) ? '' : 'none';
+                });
+              });
+            </script>
+            <ul class="list-group">
+              <li class="bg-light list-group-item disabled opacity-75 fw-bold" aria-disabled="true">
+                Neste concurso
+              </li>
+              <li class="list-group-item">
+                <input class="form-check-input me-1" type="radio" name="listGroupRadio" value="" id="radio01">
+                <label class="form-check-label" for="radio01">Professor de matemática</label>
+              </li>
+              <li class="list-group-item">
+                <input class="form-check-input me-1" type="radio" name="listGroupRadio" value="" id="radio02">
+                <label class="form-check-label" for="radio02">Professor de inglês</label>
+              </li>
+              <li class="list-group-item">
+                <input class="form-check-input me-1" type="radio" name="listGroupRadio" value="" id="radio03">
+                <label class="form-check-label" for="radio03">Professor de geografia</label>
+              </li>
+              <li class="bg-light list-group-item disabled opacity-75 fw-bold" aria-disabled="true">
+                Todos os concursos
+              </li>
+              <li class="list-group-item">
+                <input class="form-check-input me-1" type="radio" name="listGroupRadio" value="" id="radio04">
+                <label class="form-check-label" for="radio04">Concurso Público para a Polícia Civil de Minas Gerais - Delegado de Polícia Substituto</label>
+              </li>
+              <li class="list-group-item">
+                <input class="form-check-input me-1" type="radio" name="listGroupRadio" value="" id="radio05">
+                <label class="form-check-label" for="radio05">Concurso Público para a Polícia Civil de Minas Gerais - Médico Legista</label>
+              </li>
+              <li class="list-group-item">
+                <input class="form-check-input me-1" type="radio" name="listGroupRadio" value="" id="radio06">
+                <label class="form-check-label" for="radio06">Concurso Público para a Polícia Civil de Minas Gerais - Perito Criminal</label>
+              </li>
+              <li class="list-group-item">
+                <input class="form-check-input me-1" type="radio" name="listGroupRadio" value="" id="radio07">
+                <label class="form-check-label" for="radio07">Concurso Público para a Polícia Civil de Minas Gerais - Investigador de Polícia I</label>
+              </li>
+            </ul>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-primary">Salvar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- modal de cargo -->
+    <div class="modal fade" id="modalCargo" aria-hidden="true" tabindex="-1">
       <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
           <div class="modal-header">
@@ -317,7 +423,7 @@
                 <label for="cargoNome" class="form-label">Nome do Cargo</label>
                 <input type="text" class="form-control" id="cargoNome" required>
               </div>
-        
+    
               <!-- Turno -->
               <div class="mb-3">
                 <label for="turno" class="form-label">Turno</label>
@@ -329,7 +435,7 @@
                   <option value="Integral">Integral</option>
                 </select>
               </div>
-
+    
               <!-- Validação de Elegibilidade -->
               <div class="mb-3">
                 <label class="form-label">Validação de Elegibilidade</label>
@@ -354,10 +460,10 @@
                   <option value="RG">RG</option>
                 </select>
               </div>
-
+    
               <script>
                 document.querySelectorAll('input[name="validacaoElegibilidade"]').forEach((elem) => {
-                  elem.addEventListener('change', function() {
+                  elem.addEventListener('change', function () {
                     var tipoValidacao = document.getElementById('tipoValidacaoElegibilidade');
                     if (this.value === 'Sim') {
                       tipoValidacao.style.display = 'block';
@@ -368,13 +474,13 @@
                 });
 
                 // Initialize the form visibility based on the radio button state
-                document.addEventListener('DOMContentLoaded', function() {
+                document.addEventListener('DOMContentLoaded', function () {
                   var tipoValidacao = document.getElementById('tipoValidacaoElegibilidade');
                   var elegibilidadeSim = document.getElementById('elegibilidadeSim');
                   tipoValidacao.style.display = elegibilidadeSim.checked ? 'block' : 'none';
                 });
               </script>
-
+    
               <!-- Remuneração -->
               <div class="mb-3">
                 <label for="remuneracao" class="form-label">Remuneração</label>
@@ -383,28 +489,28 @@
                   <input type="number" class="form-control" id="remuneracao" placeholder="0,00" min="0" step="0.01" required>
                 </div>
               </div>
-            
+    
               <!-- Vagas -->
               <div class="mb-3">
                 <label for="vagas" class="form-label">Vagas</label>
                 <input type="number" class="form-control" id="vagas" min="0" step="1" required>
               </div>
-                        
+    
               <!-- Data da prova -->
               <h5 class="mt-5">Prova</h5>
-            
+    
               <!-- Data de Início -->
               <div class="mb-3">
                 <label for="dataDaProva" class="form-label">Data</label>
                 <input type="date" class="form-control" id="dataDaProva" required>
               </div>
-            
+    
               <!-- Hora de Início -->
-                <div class="mb-3">
+              <div class="mb-3">
                 <label for="horaFim" class="form-label">Hora</label>
                 <input type="time" class="form-control" id="horaFim" required>
-                </div>
-
+              </div>
+    
               <!-- Taxa de inscrição -->
               <h5 class="mt-5">Taxa de inscrição</h5>
               <div class="mb-3">
@@ -418,7 +524,7 @@
                 <label for="dataVencimentoBoletoInscicaoCargo01" class="form-label">Data de Vencimento</label>
                 <input type="date" class="form-control" id="dataVencimentoBoletoInscicaoCargo01" required>
               </div>
-
+    
               <!-- Termo de Aceite -->
               <h5 class="mt-5 mb-2">Termos Legais</h5>
               <div class="form-group mb-3">
@@ -430,41 +536,41 @@
               <script>
                 // Inicializa o Quill
                 var quill = new Quill('#editor', {
-                    theme: 'snow',
-                    placeholder: 'Escreva o termo de aceite aqui...',
-                    modules: {
-                        toolbar: [
-                            [{ 'header': [1, 2, false] }],
-                            ['bold', 'italic', 'underline'],
-                            ['link', 'blockquote', 'code-block'],
-                            [{ 'list': 'ordered' }, { 'list': 'bullet' }]
-                        ]
-                    }
+                  theme: 'snow',
+                  placeholder: 'Escreva o termo de aceite aqui...',
+                  modules: {
+                    toolbar: [
+                      [{ 'header': [1, 2, false] }],
+                      ['bold', 'italic', 'underline'],
+                      ['link', 'blockquote', 'code-block'],
+                      [{ 'list': 'ordered' }, { 'list': 'bullet' }]
+                    ]
+                  }
                 });
-            
+
                 // Limitar o número de caracteres
                 quill.on('text-change', function () {
-                    var plainText = quill.getText();
-                    if (plainText.length > 1000) {
-                        quill.deleteText(1000, plainText.length);
-                    }
-            
-                    // Atualizar o input hidden com o conteúdo HTML do editor
-                    document.querySelector("#termoAceite").value = quill.root.innerHTML;
+                  var plainText = quill.getText();
+                  if (plainText.length > 1000) {
+                    quill.deleteText(1000, plainText.length);
+                  }
+
+                  // Atualizar o input hidden com o conteúdo HTML do editor
+                  document.querySelector("#termoAceite").value = quill.root.innerHTML;
                 });
-            </script>
-
-            <!-- Termo de Aceite -->
-            <h5 class="mt-5 mb-2">Período de Divulgação</h5>
-            <div class="mb-3">
-              <label for="dataInicioDivulgacaoCCI" class="form-label">Início da Divulgação do CCI</label>
-              <input type="datetime-local" class="form-control" id="dataInicioDivulgacaoCCI" required>
-            </div>
-            <div class="mb-3">
-              <label for="dataFimDivulgacaoCCI" class="form-label">Fim da Divulgação do CCI</label>
-              <input type="datetime-local" class="form-control" id="dataFimDivulgacaoCCI" required>
-            </div>
-
+              </script>
+    
+              <!-- Termo de Aceite -->
+              <h5 class="mt-5 mb-2">Período de Divulgação</h5>
+              <div class="mb-3">
+                <label for="dataInicioDivulgacaoCCI" class="form-label">Início da Divulgação do CCI</label>
+                <input type="datetime-local" class="form-control" id="dataInicioDivulgacaoCCI" required>
+              </div>
+              <div class="mb-3">
+                <label for="dataFimDivulgacaoCCI" class="form-label">Fim da Divulgação do CCI</label>
+                <input type="datetime-local" class="form-control" id="dataFimDivulgacaoCCI" required>
+              </div>
+    
             </form>
           </div>
           <div class="modal-footer">
@@ -474,7 +580,7 @@
         </div>
       </div>
       <script>
-        $(function() {
+        $(function () {
           $('#dataDaProva, #dataVencimentoBoletoInscicaoCargo01').daterangepicker({
             singleDatePicker: true,
             locale: {
@@ -485,7 +591,10 @@
       </script>
     </div>
 
-    
+    <!-- ================================= -->
+    <!-- SCRIPTS ========================= -->
+    <!-- ================================= -->
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- JS do date range picker e suas dependências (se utilizado) -->
     <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/min/moment.min.js"></script>

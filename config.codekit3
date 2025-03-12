@@ -7,7 +7,7 @@
       "uuidString" : "3E3AA08E-1090-425F-8522-B7047E2EA3C3"
     }
   ],
-  "creatorBuild" : "34592",
+  "creatorBuild" : "34680",
   "files" : {
     "\/.gitattributes" : {
       "cB" : 0,
@@ -203,6 +203,14 @@
       "hM" : 0,
       "oA" : 0,
       "oAP" : "\/docs\/backoffice-concursos.html",
+      "oF" : 0
+    },
+    "\/source\/backoffice-etapas-builder.kit" : {
+      "cB" : 0,
+      "ft" : 2048,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/docs\/backoffice-etapas-builder.html",
       "oF" : 0
     },
     "\/source\/backoffice-index.kit" : {
@@ -444,16 +452,6 @@
       "plM" : 52780316221407,
       "prP" : 0
     },
-    "\/source\/images\/times.svg" : {
-      "ft" : 2097152,
-      "miP" : 0,
-      "oA" : 0,
-      "oAP" : "\/docs\/images\/times.svg",
-      "oF" : 0,
-      "opt" : 1,
-      "plM" : 52780316221407,
-      "prP" : 0
-    },
     "\/source\/index.kit" : {
       "cB" : 0,
       "ft" : 2048,
@@ -489,170 +487,161 @@
       "oAP" : "\/docs\/solicitacoes.html",
       "oF" : 0
     },
+    "\/source\/styles\/_backoffice.scss" : {
+      "aP" : 1,
+      "bl" : 0,
+      "co" : 2,
+      "ec" : 1,
+      "ft" : 4,
+      "ma" : 0,
+      "oA" : 1,
+      "oAP" : "\/docs\/styles\/_backoffice.css",
+      "oF" : 0,
+      "oS" : 1,
+      "pg" : 0
+    },
     "\/source\/styles\/_cadastro.scss" : {
       "aP" : 1,
       "bl" : 0,
       "co" : 2,
-      "dP" : 10,
       "ec" : 1,
       "ft" : 4,
       "ma" : 0,
       "oA" : 1,
       "oAP" : "\/docs\/styles\/_cadastro.css",
       "oF" : 0,
-      "oS" : 0,
-      "pg" : 0,
-      "sct" : 0
+      "oS" : 1,
+      "pg" : 0
     },
     "\/source\/styles\/_choices.scss" : {
       "aP" : 1,
       "bl" : 0,
       "co" : 2,
-      "dP" : 10,
       "ec" : 1,
       "ft" : 4,
       "ma" : 0,
       "oA" : 1,
       "oAP" : "\/docs\/styles\/_choices.css",
       "oF" : 0,
-      "oS" : 0,
-      "pg" : 0,
-      "sct" : 0
+      "oS" : 1,
+      "pg" : 0
     },
     "\/source\/styles\/_concurso-detalhe.scss" : {
       "aP" : 1,
       "bl" : 0,
       "co" : 2,
-      "dP" : 10,
       "ec" : 1,
       "ft" : 4,
       "ma" : 0,
       "oA" : 1,
       "oAP" : "\/docs\/styles\/_concurso-detalhe.css",
       "oF" : 0,
-      "oS" : 0,
-      "pg" : 0,
-      "sct" : 0
+      "oS" : 1,
+      "pg" : 0
     },
     "\/source\/styles\/_custom.scss" : {
       "aP" : 1,
       "bl" : 0,
       "co" : 2,
-      "dP" : 10,
       "ec" : 1,
       "ft" : 4,
       "ma" : 0,
       "oA" : 1,
       "oAP" : "\/docs\/styles\/_custom.css",
       "oF" : 0,
-      "oS" : 0,
-      "pg" : 0,
-      "sct" : 0
+      "oS" : 1,
+      "pg" : 0
     },
     "\/source\/styles\/_dashboard.scss" : {
       "aP" : 1,
       "bl" : 0,
       "co" : 2,
-      "dP" : 10,
       "ec" : 1,
       "ft" : 4,
       "ma" : 0,
       "oA" : 1,
       "oAP" : "\/docs\/styles\/_dashboard.css",
       "oF" : 0,
-      "oS" : 0,
-      "pg" : 0,
-      "sct" : 0
+      "oS" : 1,
+      "pg" : 0
     },
     "\/source\/styles\/_dropzone.scss" : {
       "aP" : 1,
       "bl" : 0,
       "co" : 2,
-      "dP" : 10,
       "ec" : 1,
       "ft" : 4,
       "ma" : 0,
       "oA" : 1,
       "oAP" : "\/docs\/styles\/_dropzone.css",
       "oF" : 0,
-      "oS" : 0,
-      "pg" : 0,
-      "sct" : 0
+      "oS" : 1,
+      "pg" : 0
     },
     "\/source\/styles\/_flatpickr.scss" : {
       "aP" : 1,
       "bl" : 0,
       "co" : 2,
-      "dP" : 10,
       "ec" : 1,
       "ft" : 4,
       "ma" : 0,
       "oA" : 1,
       "oAP" : "\/docs\/styles\/_flatpickr.css",
       "oF" : 0,
-      "oS" : 0,
-      "pg" : 0,
-      "sct" : 0
+      "oS" : 1,
+      "pg" : 0
     },
     "\/source\/styles\/_quill.scss" : {
       "aP" : 1,
       "bl" : 0,
       "co" : 2,
-      "dP" : 10,
       "ec" : 1,
       "ft" : 4,
       "ma" : 0,
       "oA" : 1,
       "oAP" : "\/docs\/styles\/_quill.css",
       "oF" : 0,
-      "oS" : 0,
-      "pg" : 0,
-      "sct" : 0
+      "oS" : 1,
+      "pg" : 0
     },
     "\/source\/styles\/_select2.scss" : {
       "aP" : 1,
       "bl" : 0,
       "co" : 2,
-      "dP" : 10,
       "ec" : 1,
       "ft" : 4,
       "ma" : 0,
       "oA" : 1,
       "oAP" : "\/docs\/styles\/_select2.css",
       "oF" : 0,
-      "oS" : 0,
-      "pg" : 0,
-      "sct" : 0
+      "oS" : 1,
+      "pg" : 0
     },
     "\/source\/styles\/_solicitacoes.scss" : {
       "aP" : 1,
       "bl" : 0,
       "co" : 2,
-      "dP" : 10,
       "ec" : 1,
       "ft" : 4,
       "ma" : 0,
       "oA" : 1,
       "oAP" : "\/docs\/styles\/_solicitacoes.css",
       "oF" : 0,
-      "oS" : 0,
-      "pg" : 0,
-      "sct" : 0
+      "oS" : 1,
+      "pg" : 0
     },
     "\/source\/styles\/main.scss" : {
       "aP" : 1,
       "bl" : 0,
       "co" : 2,
-      "dP" : 10,
       "ec" : 1,
       "ft" : 4,
       "ma" : 0,
       "oA" : 0,
       "oAP" : "\/docs\/styles\/main.css",
       "oF" : 0,
-      "oS" : 0,
-      "pg" : 0,
-      "sct" : 0
+      "oS" : 1,
+      "pg" : 0
     }
   },
   "hooks" : [
@@ -2107,11 +2096,9 @@
       "autoOutputPathReplace1" : "sass",
       "autoOutputPathReplace2" : "css",
       "autoOutputPathStyle" : 0,
-      "compilerType" : 0,
       "cssoStyle" : 2,
-      "decimalPrecision" : 10,
       "emitCharset" : 1,
-      "outputStyle" : 0,
+      "outputStyle" : 1,
       "purgeCSSStyle" : 0,
       "shouldRunAutoprefixer" : 1,
       "shouldRunBless" : 0,
@@ -2226,6 +2213,7 @@
     ],
     "rollupTreeshakingEnabled" : 0,
     "rollupTreeshakingModuleSideEffects" : 1,
+    "sassWarningStyle" : 1,
     "skippedFoldersString" : "log, _logs, logs, _cache, cache, .idea, \/storage\/framework\/sessions, node_modules",
     "sourceFolderName" : "source",
     "susyVersion" : 3,

@@ -1,0 +1,50 @@
+$default-transition: all 0.4s cubic-bezier(.06,.9,.6,1.16); // Muda o tempo para 0.6s e o tipo para ease-in-out
+$default-transform: translateX(0); // Transformação padrão ao hover
+
+@mixin animatable($transform-init, $opacity: null, $visibility: null) {
+    transition: $default-transition;
+    transform: $transform-init;
+
+    @if $opacity != null {
+        opacity: $opacity;
+    }
+    @if $visibility != null {
+        visibility: $visibility;
+    }
+}
+
+.card-de-etapa {
+    .cabecalho {
+        height: 38px;
+    }
+
+    .drag-handle {
+        @include animatable(translateX(-10px), 0, hidden);
+    }
+
+    .acoes {
+        @include animatable(translateX(10px), 0, hidden);
+    }
+
+    .nome {
+        @include animatable(translateX(-16px));
+    }
+
+    .datas {
+        @include animatable(translateX(134px));
+    }
+
+    &:hover {
+        .drag-handle,
+        .acoes {
+            opacity: 1;
+            visibility: visible;
+        }
+        .drag-handle,
+        .acoes,
+        .nome,
+        .datas {
+            transform: $default-transform;
+        }
+    }
+}
