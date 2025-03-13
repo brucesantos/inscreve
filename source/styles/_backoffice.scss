@@ -52,7 +52,12 @@ $default-transform: translateX(0); // Transformação padrão ao hover
     
     // Estilos para cards filhos
     .children {
-        margin-top: 1rem;
+        margin-top: 0; // Definindo margin-top como 0 por padrão
+        
+        // Aplicar margin-top apenas quando há cards filhos reais
+        &:has(.card-de-etapa) {
+            margin-top: 1rem;
+        }
         
         .card-de-etapa {
             margin-bottom: 0.75rem;
