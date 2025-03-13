@@ -16,35 +16,112 @@ $default-transform: translateX(0); // Transformação padrão ao hover
 .card-de-etapa {
     .cabecalho {
         height: 38px;
-    }
+        position: relative; // Adicionado para posicionar elementos filhos
 
-    .drag-handle {
-        @include animatable(translateX(-10px), 0, hidden);
-    }
+        .drag-handle {
+            @include animatable(translateX(-10px), 0, hidden);
+        }
 
-    .acoes {
-        @include animatable(translateX(10px), 0, hidden);
-    }
-
-    .nome {
-        @include animatable(translateX(-16px));
-    }
-
-    .datas {
-        @include animatable(translateX(134px));
-    }
-
-    &:hover {
-        .drag-handle,
         .acoes {
-            opacity: 1;
-            visibility: visible;
+            @include animatable(translateX(10px), 0, hidden);
         }
-        .drag-handle,
-        .acoes,
-        .nome,
+
+        .nome {
+            @include animatable(translateX(-16px));
+        }
+
         .datas {
-            transform: $default-transform;
+            @include animatable(translateX(134px));
         }
+
+        // Movido o hover para dentro do cabeçalho
+        &:hover {
+            .drag-handle,
+            .acoes {
+                opacity: 1;
+                visibility: visible;
+            }
+            .drag-handle,
+            .acoes,
+            .nome,
+            .datas {
+                transform: $default-transform;
+            }
+        }
+    }
+    
+    // Estilos para cards filhos
+    .children {
+        margin-top: 1rem;
+        
+        .card-de-etapa {
+            margin-bottom: 0.75rem;
+            
+            &:last-child {
+                margin-bottom: 0;
+            }
+            
+        }
+    }
+}
+
+// Estilos para o drag and drop
+.card-de-etapa {
+    transition: background-color 0.2s ease;
+    
+    .drag-handle {
+        cursor: grab;
+        border-radius: 4px;
+        padding: 4px;
+        transition: background-color 0.2s ease;
+        
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+        
+        &:active {
+            cursor: grabbing;
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+    }
+}
+
+.card-de-etapa-ghost {
+    opacity: 0.6;
+    background-color: #f8f9fa;
+}
+
+.card-de-etapa-chosen {
+    background-color: #f0f0f0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-de-etapa-drag {
+    opacity: 0.8;
+}
+
+// Efeito de destaque após soltar o card
+.highlight-card {
+    animation: highlight-pulse 0.8s ease-in-out;
+}
+
+@keyframes highlight-pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(13, 110, 253, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(13, 110, 253, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(13, 110, 253, 0);
+    }
+}
+
+// Estilo quando estiver arrastando
+body.dragging-card {
+    cursor: grabbing;
+    
+    .card-de-etapa:not(.card-de-etapa-chosen):not(.card-de-etapa-ghost) {
+        transition: transform 0.2s ease, margin 0.2s ease;
     }
 }
