@@ -1,0 +1,86 @@
+<!-- modal de Lógica -->
+<div class="modal fade" id="modalLogica" aria-hidden="true" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="d-flex align-items-center gap-2">
+                    <img src="componentes-etapas/icones-componentes-etapas/icone-logica.svg" alt="Logica">
+                    <h5 class="modal-title">Lógica</h5>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p class="text-muted">Este componente define quais campos serão exibidos dependendo da resposta escolhida anteriormente.</p>
+
+                <div class="mb-3">
+                    <label class="form-label">Resposta do campo predecessor</label>
+                    <!-- tem que carregar dinamicamente as respostas do campo predecessor -->
+                    <select class="form-select" id="respostaPredecessor">
+                        <option>Sim</option>
+                        <option>Não</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="geraSolicitacao">
+                        <label class="form-check-label" for="geraSolicitacao">
+                            Gera uma solicitação
+                        </label>
+                    </div>
+                </div>
+
+                <div id="camposSolicitacao" style="display: none;">
+                    <div class="mb-3">
+                        <label class="form-label">Finalidade*</label>
+                        <input type="text" class="form-control" placeholder="Descrever aqui...">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Tipo de solicitação*</label>
+                        <select class="form-select">
+                            <option>Escolher...</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Data de divulgação do resultado*</label>
+                        <input type="text" class="form-control" placeholder="DD/MM/AAAA - HH:MM">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Período de interposição de recurso*</label>
+                        <div class="row">
+                            <div class="col">
+                                <input type="text" class="form-control" placeholder="DD/MM/AAAA - HH:MM">
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" placeholder="DD/MM/AAAA - HH:MM">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Data de divulgação do resultado do recurso*</label>
+                        <input type="text" class="form-control" placeholder="DD/MM/AAAA - HH:MM">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary">Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const geraSolicitacao = document.getElementById('geraSolicitacao');
+    const camposSolicitacao = document.getElementById('camposSolicitacao');
+
+    geraSolicitacao.addEventListener('change', function() {
+        camposSolicitacao.style.display = this.checked ? 'block' : 'none';
+    });
+});
+</script> 

@@ -7,7 +7,7 @@
       "uuidString" : "3E3AA08E-1090-425F-8522-B7047E2EA3C3"
     }
   ],
-  "creatorBuild" : "34680",
+  "creatorBuild" : "34689",
   "files" : {
     "\/.gitattributes" : {
       "cB" : 0,
@@ -16,6 +16,14 @@
       "oA" : 0,
       "oAP" : "\/docs\/.gitattributes",
       "oF" : 0
+    },
+    "\/.vscode\/settings.json" : {
+      "ft" : 524288,
+      "oA" : 0,
+      "oAP" : "\/docs\/.vscode\/settings.json",
+      "oF" : 0,
+      "oO" : 1,
+      "oS" : 1
     },
     "\/docs" : {
       "ft" : 65536,
@@ -229,6 +237,194 @@
       "oAP" : "\/docs\/cadastro.html",
       "oF" : 0
     },
+    "\/source\/componentes-etapas\/_arquivo.kit" : {
+      "cB" : 0,
+      "ft" : 2048,
+      "hM" : 0,
+      "oA" : 1,
+      "oAP" : "\/docs\/componentes-etapas\/_arquivo.html",
+      "oF" : 0
+    },
+    "\/source\/componentes-etapas\/_celular.kit" : {
+      "cB" : 0,
+      "ft" : 2048,
+      "hM" : 0,
+      "oA" : 1,
+      "oAP" : "\/docs\/componentes-etapas\/_celular.html",
+      "oF" : 0
+    },
+    "\/source\/componentes-etapas\/_cpf.kit" : {
+      "cB" : 0,
+      "ft" : 2048,
+      "hM" : 0,
+      "oA" : 1,
+      "oAP" : "\/docs\/componentes-etapas\/_cpf.html",
+      "oF" : 0
+    },
+    "\/source\/componentes-etapas\/_data.kit" : {
+      "cB" : 0,
+      "ft" : 2048,
+      "hM" : 0,
+      "oA" : 1,
+      "oAP" : "\/docs\/componentes-etapas\/_data.html",
+      "oF" : 0
+    },
+    "\/source\/componentes-etapas\/_email.kit" : {
+      "cB" : 0,
+      "ft" : 2048,
+      "hM" : 0,
+      "oA" : 1,
+      "oAP" : "\/docs\/componentes-etapas\/_email.html",
+      "oF" : 0
+    },
+    "\/source\/componentes-etapas\/_logica.kit" : {
+      "cB" : 0,
+      "ft" : 2048,
+      "hM" : 0,
+      "oA" : 1,
+      "oAP" : "\/docs\/componentes-etapas\/_logica.html",
+      "oF" : 0
+    },
+    "\/source\/componentes-etapas\/_municipios.kit" : {
+      "cB" : 0,
+      "ft" : 2048,
+      "hM" : 0,
+      "oA" : 1,
+      "oAP" : "\/docs\/componentes-etapas\/_municipios.html",
+      "oF" : 0
+    },
+    "\/source\/componentes-etapas\/_nis.kit" : {
+      "cB" : 0,
+      "ft" : 2048,
+      "hM" : 0,
+      "oA" : 1,
+      "oAP" : "\/docs\/componentes-etapas\/_nis.html",
+      "oF" : 0
+    },
+    "\/source\/componentes-etapas\/_parcial-padrao-dos-componentes.kit" : {
+      "cB" : 0,
+      "ft" : 2048,
+      "hM" : 0,
+      "oA" : 1,
+      "oAP" : "\/docs\/componentes-etapas\/_parcial-padrao-dos-componentes.html",
+      "oF" : 0
+    },
+    "\/source\/componentes-etapas\/_selecao.kit" : {
+      "cB" : 0,
+      "ft" : 2048,
+      "hM" : 0,
+      "oA" : 1,
+      "oAP" : "\/docs\/componentes-etapas\/_selecao.html",
+      "oF" : 0
+    },
+    "\/source\/componentes-etapas\/_texto.kit" : {
+      "cB" : 0,
+      "ft" : 2048,
+      "hM" : 0,
+      "oA" : 1,
+      "oAP" : "\/docs\/componentes-etapas\/_texto.html",
+      "oF" : 0
+    },
+    "\/source\/componentes-etapas\/icones-componentes-etapas\/icone-arquivo.svg" : {
+      "ft" : 2097152,
+      "miP" : 0,
+      "oA" : 0,
+      "oAP" : "\/docs\/componentes-etapas\/icones-componentes-etapas\/icone-arquivo.svg",
+      "oF" : 0,
+      "opt" : 1,
+      "plM" : 52780316221407,
+      "prP" : 0
+    },
+    "\/source\/componentes-etapas\/icones-componentes-etapas\/icone-celular.svg" : {
+      "ft" : 2097152,
+      "miP" : 0,
+      "oA" : 0,
+      "oAP" : "\/docs\/componentes-etapas\/icones-componentes-etapas\/icone-celular.svg",
+      "oF" : 0,
+      "opt" : 1,
+      "plM" : 52780316221407,
+      "prP" : 0
+    },
+    "\/source\/componentes-etapas\/icones-componentes-etapas\/icone-data.svg" : {
+      "ft" : 2097152,
+      "miP" : 0,
+      "oA" : 0,
+      "oAP" : "\/docs\/componentes-etapas\/icones-componentes-etapas\/icone-data.svg",
+      "oF" : 0,
+      "opt" : 1,
+      "plM" : 52780316221407,
+      "prP" : 0
+    },
+    "\/source\/componentes-etapas\/icones-componentes-etapas\/icone-email.svg" : {
+      "ft" : 2097152,
+      "miP" : 0,
+      "oA" : 0,
+      "oAP" : "\/docs\/componentes-etapas\/icones-componentes-etapas\/icone-email.svg",
+      "oF" : 0,
+      "opt" : 1,
+      "plM" : 52780316221407,
+      "prP" : 0
+    },
+    "\/source\/componentes-etapas\/icones-componentes-etapas\/icone-logica.svg" : {
+      "ft" : 2097152,
+      "miP" : 0,
+      "oA" : 0,
+      "oAP" : "\/docs\/componentes-etapas\/icones-componentes-etapas\/icone-logica.svg",
+      "oF" : 0,
+      "opt" : 1,
+      "plM" : 52780316221407,
+      "prP" : 0
+    },
+    "\/source\/componentes-etapas\/icones-componentes-etapas\/icone-municipio.svg" : {
+      "ft" : 2097152,
+      "miP" : 0,
+      "oA" : 0,
+      "oAP" : "\/docs\/componentes-etapas\/icones-componentes-etapas\/icone-municipio.svg",
+      "oF" : 0,
+      "opt" : 1,
+      "plM" : 52780316221407,
+      "prP" : 0
+    },
+    "\/source\/componentes-etapas\/icones-componentes-etapas\/icone-numero.svg" : {
+      "ft" : 2097152,
+      "miP" : 0,
+      "oA" : 0,
+      "oAP" : "\/docs\/componentes-etapas\/icones-componentes-etapas\/icone-numero.svg",
+      "oF" : 0,
+      "opt" : 1,
+      "plM" : 52780316221407,
+      "prP" : 0
+    },
+    "\/source\/componentes-etapas\/icones-componentes-etapas\/icone-selecao.svg" : {
+      "ft" : 2097152,
+      "miP" : 0,
+      "oA" : 0,
+      "oAP" : "\/docs\/componentes-etapas\/icones-componentes-etapas\/icone-selecao.svg",
+      "oF" : 0,
+      "opt" : 1,
+      "plM" : 52780316221407,
+      "prP" : 0
+    },
+    "\/source\/componentes-etapas\/icones-componentes-etapas\/icone-solicitacao.svg" : {
+      "ft" : 2097152,
+      "miP" : 0,
+      "oA" : 0,
+      "oAP" : "\/docs\/componentes-etapas\/icones-componentes-etapas\/icone-solicitacao.svg",
+      "oF" : 0,
+      "opt" : 1,
+      "plM" : 52780316221407,
+      "prP" : 0
+    },
+    "\/source\/componentes-etapas\/icones-componentes-etapas\/icone-texto.svg" : {
+      "ft" : 2097152,
+      "miP" : 0,
+      "oA" : 0,
+      "oAP" : "\/docs\/componentes-etapas\/icones-componentes-etapas\/icone-texto.svg",
+      "oF" : 0,
+      "opt" : 1,
+      "plM" : 52780316221407,
+      "prP" : 0
+    },
     "\/source\/concurso-detalhe.kit" : {
       "cB" : 0,
       "ft" : 2048,
@@ -284,6 +480,22 @@
       "oA" : 0,
       "oAP" : "\/docs\/dropzone.html",
       "oF" : 0
+    },
+    "\/source\/examples\/Concurso Chat Gabriel Henrique.json" : {
+      "ft" : 524288,
+      "oA" : 0,
+      "oAP" : "\/docs\/examples\/Concurso Chat Gabriel Henrique.json",
+      "oF" : 0,
+      "oO" : 1,
+      "oS" : 1
+    },
+    "\/source\/examples\/Pergunta Filho - Gabriel Henrique.json" : {
+      "ft" : 524288,
+      "oA" : 0,
+      "oAP" : "\/docs\/examples\/Pergunta Filho - Gabriel Henrique.json",
+      "oF" : 0,
+      "oO" : 1,
+      "oS" : 1
     },
     "\/source\/flatpickr.kit" : {
       "cB" : 0,
@@ -471,6 +683,39 @@
       "sC" : 3,
       "tS" : 0
     },
+    "\/source\/js\/component-modals.js" : {
+      "bF" : 0,
+      "ft" : 64,
+      "ma" : 0,
+      "mi" : 1,
+      "oA" : 0,
+      "oAP" : "\/docs\/js\/component-modals.js",
+      "oF" : 0,
+      "sC" : 3,
+      "tS" : 0
+    },
+    "\/source\/js\/component-renderer.js" : {
+      "bF" : 0,
+      "ft" : 64,
+      "ma" : 0,
+      "mi" : 1,
+      "oA" : 0,
+      "oAP" : "\/docs\/js\/component-renderer.js",
+      "oF" : 0,
+      "sC" : 3,
+      "tS" : 0
+    },
+    "\/source\/js\/componentes.js" : {
+      "bF" : 0,
+      "ft" : 64,
+      "ma" : 0,
+      "mi" : 1,
+      "oA" : 0,
+      "oAP" : "\/docs\/js\/componentes.js",
+      "oF" : 0,
+      "sC" : 3,
+      "tS" : 0
+    },
     "\/source\/js\/etapas-builder.js" : {
       "bF" : 0,
       "ft" : 64,
@@ -653,6 +898,30 @@
       "oF" : 0,
       "oS" : 1,
       "pg" : 0
+    },
+    "\/source\/templates\/etapa-card.kit" : {
+      "cB" : 0,
+      "ft" : 2048,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/docs\/templates\/etapa-card.html",
+      "oF" : 0
+    },
+    "\/source\/templates\/etapa-input.kit" : {
+      "cB" : 0,
+      "ft" : 2048,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/docs\/templates\/etapa-input.html",
+      "oF" : 0
+    },
+    "\/source\/templates\/etapa-logic.kit" : {
+      "cB" : 0,
+      "ft" : 2048,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/docs\/templates\/etapa-logic.html",
+      "oF" : 0
     }
   },
   "hooks" : [
@@ -667,7 +936,7 @@
     "displayValueWasSetByUser" : 0,
     "iconImageName" : "\/source\/images\/logo@2x.png",
     "iconImageWasSetByUser" : 0,
-    "lastBuiltDate" : 752797877.06677306
+    "lastBuiltDate" : 765037807.50699604
   },
   "projectSettings" : {
     "abortBuildOnError" : 1,
@@ -965,8 +1234,6 @@
     "buildFolderActive" : 1,
     "buildFolderName" : "docs",
     "cleanBuild" : 1,
-    "cssoForceMediaMerge" : 0,
-    "cssoRestructure" : 1,
     "environmentVariableEntries" : [
       "NODE_ENV:::production"
     ],
@@ -1604,7 +1871,7 @@
         "optionString" : "{'skipBlankLines': false, 'ignoreComments': false}"
       },
       "no-undef" : {
-        "active" : 1,
+        "active" : 0,
         "optionString" : "{'typeof': false}"
       },
       "no-undef-init" : {
