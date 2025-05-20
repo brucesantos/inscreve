@@ -10,13 +10,67 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <p class="text-muted">Campo para endereço de email com validação.</p>
+                <p class="text-muted">Email com validação de formato.</p>
                 <!-- @import 'parcial-padrao-dos-componentes' -->
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary">Salvar</button>
+                <button type="button" class="btn btn-primary" id="btnSalvarEmail">Salvar</button>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const btnSalvarEmail = document.getElementById('btnSalvarEmail');
+
+    // Handle save button click
+    btnSalvarEmail.addEventListener('click', function() {
+        // Get the parent card where the create-child button was clicked
+        const parentCard = document.querySelector('.card-de-etapa .criar-filho.active')?.closest('.card-de-etapa');
+        if (parentCard) {
+            const childrenContainer = parentCard.querySelector('.children');
+            
+            // Get form values
+            const pergunta = document.getElementById('pergunta').value || 'Nova pergunta';
+            const campoObrigatorio = document.getElementById('campo-obrigatorio').checked;
+            const ajuda = document.getElementById('ajuda').value;
+            const aviso = document.getElementById('aviso').value;
+            
+            // Create new input template with the form values
+            const inputTemplate = createInputTemplate(pergunta);
+            
+            // Add the template to the children container
+            childrenContainer.insertAdjacentHTML('beforeend', inputTemplate);
+            
+            // Initialize sortable for the new children container if not already initialized
+            if (childrenContainer && !childrenContainer.sortable) {
+                Sortable.create(childrenContainer, {
+                    animation: 150,
+                    handle: '.drag-handle',
+                    ghostClass: 'card-de-etapa-ghost',
+                    chosenClass: 'card-de-etapa-chosen',
+                    dragClass: 'card-de-etapa-drag',
+                    group: 'nested',
+                    onStart: function(evt) {
+                        document.body.classList.add('dragging-card');
+                    },
+                    onEnd: function(evt) {
+                        document.body.classList.remove('dragging-card');
+                        const item = evt.item;
+                        item.classList.add('highlight-card');
+                        setTimeout(() => {
+                            item.classList.remove('highlight-card');
+                        }, 800);
+                    }
+                });
+            }
+        }
+
+        // Close the modal
+        const modal = bootstrap.Modal.getInstance(document.getElementById('modalEmail'));
+        modal.hide();
+    });
+});
+</script>

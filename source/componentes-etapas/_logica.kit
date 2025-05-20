@@ -68,7 +68,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary">Salvar</button>
+                <button type="button" class="btn btn-primary" id="btnSalvarLogica">Salvar</button>
             </div>
         </div>
     </div>
@@ -78,9 +78,53 @@
 document.addEventListener('DOMContentLoaded', function() {
     const geraSolicitacao = document.getElementById('geraSolicitacao');
     const camposSolicitacao = document.getElementById('camposSolicitacao');
+    const btnSalvarLogica = document.getElementById('btnSalvarLogica');
 
+    // Toggle campos de solicitação
     geraSolicitacao.addEventListener('change', function() {
         camposSolicitacao.style.display = this.checked ? 'block' : 'none';
+    });
+
+    // Handle save button click
+    btnSalvarLogica.addEventListener('click', function() {
+        // Get the parent card where the create-child button was clicked
+        const parentCard = document.querySelector('.card-de-etapa .criar-filho.active')?.closest('.card-de-etapa');
+        if (parentCard) {
+            const childrenContainer = parentCard.querySelector('.children');
+            
+            // Create new logic template
+            const logicTemplate = createLogicTemplate('Nova lógica');
+            
+            // Add the template to the children container
+            childrenContainer.insertAdjacentHTML('beforeend', logicTemplate);
+            
+            // Initialize sortable for the new children container if not already initialized
+            if (childrenContainer && !childrenContainer.sortable) {
+                Sortable.create(childrenContainer, {
+                    animation: 150,
+                    handle: '.drag-handle',
+                    ghostClass: 'card-de-etapa-ghost',
+                    chosenClass: 'card-de-etapa-chosen',
+                    dragClass: 'card-de-etapa-drag',
+                    group: 'nested',
+                    onStart: function(evt) {
+                        document.body.classList.add('dragging-card');
+                    },
+                    onEnd: function(evt) {
+                        document.body.classList.remove('dragging-card');
+                        const item = evt.item;
+                        item.classList.add('highlight-card');
+                        setTimeout(() => {
+                            item.classList.remove('highlight-card');
+                        }, 800);
+                    }
+                });
+            }
+        }
+
+        // Close the modal
+        const modal = bootstrap.Modal.getInstance(document.getElementById('modalLogica'));
+        modal.hide();
     });
 });
 </script> 

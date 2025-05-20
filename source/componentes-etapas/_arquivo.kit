@@ -12,11 +12,95 @@
             <div class="modal-body">
                 <p class="text-muted">Arquivo como uma imagem ou um documento.</p>
                 <!-- @import 'parcial-padrao-dos-componentes' -->
+                <div class="configuracoes">
+                    <h3>Configurações</h3>
+                    
+                    <!-- Quantidade de arquivos -->
+                    <div class="mb-3">
+                        <label class="form-label d-flex justify-content-between align-items-center">
+                            <span>Quantidade máxima de arquivos</span>
+                            <span class="badge bg-primary" id="quantidadeArquivosDisplay">1 arquivo</span>
+                        </label>
+                        <input type="range" class="form-range" id="quantidadeArquivos" 
+                               min="1" max="20" value="1" 
+                               oninput="this.nextElementSibling.value = this.value">
+                    </div>
+
+                    <!-- Tipos de arquivo permitidos -->
+                    <div class="mb-3">
+                        <label class="form-label">Tipos de arquivo permitidos</label>
+                        <div class="d-flex flex-wrap gap-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="permitirPDF" checked>
+                                <label class="form-check-label" for="permitirPDF">PDF</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="permitirImagens" checked>
+                                <label class="form-check-label" for="permitirImagens">Imagens</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="permitirDOC">
+                                <label class="form-check-label" for="permitirDOC">DOC/DOCX</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tamanho máximo -->
+                    <div class="mb-3">
+                        <label class="form-label d-flex justify-content-between align-items-center">
+                            <span>Tamanho máximo por arquivo</span>
+                            <span class="badge bg-primary" id="tamanhoMaximoDisplay">10 MB</span>
+                        </label>
+                        <input type="range" class="form-range" id="tamanhoMaximo" 
+                               min="1" max="100" value="10" 
+                               oninput="this.nextElementSibling.value = this.value">
+                    </div>
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary">Salvar</button>
+                <button type="button" class="btn btn-primary" id="btnSalvarArquivo">Salvar</button>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const quantidadeArquivos = document.getElementById('quantidadeArquivos');
+    const quantidadeArquivosDisplay = document.getElementById('quantidadeArquivosDisplay');
+    const tamanhoMaximo = document.getElementById('tamanhoMaximo');
+    const tamanhoMaximoDisplay = document.getElementById('tamanhoMaximoDisplay');
+
+    // Atualizar o display quando o slider de quantidade muda
+    quantidadeArquivos.addEventListener('input', function() {
+        const valor = this.value;
+        quantidadeArquivosDisplay.textContent = valor === '1' ? '1 arquivo' : `${valor} arquivos`;
+    });
+
+    // Atualizar o display quando o slider de tamanho muda
+    tamanhoMaximo.addEventListener('input', function() {
+        const valor = this.value;
+        tamanhoMaximoDisplay.textContent = `${valor} MB`;
+    });
+
+    // Configurar o botão de salvar
+    const btnSalvarArquivo = document.getElementById('btnSalvarArquivo');
+    if (btnSalvarArquivo) {
+        btnSalvarArquivo.addEventListener('click', function() {
+            // Obter os valores do formulário
+            const quantidade = document.getElementById('quantidadeArquivos').value;
+            const permitePDF = document.getElementById('permitirPDF').checked;
+            const permiteImagens = document.getElementById('permitirImagens').checked;
+            const permiteDOC = document.getElementById('permitirDOC').checked;
+            const tamanhoMaximo = document.getElementById('tamanhoMaximo').value;
+            
+            // Aqui você pode adicionar a lógica para salvar as configurações
+            
+            // Fechar o modal
+            const modal = bootstrap.Modal.getInstance(document.getElementById('modalArquivo'));
+            modal.hide();
+        });
+    }
+});
+</script>

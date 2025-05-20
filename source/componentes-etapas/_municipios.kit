@@ -1,22 +1,384 @@
-<!-- modal de Municípios do Brasil -->
+<!-- modal de Municípios -->
 <div class="modal fade" id="modalMunicipios" aria-hidden="true" tabindex="-1">
     <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">
                 <div class="d-flex align-items-center gap-2">
-                    <img src="componentes-etapas/icones-componentes-etapas/icone-municipios.svg" alt="Municípios do Brasil">
+                    <img src="componentes-etapas/icones-componentes-etapas/icone-municipio.svg" alt="Municípios">
                     <h5 class="modal-title">Municípios do Brasil</h5>
                 </div>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <p class="text-muted">Seleção de um único município das opções determinadas.</p>
+                <div class="alert alert-info">
+                    Este componente permite que os usuários selecionem um único município. Geralmente usado para determinar a escolha do local da prova. Selecione abaixo os municípios disponíveis para o usuário escolher.
+                </div>
+
                 <!-- @import 'parcial-padrao-dos-componentes' -->
+
+                <div class="mb-3">
+                    <h6 class="mb-3">Configuração</h6>
+
+                    <!-- Blocos de UF -->
+                    <div id="blocosUF">
+
+                        <!-- Outros blocos de UF serão adicionados dinamicamente aqui -->
+
+                    </div>
+
+                    <!-- Botão para adicionar nova UF -->
+                    <button type="button" class="btn btn-primary mt-2" id="btnAdicionarUF">
+                        Adicionar UF
+                    </button>
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary">Salvar</button>
+                <button type="button" class="btn btn-primary" id="btnSalvarMunicipios">Salvar</button>
             </div>
         </div>
     </div>
 </div>
+
+<style>
+.bloco-uf {
+    position: relative;
+}
+.municipios-dropdown {
+    border-radius: 8px 8px 0 0 !important;
+    margin: 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    max-height: 220px;
+    overflow-y: auto;
+    /* Remove border on bottom to connect visually */
+    border-bottom: none !important;
+}
+.municipios-selecionados {
+    flex-wrap: wrap !important;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const btnSalvarMunicipios = document.getElementById('btnSalvarMunicipios');
+    const btnAdicionarUF = document.getElementById('btnAdicionarUF');
+    const blocosUF = document.getElementById('blocosUF');
+
+    // Template for new UF block
+    function createUFBlock() {
+        const blockId = 'uf_' + Date.now();
+        return `
+            <div class="mb-3 bloco-uf" id="${blockId}">
+                <div class="input-group mb-2 align-items-center">
+                    <select class="form-select uf-select" style="max-width: 80px;">
+                        <option selected>UF</option>
+                        <option>AC</option>
+                        <option>AL</option>
+                        <option>AP</option>
+                        <option>AM</option>
+                        <option>BA</option>
+                        <option>CE</option>
+                        <option>DF</option>
+                        <option>ES</option>
+                        <option>GO</option>
+                        <option>MA</option>
+                        <option>MT</option>
+                        <option>MS</option>
+                        <option>MG</option>
+                        <option>PA</option>
+                        <option>PB</option>
+                        <option>PR</option>
+                        <option>PE</option>
+                        <option>PI</option>
+                        <option>RJ</option>
+                        <option>RN</option>
+                        <option>RS</option>
+                        <option>RO</option>
+                        <option>RR</option>
+                        <option>SC</option>
+                        <option>SP</option>
+                        <option>SE</option>
+                        <option>TO</option>
+                    </select>
+                    <input type="text" class="form-control municipio-search" placeholder="Município..." disabled>
+                    <div class="input-group-text">
+                        <input class="form-check-input todos-uf mt-0" type="checkbox" id="todosUF_${blockId}">
+                        <label class="form-check-label ms-2 mb-0" for="todosUF_${blockId}">Todos</label>
+                    </div>
+                    <button class="btn btn-outline-danger btn-remover-uf" type="button" title="Remover UF">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10.5312 5.5C10.4375 5.5 10.375 5.5625 10.3125 5.625L9.71875 6.5H14.25L13.6562 5.625C13.625 5.5625 13.5312 5.5 13.4375 5.5H10.5312ZM16.0625 6.5H16.4688H18H18.25C18.6562 6.5 19 6.84375 19 7.25C19 7.6875 18.6562 8 18.25 8H17.875L17.125 18.1562C17.0312 19.2188 16.1875 20 15.125 20H8.84375C7.78125 20 6.9375 19.2188 6.84375 18.1562L6.09375 8H5.75C5.3125 8 5 7.6875 5 7.25C5 6.84375 5.3125 6.5 5.75 6.5H6H7.5H7.90625L9.0625 4.78125C9.375 4.3125 9.9375 4 10.5312 4H13.4375C14.0312 4 14.5938 4.3125 14.9062 4.78125L16.0625 6.5ZM16.375 8H7.59375L8.34375 18.0625C8.375 18.3125 8.59375 18.5 8.84375 18.5H15.125C15.375 18.5 15.5938 18.3125 15.625 18.0625L16.375 8Z" fill="currentColor"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="mb-2 d-flex gap-2 municipios-selecionados">
+                    <!-- Municípios selecionados serão adicionados aqui -->
+                </div>
+            </div>
+        `;
+    }
+
+    // Add new UF block
+    btnAdicionarUF.addEventListener('click', function() {
+        blocosUF.insertAdjacentHTML('beforeend', createUFBlock());
+    });
+
+    // Remove UF block
+    blocosUF.addEventListener('click', function(e) {
+        if (e.target.closest('.btn-remover-uf')) {
+            const blocoUF = e.target.closest('.bloco-uf');
+            if (blocoUF) {
+                blocoUF.remove();
+            }
+        }
+    });
+
+    // Handle UF selection change
+    blocosUF.addEventListener('change', async function(e) {
+        if (e.target.classList.contains('uf-select')) {
+            const blocoUF = e.target.closest('.bloco-uf');
+            const searchInput = blocoUF.querySelector('.municipio-search');
+            const selectedUF = e.target.value;
+
+            if (selectedUF === 'UF') {
+                searchInput.disabled = true;
+                searchInput.value = '';
+                return;
+            }
+
+            searchInput.disabled = false;
+            try {
+                const response = await fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${selectedUF}/municipios`);
+                const municipios = await response.json();
+                
+                // Store municipalities in the block for later use
+                blocoUF.dataset.municipios = JSON.stringify(municipios);
+            } catch (error) {
+                console.error('Erro ao buscar municípios:', error);
+            }
+        }
+    });
+
+    // Handle municipality search
+    blocosUF.addEventListener('input', function(e) {
+        if (e.target.classList.contains('municipio-search')) {
+            const blocoUF = e.target.closest('.bloco-uf');
+            const searchInput = e.target;
+            const searchTerm = e.target.value.toLowerCase();
+            const municipios = JSON.parse(blocoUF.dataset.municipios || '[]');
+            
+            // Filter municipalities based on search term
+            const filteredMunicipios = municipios.filter(m => 
+                m.nome.toLowerCase().includes(searchTerm)
+            );
+
+            // Create or update dropdown with filtered results
+            let dropdown = blocoUF.querySelector('.municipios-dropdown');
+            if (!dropdown) {
+                dropdown = document.createElement('div');
+                dropdown.className = 'municipios-dropdown position-absolute bg-white border rounded shadow-sm';
+                dropdown.style.zIndex = '1000';
+                blocoUF.appendChild(dropdown);
+            }
+
+            // Position dropdown above the search input
+            dropdown.style.left = (searchInput.offsetLeft) + 'px';
+            dropdown.style.bottom = (blocoUF.offsetHeight - (searchInput.offsetTop)) + 'px';
+            dropdown.style.width = searchInput.offsetWidth + 'px';
+            dropdown.style.position = 'absolute';
+            dropdown.style.top = '';
+
+            if (searchTerm.length > 0 && filteredMunicipios.length > 0) {
+                dropdown.innerHTML = filteredMunicipios
+                    .slice(0, 10)
+                    .map((m, idx) => `
+                        <div class="p-2 hover-bg-light cursor-pointer municipio-option" data-municipio='${JSON.stringify(m)}' data-idx="${idx}">
+                            ${m.nome}
+                        </div>
+                    `).join('');
+                dropdown.style.display = 'block';
+                dropdown.dataset.activeIdx = '0';
+                highlightDropdownOption(dropdown, 0);
+            } else {
+                dropdown.style.display = 'none';
+            }
+        }
+    });
+
+    // Keyboard navigation for dropdown
+    blocosUF.addEventListener('keydown', function(e) {
+        if (e.target.classList.contains('municipio-search')) {
+            const blocoUF = e.target.closest('.bloco-uf');
+            const dropdown = blocoUF.querySelector('.municipios-dropdown');
+            if (!dropdown || dropdown.style.display !== 'block') return;
+            const options = dropdown.querySelectorAll('.municipio-option');
+            let activeIdx = parseInt(dropdown.dataset.activeIdx || '0', 10);
+
+            if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                if (activeIdx < options.length - 1) activeIdx++;
+                highlightDropdownOption(dropdown, activeIdx);
+                dropdown.dataset.activeIdx = activeIdx;
+            } else if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                if (activeIdx > 0) activeIdx--;
+                highlightDropdownOption(dropdown, activeIdx);
+                dropdown.dataset.activeIdx = activeIdx;
+            } else if (e.key === 'Enter') {
+                e.preventDefault();
+                if (options[activeIdx]) {
+                    options[activeIdx].click();
+                }
+            } else if (e.key === 'Escape') {
+                dropdown.style.display = 'none';
+            }
+        }
+    });
+
+    function highlightDropdownOption(dropdown, idx) {
+        const options = dropdown.querySelectorAll('.municipio-option');
+        options.forEach((opt, i) => {
+            if (i === idx) {
+                opt.classList.add('bg-primary', 'text-white');
+            } else {
+                opt.classList.remove('bg-primary', 'text-white');
+            }
+        });
+    }
+
+    // Handle municipality selection
+    blocosUF.addEventListener('click', function(e) {
+        const municipioItem = e.target.closest('[data-municipio]');
+        if (municipioItem) {
+            const blocoUF = municipioItem.closest('.bloco-uf');
+            const municipio = JSON.parse(municipioItem.dataset.municipio);
+            const municipiosContainer = blocoUF.querySelector('.municipios-selecionados');
+            
+            // Check if municipality is already selected
+            const existingMunicipio = municipiosContainer.querySelector(`[data-municipio-id="${municipio.id}"]`);
+            if (!existingMunicipio) {
+                const municipioChip = document.createElement('button');
+                municipioChip.type = 'button';
+                municipioChip.className = 'btn btn-outline-secondary rounded-pill d-flex align-items-center gap-2';
+                municipioChip.setAttribute('data-municipio-id', municipio.id);
+                municipioChip.innerHTML = `
+                    <span class="city-name">${municipio.nome}</span>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 5.5C9.65625 5.5 7.53125 6.75 6.34375 8.75C5.1875 10.7812 5.1875 13.25 6.34375 15.25C7.53125 17.2812 9.65625 18.5 12 18.5C14.3125 18.5 16.4375 17.2812 17.625 15.25C18.7812 13.25 18.7812 10.7812 17.625 8.75C16.4375 6.75 14.3125 5.5 12 5.5ZM12 20C9.125 20 6.5 18.5 5.0625 16C3.625 13.5312 3.625 10.5 5.0625 8C6.5 5.53125 9.125 4 12 4C14.8438 4 17.4688 5.53125 18.9062 8C20.3438 10.5 20.3438 13.5312 18.9062 16C17.4688 18.5 14.8438 20 12 20ZM9.46875 9.46875C9.75 9.1875 10.2188 9.1875 10.5 9.46875L11.9688 10.9375L13.4375 9.46875C13.75 9.1875 14.2188 9.1875 14.5 9.46875C14.8125 9.78125 14.8125 10.25 14.5 10.5312L13.0312 12L14.5 13.4688C14.8125 13.7812 14.8125 14.25 14.5 14.5312C14.2188 14.8438 13.75 14.8438 13.4375 14.5312L11.9688 13.0625L10.5 14.5312C10.2188 14.8438 9.75 14.8438 9.46875 14.5312C9.15625 14.25 9.15625 13.7812 9.46875 13.4688L10.9375 12L9.46875 10.5312C9.15625 10.25 9.15625 9.78125 9.46875 9.46875Z" fill="currentColor"/>
+                    </svg>
+                `;
+                
+                // Add click handler to remove municipality
+                municipioChip.addEventListener('click', function() {
+                    this.remove();
+                });
+                
+                municipiosContainer.appendChild(municipioChip);
+            }
+            
+            // Clear search and hide dropdown
+            const searchInput = blocoUF.querySelector('.municipio-search');
+            searchInput.value = '';
+            const dropdown = blocoUF.querySelector('.municipios-dropdown');
+            if (dropdown) {
+                dropdown.style.display = 'none';
+            }
+        }
+    });
+
+    // Handle "Todos" checkbox
+    blocosUF.addEventListener('change', async function(e) {
+        if (e.target.classList.contains('todos-uf')) {
+            const blocoUF = e.target.closest('.bloco-uf');
+            const ufSelect = blocoUF.querySelector('.uf-select');
+            const selectedUF = ufSelect.value;
+            
+            if (e.target.checked && selectedUF !== 'UF') {
+                try {
+                    const response = await fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${selectedUF}/municipios`);
+                    const municipios = await response.json();
+                    const municipiosContainer = blocoUF.querySelector('.municipios-selecionados');
+                    
+                    // Clear existing municipalities
+                    municipiosContainer.innerHTML = '';
+                    
+                    // Add all municipalities
+                    municipios.forEach(municipio => {
+                        const municipioChip = document.createElement('button');
+                        municipioChip.type = 'button';
+                        municipioChip.className = 'btn btn-outline-secondary rounded-pill d-flex align-items-center gap-2';
+                        municipioChip.setAttribute('data-municipio-id', municipio.id);
+                        municipioChip.innerHTML = `
+                            <span class="city-name">${municipio.nome}</span>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 5.5C9.65625 5.5 7.53125 6.75 6.34375 8.75C5.1875 10.7812 5.1875 13.25 6.34375 15.25C7.53125 17.2812 9.65625 18.5 12 18.5C14.3125 18.5 16.4375 17.2812 17.625 15.25C18.7812 13.25 18.7812 10.7812 17.625 8.75C16.4375 6.75 14.3125 5.5 12 5.5ZM12 20C9.125 20 6.5 18.5 5.0625 16C3.625 13.5312 3.625 10.5 5.0625 8C6.5 5.53125 9.125 4 12 4C14.8438 4 17.4688 5.53125 18.9062 8C20.3438 10.5 20.3438 13.5312 18.9062 16C17.4688 18.5 14.8438 20 12 20ZM9.46875 9.46875C9.75 9.1875 10.2188 9.1875 10.5 9.46875L11.9688 10.9375L13.4375 9.46875C13.75 9.1875 14.2188 9.1875 14.5 9.46875C14.8125 9.78125 14.8125 10.25 14.5 10.5312L13.0312 12L14.5 13.4688C14.8125 13.7812 14.8125 14.25 14.5 14.5312C14.2188 14.8438 13.75 14.8438 13.4375 14.5312L11.9688 13.0625L10.5 14.5312C10.2188 14.8438 9.75 14.8438 9.46875 14.5312C9.15625 14.25 9.15625 13.7812 9.46875 13.4688L10.9375 12L9.46875 10.5312C9.15625 10.25 9.15625 9.78125 9.46875 9.46875Z" fill="currentColor"/>
+                            </svg>
+                        `;
+                        
+                        // Add click handler to remove municipality
+                        municipioChip.addEventListener('click', function() {
+                            this.remove();
+                        });
+                        
+                        municipiosContainer.appendChild(municipioChip);
+                    });
+                } catch (error) {
+                    console.error('Erro ao buscar municípios:', error);
+                }
+            } else if (!e.target.checked) {
+                // Clear all municipalities when unchecking "Todos"
+                const municipiosContainer = blocoUF.querySelector('.municipios-selecionados');
+                municipiosContainer.innerHTML = '';
+            }
+        }
+    });
+
+    // Handle save button click
+    btnSalvarMunicipios.addEventListener('click', function() {
+        // Get the parent card where the create-child button was clicked
+        const parentCard = document.querySelector('.card-de-etapa .criar-filho.active')?.closest('.card-de-etapa');
+        if (parentCard) {
+            const childrenContainer = parentCard.querySelector('.children');
+            
+            // Get form values
+            const pergunta = document.getElementById('pergunta').value || 'Nova pergunta';
+            const campoObrigatorio = document.getElementById('campo-obrigatorio').checked;
+            const ajuda = document.getElementById('ajuda').value;
+            const aviso = document.getElementById('aviso').value;
+            
+            // Create new input template with the form values
+            const inputTemplate = createInputTemplate(pergunta);
+            
+            // Add the template to the children container
+            childrenContainer.insertAdjacentHTML('beforeend', inputTemplate);
+            
+            // Initialize sortable for the new children container if not already initialized
+            if (childrenContainer && !childrenContainer.sortable) {
+                Sortable.create(childrenContainer, {
+                    animation: 150,
+                    handle: '.drag-handle',
+                    ghostClass: 'card-de-etapa-ghost',
+                    chosenClass: 'card-de-etapa-chosen',
+                    dragClass: 'card-de-etapa-drag',
+                    group: 'nested',
+                    onStart: function(evt) {
+                        document.body.classList.add('dragging-card');
+                    },
+                    onEnd: function(evt) {
+                        document.body.classList.remove('dragging-card');
+                        const item = evt.item;
+                        item.classList.add('highlight-card');
+                        setTimeout(() => {
+                            item.classList.remove('highlight-card');
+                        }, 800);
+                    }
+                });
+            }
+        }
+
+        // Close the modal
+        const modal = bootstrap.Modal.getInstance(document.getElementById('modalMunicipios'));
+        modal.hide();
+    });
+});
+</script>

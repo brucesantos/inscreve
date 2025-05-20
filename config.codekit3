@@ -899,14 +899,6 @@
       "oS" : 1,
       "pg" : 0
     },
-    "\/source\/templates\/etapa-card.kit" : {
-      "cB" : 0,
-      "ft" : 2048,
-      "hM" : 0,
-      "oA" : 0,
-      "oAP" : "\/docs\/templates\/etapa-card.html",
-      "oF" : 0
-    },
     "\/source\/templates\/etapa-input.kit" : {
       "cB" : 0,
       "ft" : 2048,

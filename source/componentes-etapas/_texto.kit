@@ -10,13 +10,116 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <p class="text-muted">Campo de texto livre.</p>
+                <p class="text-muted">Campo de texto com validações.</p>
                 <!-- @import 'parcial-padrao-dos-componentes' -->
+                <div class="configuracoes">
+                    <h3>Configurações</h3>
+
+                    <!-- Limite mínimo de caracteres -->
+                    <div class="mb-3">
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" id="habilitarMinimo">
+                            <label class="form-check-label d-flex justify-content-between align-items-center w-100" for="habilitarMinimo">
+                                <span>Limite mínimo de caracteres</span>
+                                <span class="badge bg-primary" id="minimoDisplay">10 caracteres</span>
+                            </label>
+                        </div>
+                        <input type="range" class="form-range" id="minimoCaracteres" 
+                               min="10" max="100" value="10" disabled
+                               oninput="this.nextElementSibling.value = this.value">
+                    </div>
+
+                    <!-- Limite máximo de caracteres -->
+                    <div class="mb-3">
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" id="habilitarMaximo">
+                            <label class="form-check-label d-flex justify-content-between align-items-center w-100" for="habilitarMaximo">
+                                <span>Limite máximo de caracteres</span>
+                                <span class="badge bg-primary" id="maximoDisplay">100 caracteres</span>
+                            </label>
+                        </div>
+                        <input type="range" class="form-range" id="maximoCaracteres" 
+                               min="100" max="500" value="100" disabled
+                               oninput="this.nextElementSibling.value = this.value">
+                    </div>
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary">Salvar</button>
+                <button type="button" class="btn btn-primary" id="btnSalvarTexto">Salvar</button>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Elementos do limite mínimo
+    const habilitarMinimo = document.getElementById('habilitarMinimo');
+    const minimoCaracteres = document.getElementById('minimoCaracteres');
+    const minimoDisplay = document.getElementById('minimoDisplay');
+
+    // Elementos do limite máximo
+    const habilitarMaximo = document.getElementById('habilitarMaximo');
+    const maximoCaracteres = document.getElementById('maximoCaracteres');
+    const maximoDisplay = document.getElementById('maximoDisplay');
+
+    // Habilitar/desabilitar limite mínimo
+    habilitarMinimo.addEventListener('change', function() {
+        minimoCaracteres.disabled = !this.checked;
+        minimoDisplay.style.opacity = this.checked ? '1' : '0.5';
+        if (!this.checked) {
+            minimoDisplay.textContent = 'Desabilitado';
+        } else {
+            minimoDisplay.textContent = `${minimoCaracteres.value} caracteres`;
+        }
+    });
+
+    // Habilitar/desabilitar limite máximo
+    habilitarMaximo.addEventListener('change', function() {
+        maximoCaracteres.disabled = !this.checked;
+        maximoDisplay.style.opacity = this.checked ? '1' : '0.5';
+        if (!this.checked) {
+            maximoDisplay.textContent = 'Desabilitado';
+        } else {
+            maximoDisplay.textContent = `${maximoCaracteres.value} caracteres`;
+        }
+    });
+
+    // Atualizar display do mínimo
+    minimoCaracteres.addEventListener('input', function() {
+        minimoDisplay.textContent = `${this.value} caracteres`;
+        // Garantir que o máximo seja sempre maior que o mínimo
+        if (habilitarMaximo.checked && parseInt(maximoCaracteres.value) <= parseInt(this.value)) {
+            maximoCaracteres.value = parseInt(this.value) + 1;
+            maximoDisplay.textContent = `${maximoCaracteres.value} caracteres`;
+        }
+    });
+
+    // Atualizar display do máximo
+    maximoCaracteres.addEventListener('input', function() {
+        maximoDisplay.textContent = `${this.value} caracteres`;
+        // Garantir que o mínimo seja sempre menor que o máximo
+        if (habilitarMinimo.checked && parseInt(minimoCaracteres.value) >= parseInt(this.value)) {
+            minimoCaracteres.value = parseInt(this.value) - 1;
+            minimoDisplay.textContent = `${minimoCaracteres.value} caracteres`;
+        }
+    });
+
+    // Configurar o botão de salvar
+    const btnSalvarTexto = document.getElementById('btnSalvarTexto');
+    if (btnSalvarTexto) {
+        btnSalvarTexto.addEventListener('click', function() {
+            // Obter os valores do formulário
+            const minimo = habilitarMinimo.checked ? parseInt(minimoCaracteres.value) : null;
+            const maximo = habilitarMaximo.checked ? parseInt(maximoCaracteres.value) : null;
+            
+            // Aqui você pode adicionar a lógica para salvar as configurações
+            
+            // Fechar o modal
+            const modal = bootstrap.Modal.getInstance(document.getElementById('modalTexto'));
+            modal.hide();
+        });
+    }
+});
+</script>
