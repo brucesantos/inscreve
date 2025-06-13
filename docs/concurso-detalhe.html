@@ -71,32 +71,34 @@
                         <h5>Concurso Público para a Assembleia Legislativa do Estado do Tocantins – ALETO</h5>
                         <p class="text-secondary">Informações sobre o concurso podem ser obtidas pelo telefone <a href="tel:08002834628">0800 2834628</a> e pelo e-mail <a href="mailto:concursoaleto@fgv.br">concursoaleto@fgv.br</a>.</p>
                         <div class="mb-3">
-                            <label for="cargo" class="form-label">Cargo</label>
+                            <label for="cargo" class="form-label">Grupo temático</label>
                             <select class="form-select" id="cargo" name="cargo" required>
                               <option selected disabled value="">Escolher</option>
                               <option value="policial-legislativo-II">Policial Legislativo II, Técnico Legislativo e Analista Legislativo</option>
                               <option value="procurador-juridico">Procurador Jurídico</option>
                             </select>
+                            <div class="form-text">Você pode concorrer em apenas um bloco temático. Confira os detalhes de cada um deles e selecione aquele que seja mais adequado ao seu perfil.</div>
                         </div>
                         <div class="d-flex flex-column align-items-center text-primary" id="escolhaOCargo">
                             <svg class="animate__animated animate__fadeInUp animate__infinite infinite" width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M13.1835 3.5625L19.746 10.4375C20.0976 10.8281 20.0976 11.4141 19.707 11.7656C19.3164 12.1172 18.7304 12.1172 18.3789 11.7266L13.457 6.53125V19.8125C13.457 20.3594 13.0273 20.75 12.5195 20.75C11.9726 20.75 11.582 20.3594 11.582 19.8125V6.53125L6.62104 11.7266C6.26948 12.1172 5.68354 12.1172 5.29292 11.7656C4.90229 11.4141 4.90229 10.7891 5.25385 10.4375L11.8164 3.5625C12.0117 3.36719 12.246 3.25 12.5195 3.25C12.7539 3.25 12.9882 3.36719 13.1835 3.5625Z" fill="currentColor"/>
                             </svg>
-                            <p class="mt-2 text-center text-primary">Escolha o Cargo</p>
+                            <p class="mt-2 text-center text-primary">Escolha o Tema</p>
                         </div>
                         <ul class="list-group" id="previewDados">
                             <li class="list-group-item d-flex justify-content-between">
-                                <div class="label">Data da Prova</div>
-                                <div class="value" id="dataProva">14/01/2023</div>
+                                <div class="label">Órgãos</div>
+                                <div class="value" id="orgaos">FUNAI, IBGE</div>
                             </li>
-                            <li class="list-group-item d-flex justify-content-between">
-                                <div class="label">Horário da Prova</div>
-                                <div class="value" id="horaProva">00:00</div>
+                            <li class="list-group-item" style="height: auto;"> 
+                                <!-- Atenção, aqui eu coloquei um estilo específico para o item de cargos, pois ele é muito longo e não cabe em uma linha. -->
+                                <div class="label">Cargos</div>
+                                <div class="value" id="cargos">Analista de Tecnologia da Informação, Técnico em Informações Geográficas e Estatísticas, Especialista em Dados, Analista de Sistemas, Engenheiro de Software, Cientista de Dados, Analista de Business Intelligence (BI), Analista de Redes, Técnico em Geoprocessamento, Analista de Segurança da Informação, Programador, Desenvolvedor Web, Analista de Banco de Dados, Arquiteto de Soluções, Analista de Suporte Técnico, Analista de Infraestrutura de TI, Estatístico, Demógrafo, Técnico em Informática, Especialista em Geoinformação.</div>
                             </li>
-                            <li class="list-group-item d-flex justify-content-between">
+                            <!-- <li class="list-group-item d-flex justify-content-between">
                                 <div class="label">Remuneração</div>
                                 <div class="value" id="remuneracao">R$ 14.500,00</div>
-                            </li>
+                            </li> -->
                             <li class="list-group-item d-flex justify-content-between">
                                 <div class="label">Taxa de Inscrição</div>
                                 <div class="value" id="taxaInscricao">R$ 140,00</div>
@@ -111,6 +113,47 @@
                     <p class="opacity-50">Selecione o cargo para mais Informações</p>
                 </div> -->
                 <div id="etapasDoConcurso">
+                    <div class="accordion mt-3">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSelecaoCargos" aria-expanded="true" aria-controls="collapseSelecaoCargos">
+                                    <div class="informacaoEtapa">
+                                        <div class="nomeEtapa">Seleção de cargos</div>
+                                        <div class="datas mt-2 d-md-flex align-items-center" style="font-size: 14px;">
+                                            <div class="opacity-50 d-flex me-2">
+                                                <div id="dataInicioEtapa">
+                                                    Início: <span>01/01/2023</span>
+                                                </div>
+                                                <div id="separadorDatas" class="mx-1">
+                                                    -
+                                                </div>
+                                                <div id="dataFimEtapa">
+                                                    Fim <span>01/02/2023</span>
+                                                </div>
+                                            </div>
+                                            <div class="status">
+                                                <span class="badge rounded-pill text-bg-info mt-2 mt-md-0">Status aqui</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </button>
+                            </h2>
+                            <div id="collapseSelecaoCargos" class="accordion-collapse collapse show">
+                                <div class="accordion-body">
+                                    <button class="btn btn-primary mb-3" type="button" data-bs-toggle="modal" data-bs-target="#modalCargos">Selecionar cargos</button>
+                                    <div class="alert alert-warning" role="alert">
+                                        <strong>Atenção:</strong> Você pode selecionar vários cargos e/ou especialidades de seu interesse, sem limite predefinido. Após a seleção, será necessário elencar os cargos em ordem de prioridade, conforme suas preferências.
+                                    </div>
+                                    <div id="cargosSelecionados" class="mt-3">
+                                        <h6>Cargos Selecionados:</h6>
+                                        <ul class="list-group" id="listaCargosSelecionados" style="transition: all 0.3s ease;">
+                                            <!-- Os cargos selecionados serão inseridos aqui -->
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="accordion">
                         <div class="accordion-item">
                             <h2 class="accordion-header">
@@ -158,7 +201,7 @@
                                                 A documentação deverá ser <strong>enviada através do campo "Enviar Documentos", disponível abaixo</strong>. O envio poderá ocorrer durante todo o período de inscrição.
                                             </p>
                                             <p>
-                                                Para fins de comprovação das funções a que se referem as alíneas “f” do item 17.1 do Edital de abertura, serão aceitos atestados, certidões, declarações, ou outros
+                                                Para fins de comprovação das funções a que se referem as alíneas "f" do item 17.1 do Edital de abertura, serão aceitos atestados, certidões, declarações, ou outros
                                                 documentos públicos (original ou cópia autenticada em cartório) emitidos pelos Tribunais de Justiça estaduais e federais do país, nos termos do art. 440 do Código de Processo Penal, alterado pela Lei nº 11.689/2008.
                                             </p>
                                         </div>
@@ -380,6 +423,109 @@
         </div>
     </div>
 
+    <!-- Modal de Seleção de Cargos -->
+    <div class="modal fade" id="modalCargos" tabindex="-1" aria-labelledby="modalCargosLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="modalCargosLabel">Seleção de Cargos</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="alert alert-warning" role="alert">
+                        Atenção: Cada cargo exige uma formação específica. Você pode avaliar os detalhes de cada cargo na etapa de ordenação.
+                    </div>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <input class="form-check-input me-1" type="checkbox" value="analista-ti" id="cargo1">
+                            <label class="form-check-label stretched-link" for="cargo1">Analista de Tecnologia da Informação</label>
+                        </li>
+                        <li class="list-group-item">
+                            <input class="form-check-input me-1" type="checkbox" value="tecnico-ige" id="cargo2">
+                            <label class="form-check-label stretched-link" for="cargo2">Técnico em Informações Geográficas e Estatísticas</label>
+                        </li>
+                        <li class="list-group-item">
+                            <input class="form-check-input me-1" type="checkbox" value="especialista-dados" id="cargo3">
+                            <label class="form-check-label stretched-link" for="cargo3">Especialista em Dados</label>
+                        </li>
+                        <li class="list-group-item">
+                            <input class="form-check-input me-1" type="checkbox" value="analista-sistemas" id="cargo4">
+                            <label class="form-check-label stretched-link" for="cargo4">Analista de Sistemas</label>
+                        </li>
+                        <li class="list-group-item">
+                            <input class="form-check-input me-1" type="checkbox" value="engenheiro-software" id="cargo5">
+                            <label class="form-check-label stretched-link" for="cargo5">Engenheiro de Software</label>
+                        </li>
+                        <li class="list-group-item">
+                            <input class="form-check-input me-1" type="checkbox" value="cientista-dados" id="cargo6">
+                            <label class="form-check-label stretched-link" for="cargo6">Cientista de Dados</label>
+                        </li>
+                        <li class="list-group-item">
+                            <input class="form-check-input me-1" type="checkbox" value="analista-bi" id="cargo7">
+                            <label class="form-check-label stretched-link" for="cargo7">Analista de Business Intelligence (BI)</label>
+                        </li>
+                        <li class="list-group-item">
+                            <input class="form-check-input me-1" type="checkbox" value="analista-redes" id="cargo8">
+                            <label class="form-check-label stretched-link" for="cargo8">Analista de Redes</label>
+                        </li>
+                        <li class="list-group-item">
+                            <input class="form-check-input me-1" type="checkbox" value="tecnico-geoprocessamento" id="cargo9">
+                            <label class="form-check-label stretched-link" for="cargo9">Técnico em Geoprocessamento</label>
+                        </li>
+                        <li class="list-group-item">
+                            <input class="form-check-input me-1" type="checkbox" value="analista-seguranca" id="cargo10">
+                            <label class="form-check-label stretched-link" for="cargo10">Analista de Segurança da Informação</label>
+                        </li>
+                        <li class="list-group-item">
+                            <input class="form-check-input me-1" type="checkbox" value="programador" id="cargo11">
+                            <label class="form-check-label stretched-link" for="cargo11">Programador</label>
+                        </li>
+                        <li class="list-group-item">
+                            <input class="form-check-input me-1" type="checkbox" value="desenvolvedor-web" id="cargo12">
+                            <label class="form-check-label stretched-link" for="cargo12">Desenvolvedor Web</label>
+                        </li>
+                        <li class="list-group-item">
+                            <input class="form-check-input me-1" type="checkbox" value="analista-banco-dados" id="cargo13">
+                            <label class="form-check-label stretched-link" for="cargo13">Analista de Banco de Dados</label>
+                        </li>
+                        <li class="list-group-item">
+                            <input class="form-check-input me-1" type="checkbox" value="arquiteto-solucoes" id="cargo14">
+                            <label class="form-check-label stretched-link" for="cargo14">Arquiteto de Soluções</label>
+                        </li>
+                        <li class="list-group-item">
+                            <input class="form-check-input me-1" type="checkbox" value="analista-suporte" id="cargo15">
+                            <label class="form-check-label stretched-link" for="cargo15">Analista de Suporte Técnico</label>
+                        </li>
+                        <li class="list-group-item">
+                            <input class="form-check-input me-1" type="checkbox" value="analista-infraestrutura" id="cargo16">
+                            <label class="form-check-label stretched-link" for="cargo16">Analista de Infraestrutura de TI</label>
+                        </li>
+                        <li class="list-group-item">
+                            <input class="form-check-input me-1" type="checkbox" value="estatistico" id="cargo17">
+                            <label class="form-check-label stretched-link" for="cargo17">Estatístico</label>
+                        </li>
+                        <li class="list-group-item">
+                            <input class="form-check-input me-1" type="checkbox" value="demografo" id="cargo18">
+                            <label class="form-check-label stretched-link" for="cargo18">Demógrafo</label>
+                        </li>
+                        <li class="list-group-item">
+                            <input class="form-check-input me-1" type="checkbox" value="tecnico-informatica" id="cargo19">
+                            <label class="form-check-label stretched-link" for="cargo19">Técnico em Informática</label>
+                        </li>
+                        <li class="list-group-item">
+                            <input class="form-check-input me-1" type="checkbox" value="especialista-geoinformacao" id="cargo20">
+                            <label class="form-check-label stretched-link" for="cargo20">Especialista em Geoinformação</label>
+                        </li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary">Salvar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- scripts -->
     <script src="js/bootstrap.js"></script>
    
@@ -390,6 +536,7 @@
             document.getElementById('etapasDoConcurso').setAttribute('hidden', 'true');
             document.getElementById('respostaUmFeedback').setAttribute('hidden', 'true');
             document.getElementById('rodapeEnter').setAttribute('hidden', 'true');
+            document.getElementById('cargosSelecionados').setAttribute('hidden', 'true');
             
             var perguntaUmRespostaSim = document.getElementById('perguntaUmRespostaSim');
             perguntaUmRespostaSim.addEventListener('change', function() {
@@ -403,6 +550,112 @@
                 if (this.checked) {
                     document.getElementById('respostaUmFeedback').setAttribute('hidden', 'true');
                 }
+            });
+
+            // Estado dos cargos selecionados
+            let cargosSelecionadosArr = [];
+
+            // Função para renderizar a lista de cargos
+            function renderizarListaCargos() {
+                const listaCargos = document.getElementById('listaCargosSelecionados');
+                const containerCargos = document.getElementById('cargosSelecionados');
+                listaCargos.innerHTML = '';
+
+                if (cargosSelecionadosArr.length > 0) {
+                    cargosSelecionadosArr.forEach((cargo, idx) => {
+                        const li = document.createElement('li');
+                        li.className = 'list-group-item p-0 border-0';
+                        li.innerHTML = `
+                        <div class="px-2 mb-2 bg-light border rounded">
+                            <div class="d-flex align-items-center justify-content-between gap-2">
+                                <div class="text-center">
+                                    <button class="btn btn-light btn-sm" style="width: 42px;" onclick="moverCargo(${idx}, -1)" ${idx === 0 ? 'disabled' : ''} title="Subir">
+                                        <span class="text-primary">&#9650;</span>
+                                    </button>
+                                    <p class="fw-bold lh-1 m-0">${idx + 1}º</p>
+                                    <button class="btn btn-light btn-sm" style="width: 42px;" onclick="moverCargo(${idx}, 1)" ${idx === cargosSelecionadosArr.length - 1 ? 'disabled' : ''} title="Descer">
+                                        <span class="text-primary">&#9660;</span>
+                                    </button>
+                                </div>
+                                <div class="fw-semibold flex-grow-1" style="font-size: 1.1em;">
+                                    ${cargo.nome}
+                                </div>
+                                <button class="btn btn-sm btn-light" style="width: 42px;" onclick="toggleExpandirCargo(${idx})" title="${cargo.expanded ? 'Fechar' : 'Expandir'}">
+                                    <span style="font-size: 1.5em; color: #757575;">${cargo.expanded ? '&times;' : '+'}</span>
+                                </button>
+                            </div>
+                            <div class="cargo-detalhes border-top p-2 fs-sm" style="display: ${cargo.expanded ? 'block' : 'none'};">
+                                <div class="mb-2">
+                                    <p class="fw-bold mb-0">Especialidade:</p>
+                                    <p class="mb-0">Análise e Desenvolvimento de Sistemas</p>
+                                </div>
+                                <div class="mb-2">
+                                    <p class="fw-bold mb-0">Órgão:</p>
+                                    <p class="mb-0">AGU</p>
+                                </div>
+                                <div class="mb-2">
+                                    <p class="fw-bold mb-0">Vagas imediatas:</p>
+                                    <p class="mb-0">AC: 2 &nbsp; PCD: 0 &nbsp; Negra: 1 &nbsp; Indígena: 0</p>
+                                </div>
+                                <div class="mb-2">
+                                    <p class="fw-bold mb-0">Formação exigida:</p>
+                                    <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur suscipit metus lectus, non ultrices augue fermentum sit amet. Vestibulum eget.</p>
+                                </div>
+                                <button type="button" class="btn btn-outline-danger mb-2" onclick="removerCargo(${idx})">Remover</button>
+                            </div>
+                        </div>
+                        `;
+                        listaCargos.appendChild(li);
+                    });
+                    containerCargos.removeAttribute('hidden');
+                } else {
+                    containerCargos.setAttribute('hidden', 'true');
+                }
+            }
+
+            // Função para mover cargo
+            window.moverCargo = function(idx, direcao) {
+                const novoIdx = idx + direcao;
+                if (novoIdx < 0 || novoIdx >= cargosSelecionadosArr.length) return;
+                const temp = cargosSelecionadosArr[idx];
+                cargosSelecionadosArr[idx] = cargosSelecionadosArr[novoIdx];
+                cargosSelecionadosArr[novoIdx] = temp;
+                renderizarListaCargos();
+            }
+
+            // Função para expandir/colapsar cargo
+            window.toggleExpandirCargo = function(idx) {
+                cargosSelecionadosArr[idx].expanded = !cargosSelecionadosArr[idx].expanded;
+                renderizarListaCargos();
+            }
+
+            // Função para remover cargo
+            window.removerCargo = function(idx) {
+                // Desmarcar o checkbox correspondente
+                const cargoId = cargosSelecionadosArr[idx].id;
+                const checkbox = document.getElementById(cargoId);
+                if (checkbox) checkbox.checked = false;
+                cargosSelecionadosArr.splice(idx, 1);
+                renderizarListaCargos();
+            }
+
+            // Atualizar a lista de cargos selecionados ao salvar no modal
+            document.querySelector('#modalCargos .btn-primary').addEventListener('click', function() {
+                const checkboxes = document.querySelectorAll('#modalCargos input[type="checkbox"]:checked');
+                // Atualizar cargosSelecionadosArr mantendo o estado de expansão se possível
+                const novosCargos = Array.from(checkboxes).map(checkbox => {
+                    const existente = cargosSelecionadosArr.find(c => c.id === checkbox.id);
+                    return {
+                        id: checkbox.id,
+                        nome: checkbox.nextElementSibling.textContent,
+                        expanded: existente ? existente.expanded : false
+                    };
+                });
+                cargosSelecionadosArr = novosCargos;
+                renderizarListaCargos();
+                // Fechar o modal
+                const modal = bootstrap.Modal.getInstance(document.getElementById('modalCargos'));
+                modal.hide();
             });
         });
 
