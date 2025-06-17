@@ -525,6 +525,19 @@
       "plM" : 52780316221407,
       "prP" : 0
     },
+    "\/source\/images\/C631EF9D-C615-4834-BCA9-37A34483E8DE.png" : {
+      "ft" : 32768,
+      "iS" : 1855013,
+      "oA" : 0,
+      "oAP" : "\/docs\/images\/C631EF9D-C615-4834-BCA9-37A34483E8DE.png",
+      "oF" : 0,
+      "oIPL" : 0,
+      "opt" : 1,
+      "oT" : 1,
+      "ou" : "lpckwebp-default",
+      "q" : 90,
+      "rq" : 75
+    },
     "\/source\/images\/dica.svg" : {
       "ft" : 2097152,
       "miP" : 0,
@@ -726,6 +739,14 @@
       "oF" : 0,
       "sC" : 3,
       "tS" : 0
+    },
+    "\/source\/login-govbr.kit" : {
+      "cB" : 0,
+      "ft" : 2048,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/docs\/login-govbr.html",
+      "oF" : 0
     },
     "\/source\/multiselect.kit" : {
       "cB" : 0,

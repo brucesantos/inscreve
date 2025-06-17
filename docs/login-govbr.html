@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="pt">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Sistema Inscreve da FGV Conhecimento, para inscrições em concursos">
+    <title>Inscreve - FGV Conhecimento</title>
+    <link href="styles/main.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <style>
+      body { background: #eceff4; }
+      .login-card {
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        overflow: hidden;
+        max-width: 1100px;
+        margin: 40px auto;
+      }
+      .login-img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        min-height: 350px;
+        background: #fff;
+      }
+      .login-form-side {
+        padding: 48px 32px 32px 32px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+      }
+      .login-title {
+        font-weight: 700;
+        color: #273469;
+        font-size: 2rem;
+      }
+      .login-btn {
+        background: #2351d1;
+        color: #fff;
+        font-weight: 700;
+        font-size: 1.25rem;
+        border-radius: 2rem;
+        padding: 0.75rem 0;
+        margin-bottom: 1rem;
+        transition: background 0.2s;
+      }
+      .login-btn strong { font-weight: 900; }
+      .login-btn:hover { background: #1a3e9a; }
+      .login-icon {
+        background: #eceff4;
+        border-radius: 50%;
+        width: 90px;
+        height: 90px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 24px auto;
+      }
+      .login-icon i {
+        font-size: 3.5rem;
+        color: #7b8bb7;
+      }
+      .login-version {
+        font-style: italic;
+        color: #7b8bb7;
+        font-size: 1rem;
+        text-align: right;
+        margin-top: 1.5rem;
+      }
+      @media (max-width: 767.98px) {
+        .login-card {
+          flex-direction: column !important;
+          max-width: 98vw;
+          margin: 12px auto;
+        }
+        .login-form-side {
+          padding: 32px 12px 24px 12px;
+        }
+        .login-version {
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="container-fluid d-flex justify-content-center align-items-center min-vh-100">
+      <div class="d-flex flex-row login-card w-100" style="min-height: 420px;">
+        <!-- Imagem -->
+        <div class="col-12 col-md-6 p-0 d-flex align-items-stretch">
+          <img src="images/C631EF9D-C615-4834-BCA9-37A34483E8DE.webp" alt="banner com o texto concurso público nacional unificado com uma estudante de braços cruzados sorrindo" class="login-img">
+        </div>
+        <!-- Formulário -->
+        <div class="col-12 col-md-6 login-form-side">
+          <div class="login-icon">
+            <svg width="42" height="49" viewBox="0 0 42 49" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M28.5 13C28.5 10.375 27 7.9375 24.75 6.53125C22.4062 5.21875 19.5 5.21875 17.25 6.53125C14.9062 7.9375 13.5 10.375 13.5 13C13.5 15.7188 14.9062 18.1562 17.25 19.5625C19.5 20.875 22.4062 20.875 24.75 19.5625C27 18.1562 28.5 15.7188 28.5 13ZM9 13C9 8.78125 11.25 4.84375 15 2.6875C18.6562 0.53125 23.25 0.53125 27 2.6875C30.6562 4.84375 33 8.78125 33 13C33 17.3125 30.6562 21.25 27 23.4062C23.25 25.5625 18.6562 25.5625 15 23.4062C11.25 21.25 9 17.3125 9 13ZM4.59375 44.5H37.3125C36.4688 38.5938 31.4062 34 25.2188 34H16.6875C10.5 34 5.4375 38.5938 4.59375 44.5ZM0 46.2812C0 37 7.40625 29.5 16.6875 29.5H25.2188C34.5 29.5 42 37 42 46.2812C42 47.7812 40.6875 49 39.1875 49H2.71875C1.21875 49 0 47.7812 0 46.2812Z" fill="#7b8bb7"/>
+            </svg>
+          </div>
+          <div class="text-center mb-3">
+            <div class="login-title mb-2">Fazer meu login</div>
+            <div class="card-subtitle mb-3 text-muted" style="font-size:1.1rem;">Sua autenticação deve ser feita com uma conta <strong>gov.br</strong></div>
+          </div>
+          <div class="d-grid mb-2">
+            <button class="btn login-btn">Entrar com <strong>gov.br</strong></button>
+          </div>
+          <div class="text-center mb-2" style="font-size:1rem;">
+            Se você ainda não tem a sua conta gov.br,<br>
+            <a target="_blank" class="link-primary" href="https://www.gov.br/pt-br/servicos/criar-sua-conta-gov.br">clique aqui</a> para criá-la.
+          </div>
+          <div class="login-version">1.0.20250611.5</div>
+        </div>
+      </div>
+    </main>
+    <script src="js/bootstrap.js"></script>
+  </body>
+</html>
